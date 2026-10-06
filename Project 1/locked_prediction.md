@@ -3,7 +3,7 @@
 ## Part 1 — Prediction 
 | Field | Entry |
 |---|---|
-| October 6, 2026 / 6:30 pm | |
+| Date / time written | October 6, 2026, 6:30 PM |
 | Input changed | Terminal growth rate (g), BASE scenario, `valuation.py` |
 | Old value (with units) | 3.0% per year |
 | New value (with units) | 5.0% per year |
@@ -15,12 +15,14 @@
 
 ## Part 2 — Result (After Running)
 
+# I ran this on October 6th
+
 | Field | Entry |
 |---|---|
-| GitHub commit of Part 1 (link or ID) | |
-| Old value per share | |
-| New value per share | |
-| Actual direction | |
-| Did it match my prediction? | |
-| Decision effect | |
-| If wrong: why (diagnosis). If no change: why | |
+| GitHub commit of Part 1 (link or ID) | `677e401` ([commit link](https://github.com/erlanjones3010/TSLA-research/commit/677e40104106439a74cb7c1aa13ddeebb7d8387b)) |
+| Old value per share | $14.93 (BASE, g = 3.0%); enterprise value $16,696.7M; terminal value 167.8% of EV |
+| New value per share | $17.30 (BASE, g = 5.0%); enterprise value $25,061.9M; terminal value 145.2% of EV |
+| Actual direction | Up: +$2.37 per share (+15.9%) |
+| Did it match my prediction? | Direction: yes (predicted worth more; value went up). Size: no. My guess was wrong because it went up an extra 15.9% which was way off from what I said "it won't move a lot." Decision: no, I predicted it would change my recommendation, but it did not (see Decision effect). |
+| Decision effect | Gap to the $356.09 share price went from −$341.16 to −$338.79. No, it did not change my recommendation (watch / defer) because even though it went up around $2 it still is far too expensive based on the model. |
+| If wrong: why (diagnosis). If no change: why | I thought it would not move a lot, but it did because most of Tesla's value in my model comes from the terminal value. It did not change my recommendation because the gap between my value and the $356 price is so large that a $2 change is not worth it. |
