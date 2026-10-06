@@ -126,11 +126,18 @@ def dcf_value(fcff_by_year, wacc, terminal_growth):
     """DCF at each fiscal year-end, measured from December 31, 2025."""
     if wacc <= terminal_growth:
         raise ValueError("WACC must be greater than terminal growth.")
+    years = tuple(fcff_by_year)
+    if not years:
+        raise ValueError("FCFF path cannot be empty.")
+    if fcff_by_year[years[-1]] <= 0:
+        raise ValueError(
+            f"FY{years[-1]} FCFF must be positive before a terminal value is calculated."
+        )
     present_values = {}
-    for period, year in enumerate(YEARS, start=1):
+    for period, year in enumerate(years, start=1):
         present_values[year] = fcff_by_year[year] / (1 + wacc) ** period
-    terminal_value = fcff_by_year[2030] * (1 + terminal_growth) / (wacc - terminal_growth)
-    pv_terminal_value = terminal_value / (1 + wacc) ** len(YEARS)
+    terminal_value = fcff_by_year[years[-1]] * (1 + terminal_growth) / (wacc - terminal_growth)
+    pv_terminal_value = terminal_value / (1 + wacc) ** len(years)
     enterprise_value = sum(present_values.values()) + pv_terminal_value
     return {
         "pv_fcff": present_values,
@@ -141,51 +148,80 @@ def dcf_value(fcff_by_year, wacc, terminal_growth):
     }
 
 
-def enterprise_to_equity_bridge(enterprise_value):
-    """Bridge enterprise value to common-equity value with imported FY2025 balances."""
+def enterprise_to_equity_bridge(enterprise_value, cash=None, short_term_investments=None,
+                                digital_assets=None, debt=None,
+                                noncontrolling_interests=None,
+                                redeemable_noncontrolling_interests=None,
+                                diluted_shares=None):
+    """Bridge enterprise value to common equity; defaults use Tesla's FY2025 balances."""
+    cash = BALANCE_SHEET["cash_and_cash_equivalents"]["value"] if cash is None else cash
+    short_term_investments = (BALANCE_SHEET["short_term_investments"]["value"]
+                              if short_term_investments is None else short_term_investments)
+    digital_assets = (BALANCE_SHEET["digital_assets"]["value"]
+                      if digital_assets is None else digital_assets)
+    debt = DEBT if debt is None else debt
+    noncontrolling_interests = (BALANCE_SHEET["noncontrolling_interests"]["value"]
+                                if noncontrolling_interests is None else noncontrolling_interests)
+    redeemable_noncontrolling_interests = (
+        BALANCE_SHEET["redeemable_noncontrolling_interests"]["value"]
+        if redeemable_noncontrolling_interests is None else redeemable_noncontrolling_interests
+    )
+    diluted_shares = DILUTED_SHARES if diluted_shares is None else diluted_shares
+    if diluted_shares <= 0:
+        raise ValueError("Diluted shares must be positive.")
     bridge = {
         "Enterprise value": enterprise_value,
-        "Cash and cash equivalents": BALANCE_SHEET["cash_and_cash_equivalents"]["value"],
-        "Short-term investments": BALANCE_SHEET["short_term_investments"]["value"],
-        "Digital assets (non-operating)": BALANCE_SHEET["digital_assets"]["value"],
-        "Debt and finance leases": -DEBT,
-        "Noncontrolling interests": -BALANCE_SHEET["noncontrolling_interests"]["value"],
-        "Redeemable noncontrolling interests": -BALANCE_SHEET["redeemable_noncontrolling_interests"]["value"],
+        "Cash and cash equivalents": cash,
+        "Short-term investments": short_term_investments,
+        "Digital assets (non-operating)": digital_assets,
+        "Debt and finance leases": -debt,
+        "Noncontrolling interests": -noncontrolling_interests,
+        "Redeemable noncontrolling interests": -redeemable_noncontrolling_interests,
     }
     equity_value = sum(bridge.values())
     bridge["Equity value"] = equity_value
-    bridge["Diluted shares"] = DILUTED_SHARES
-    bridge["Value per share"] = equity_value / DILUTED_SHARES
+    bridge["Diluted shares"] = diluted_shares
+    bridge["Value per share"] = equity_value / diluted_shares
     return bridge
 
 
-def value_per_share(fcff_by_year, wacc, terminal_growth):
+def value_per_share(fcff_by_year, wacc, terminal_growth, bridge_inputs=None):
+    """Return per-share value using the DCF and enterprise-to-equity bridge."""
     dcf = dcf_value(fcff_by_year, wacc, terminal_growth)
-    bridge = enterprise_to_equity_bridge(dcf["enterprise_value"])
+    bridge = enterprise_to_equity_bridge(dcf["enterprise_value"], **(bridge_inputs or {}))
     return bridge["Value per share"]
 
 
-def sensitivity_grid(fcff_by_year, base_wacc):
+def sensitivity_grid(fcff_by_year, base_wacc, bridge_inputs=None):
     growth_rates = (0.02, 0.03, 0.04)
     wacc_rates = (base_wacc - 0.01, base_wacc, base_wacc + 0.01)
-    return {wacc: {growth: value_per_share(fcff_by_year, wacc, growth)
+    return {wacc: {growth: value_per_share(fcff_by_year, wacc, growth, bridge_inputs)
                    for growth in growth_rates} for wacc in wacc_rates}
 
 
-def reverse_dcf_fy2030_fcff(fcff_by_year, wacc, terminal_growth, target_share_price):
-    """Solve the FY2030 FCFF that gives the target share price under perpetual growth."""
-    target_equity_value = target_share_price * DILUTED_SHARES
-    nonoperating_assets = (BALANCE_SHEET["cash_and_cash_equivalents"]["value"]
-                           + BALANCE_SHEET["short_term_investments"]["value"]
-                           + BALANCE_SHEET["digital_assets"]["value"])
-    noncommon_claims = (DEBT + BALANCE_SHEET["noncontrolling_interests"]["value"]
-                         + BALANCE_SHEET["redeemable_noncontrolling_interests"]["value"])
+def reverse_dcf_fy2030_fcff(fcff_by_year, wacc, terminal_growth, target_share_price,
+                            bridge_inputs=None):
+    """Solve terminal forecast-year FCFF that gives the target share price."""
+    inputs = bridge_inputs or {}
+    shares = inputs.get("diluted_shares", DILUTED_SHARES)
+    cash = inputs.get("cash", BALANCE_SHEET["cash_and_cash_equivalents"]["value"])
+    investments = inputs.get("short_term_investments", BALANCE_SHEET["short_term_investments"]["value"])
+    digital_assets = inputs.get("digital_assets", BALANCE_SHEET["digital_assets"]["value"])
+    debt = inputs.get("debt", DEBT)
+    nci = inputs.get("noncontrolling_interests", BALANCE_SHEET["noncontrolling_interests"]["value"])
+    redeemable_nci = inputs.get("redeemable_noncontrolling_interests", BALANCE_SHEET["redeemable_noncontrolling_interests"]["value"])
+    years = tuple(fcff_by_year)
+    if not years:
+        raise ValueError("FCFF path cannot be empty.")
+    target_equity_value = target_share_price * shares
+    nonoperating_assets = cash + investments + digital_assets
+    noncommon_claims = debt + nci + redeemable_nci
     target_enterprise_value = target_equity_value - nonoperating_assets + noncommon_claims
     pv_first_four_years = sum(fcff_by_year[year] / (1 + wacc) ** period
-                              for period, year in enumerate(YEARS[:4], start=1))
-    fy2030_value_factor = (1 + (1 + terminal_growth) / (wacc - terminal_growth)) / (1 + wacc) ** 5
-    required_fy2030_fcff = (target_enterprise_value - pv_first_four_years) / fy2030_value_factor
-    return required_fy2030_fcff
+                              for period, year in enumerate(years[:-1], start=1))
+    terminal_year_value_factor = ((1 + (1 + terminal_growth) / (wacc - terminal_growth))
+                                  / (1 + wacc) ** len(years))
+    return (target_enterprise_value - pv_first_four_years) / terminal_year_value_factor
 
 
 def assert_checks(fcff_by_year, wacc, dcf, bridge, sensitivity, scenario="BASE"):
@@ -276,6 +312,50 @@ def print_scenario_summary(models):
               f"{WACC_INPUTS['share_price']['value']:>16,.2f}")
 
 
+def print_locked_changed_input_record(wacc):
+    """Compare the BASE valuation at the locked old and changed growth inputs."""
+    old_growth, new_growth = TERMINAL_GROWTH, 0.05
+    old_forecast = run_forecast("BASE")
+    new_forecast = run_forecast("BASE")
+    old_fcff = {year: old_forecast[year]["FCFF"] for year in YEARS}
+    new_fcff = {year: new_forecast[year]["FCFF"] for year in YEARS}
+    old_dcf = dcf_value(old_fcff, wacc, old_growth)
+    new_dcf = dcf_value(new_fcff, wacc, new_growth)
+    old_bridge = enterprise_to_equity_bridge(old_dcf["enterprise_value"])
+    new_bridge = enterprise_to_equity_bridge(new_dcf["enterprise_value"])
+    share_price = WACC_INPUTS["share_price"]["value"]
+    value_per_share_change = new_bridge["Value per share"] - old_bridge["Value per share"]
+    value_per_share_change_percent = value_per_share_change / old_bridge["Value per share"]
+
+    rows = (
+        ("Terminal value", old_dcf["terminal_value"], new_dcf["terminal_value"], "amount"),
+        ("PV of terminal value", old_dcf["pv_terminal_value"], new_dcf["pv_terminal_value"], "amount"),
+        ("Enterprise value", old_dcf["enterprise_value"], new_dcf["enterprise_value"], "amount"),
+        ("Terminal value as % of EV", old_dcf["terminal_value_percent_of_ev"], new_dcf["terminal_value_percent_of_ev"], "percent"),
+        ("Equity value", old_bridge["Equity value"], new_bridge["Equity value"], "amount"),
+        ("Value per share", old_bridge["Value per share"], new_bridge["Value per share"], "per_share"),
+        ("Change in value per share", 0.0, value_per_share_change, "change"),
+        ("Share price", share_price, share_price, "per_share"),
+        ("Gap to share price", old_bridge["Value per share"] - share_price,
+         new_bridge["Value per share"] - share_price, "per_share"),
+    )
+
+    def format_value(value, value_type):
+        if value_type == "percent":
+            return f"{value:,.1%}"
+        if value_type == "change":
+            percent = value_per_share_change_percent if value else 0.0
+            return f"${value:+,.2f} ({percent:+.1%})"
+        if value_type == "per_share":
+            return f"${value:,.2f}"
+        return f"{value:,.1f}"
+
+    print("\nLOCKED CHANGED-INPUT RECORD — BASE SCENARIO (USD millions, except per share)")
+    print(f"{'Metric':<32}{'Old (g = 3.0%)':>24}{'New (g = 5.0%)':>24}")
+    for label, old_value, new_value, value_type in rows:
+        print(f"{label:<32}{format_value(old_value, value_type):>24}{format_value(new_value, value_type):>24}")
+
+
 def market_implied_autonomy_revenue(wacc, target_share_price):
     """Solve FY2030 autonomy revenue while retaining the UPSIDE 0%/5%/20%/50%/100% ramp."""
     ramp_shape = {2026: 0.00, 2027: 0.05, 2028: 0.20, 2029: 0.50, 2030: 1.00}
@@ -345,6 +425,7 @@ def main():
     print(f"{'FY2030 autonomy revenue assumption':<46}{SCENARIO_DRIVERS['UPSIDE']['autonomy_and_software_revenue']['values'][2030]:>16,.1f}")
     print(f"{'FY2030 autonomy revenue implied by share price':<46}{implied_autonomy_revenue:>16,.1f}")
     print("Ramp held at 0% / 5% / 20% / 50% / 100% of FY2030 revenue for FY2026–FY2030; gross margin held at 50%.")
+    print_locked_changed_input_record(wacc)
 
 
 if __name__ == "__main__":

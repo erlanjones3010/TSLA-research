@@ -15,6 +15,8 @@ Each entry records one AI output, what I decided, and the independent evidence I
 | 6 | Oct 6, 2026 | Claude + Codex | Balanced BASE margins; old margins kept as DOWNSIDE | Qualified |
 | 7 | Oct 6, 2026 | Claude + Codex | UPSIDE scenario (Robotaxi/FSD) + market-implied autonomy | Qualified |
 | 8 | Oct 6, 2026 | Codex | Build `comps.py` (peer policy, P/E, EV/EBITDA) | Corrected (GM finance arm removed); new definition issue found |
+| 9 | Oct 6, 2026 | Codex | Build `known_answer_test.py` (training-case reconciliation) | Accepted |
+| 10 | Oct 6, 2026 | Codex | Build `failure_tests.py` (highest-risk failure test) | Accepted |
 
 ---
 
@@ -115,3 +117,18 @@ Each entry records one AI output, what I decided, and the independent evidence I
 - **Follow-up (Oct 6, 2026):** GM now uses automotive-only EBIT-adjusted ($10,916M, Note 23, p. 102) and automotive D&A ($7,003M), so GM Financial is out of both EV and EBITDA. GM EV/EBITDA fell from 8.6x to 4.7x; the EV/EBITDA value for Tesla fell from $35.85 to $24.23 per share. The "vs. share price" bug and the "peer median" label are fixed.
 - **New issue:** GM's EBIT-adjusted is non-GAAP and excludes one-time charges, while Tesla's EBITDA uses GAAP operating income. The "same definition" check still printed PASS, so the check only compares labels, not the actual definition.
 - **Resolution (Oct 6, 2026):** Tesla now uses normalized (adjusted) EBITDA of $10,997M to match GM's adjusted basis; EV/EBITDA value = $24.89/share. The basis check was rewritten to compare actual accounting basis and business scope, and it correctly FAILED on scope (Tesla consolidated vs. GM automotive-only). I accepted this as a documented exception: Tesla has no separate captive-finance segment, so consolidated is the closest match. The check now prints "PASS (with documented exception)" and any other basis difference still fails.
+
+## Entry 9 — Known-answer reconciliation
+
+- **What I asked:** Run the course's official training case ("The Training-Case DCF, Worked End to End") through the same DCF, bridge, and sensitivity functions `valuation.py` uses for Tesla, and compare every result to the published answers.
+- **What the AI produced:** `known_answer_test.py`, which imports its functions from `valuation.py` (no separate copy of the math). All 18 lines PASS: PV of FCFF 448.44, TV 1,894.65, PV of TV 1,176.43, EV 1,624.87, TV share 72.4%, equity 1,374.87, value per share $27.50, WACC 11% → $23.41, all 9 sensitivity-grid cells, and the reverse-DCF solver returns a 0.00 shift at the base price.
+- **Decision:** Accepted.
+- **Evidence:** Expected values come from the course training-case page, not from the AI. Tesla BASE value per share is unchanged at $14.93 after the run.
+
+## Entry 10 — Highest-risk failure test
+
+- **What I asked:** Break the model on purpose, one change at a time in memory, and confirm it stops with a clear error.
+- **Highest risk chosen:** FY2030 FCFF turning negative. My DOWNSIDE case is only $1.0B in 2030, so a small change could make it negative, and the terminal value would then treat a loss as permanent (the training-case page: "Year 5 must be positive, because the terminal value stands on it").
+- **Result:** All 4 tests PASS — the model stops on (1) negative FY2030 FCFF, (2) terminal growth = WACC, (3) an unbalanced FY2027 balance sheet, (4) zero diluted shares. The normal model is unchanged afterward: BASE $14.93, DOWNSIDE $6.84, UPSIDE $37.49.
+- **Decision:** Accepted.
+- **Evidence:** Error messages printed by the run on Oct 6, 2026; the guard "FY2030 FCFF must be positive before a terminal value is calculated" is in `valuation.py`.

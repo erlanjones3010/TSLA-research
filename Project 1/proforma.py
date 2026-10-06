@@ -263,7 +263,14 @@ def assert_checks(results, scenario="BASE"):
         ("Base FY2025 normalized operating income equals ANALYST_DECISIONS", abs(base_normalized_ebit - expected_normalized_ebit) < 0.000001),
     ]
     for year in YEARS:
-        checks.append((f"FY{year}E balance sheet balances", abs(results[year]["Balance Check"]) < 0.000001))
+        balance_sheet_difference = (
+            results[year]["Cash + Investments"] + results[year]["Receivables"]
+            + results[year]["Inventory"] + results[year]["PP&E"] + results[year]["Other Assets"]
+            - results[year]["Payables"] - results[year]["Debt"] - results[year]["Revolver"]
+            - results[year]["Other Liabilities"] - results[year]["Redeemable NCI"]
+            - results[year]["Equity"]
+        )
+        checks.append((f"FY{year}E balance sheet balances", abs(balance_sheet_difference) < 0.000001))
         checks.append((f"FY{year}E CFS ending cash equals balance-sheet cash", abs(results[year]["Cash Check"]) < 0.000001))
     for label, passed in checks:
         print(f"{'PASS' if passed else 'FAIL'} — {scenario}: {label}")
