@@ -1,5 +1,5 @@
 PROJECT 1 — TESLA (TSLA) — SAVED OUTPUT
-Generated October 07, 2026 00:37 UTC by running each file below with python3. Rerun any file to reproduce.
+Generated October 07, 2026 01:18 UTC by running each file below with python3. Rerun any file to reproduce.
 
 ==================================================================================
 python3 tesla_inputs.py
@@ -129,7 +129,7 @@ TESLA FCFF DCF VALUATION — BASE SCENARIO
 WACC INPUTS
 Input                             Value  As of                   Basis
 risk free rate                    4.79%  2026-09-01              10-year U.S. Treasury par yield on September 1, 2026.
-beta                               1.83  2026-09-01              Yahoo Finance Beta (5Y Monthly), using five years of monthly observations.
+beta                               1.83  2026-10-06 (viewed)     Yahoo Finance Beta (5Y Monthly), five years of monthly observations. Yahoo shows only the current beta, so this is the value viewed on Oct 6, 2026, not a Sep 1, 2026 value.
 equity risk premium               4.14%  2026-09-01              U.S. implied ERP, trailing 12-month adjusted-payout method; September 2026 published value.
 cost of equity                   12.37%  2026-09-01              CAPM: risk-free rate + beta × equity risk premium.
 pre tax cost of debt              4.04%  2025-12-31              FY2025 interest expense divided by debt and finance leases used in the equity bridge.
