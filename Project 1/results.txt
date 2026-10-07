@@ -1,0 +1,326 @@
+PROJECT 1 — TESLA (TSLA) — SAVED OUTPUT
+Generated October 07, 2026 00:37 UTC by running each file below with python3. Rerun any file to reproduce.
+
+==================================================================================
+python3 tesla_inputs.py
+==================================================================================
+FY2025 total revenue: PASS
+FY2025 net income: PASS
+FY2025 total assets: PASS
+FY2023 revenue lines equal total revenue: PASS
+FY2023 total assets equal total liabilities plus redeemable noncontrolling interests plus total equity: PASS
+FY2024 revenue lines equal total revenue: PASS
+FY2024 total assets equal total liabilities plus redeemable noncontrolling interests plus total equity: PASS
+FY2025 revenue lines equal total revenue: PASS
+FY2025 total assets equal total liabilities plus redeemable noncontrolling interests plus total equity: PASS
+FY2025 operating income (USD millions): reported 4,355 | normalized 4,849
+
+==================================================================================
+python3 proforma.py
+==================================================================================
+TESLA FIVE-YEAR THREE-STATEMENT FORECAST — BASE SCENARIO
+Base FY2025 normalized EBIT: 4,849.0 (reported 4,355.0 + restructuring 494.0)
+
+INCOME STATEMENT (USD millions)
+Line                                  FY2026E       FY2027E       FY2028E       FY2029E       FY2030E
+Automotive Sales Revenue             67,117.7      71,144.7      76,124.9      80,692.4      84,727.0
+Regulatory Credits Revenue            1,200.0         800.0         500.0         300.0         200.0
+Automotive Leasing Revenue            1,626.4       1,545.1       1,467.8       1,394.4       1,324.7
+Energy Revenue                       15,484.8      18,024.4      20,630.7      23,013.5      25,001.9
+Services & Other Revenue             13,783.0      15,161.3      16,677.4      18,345.2      20,179.7
+Autonomy & Software Revenue               0.0           0.0           0.0           0.0           0.0
+Total Revenue                        99,211.9     106,675.5     115,400.8     123,745.5     131,433.3
+Automotive GP ex Credits             10,999.1      12,720.7      14,742.6      16,417.4      17,210.3
+Regulatory Credits GP                 1,200.0         800.0         500.0         300.0         200.0
+Energy GP                             4,645.5       5,587.5       6,601.8       7,594.5       8,500.6
+Services & Other GP                   1,033.7       1,137.1       1,250.8       1,375.9       1,513.5
+Autonomy & Software GP                    0.0           0.0           0.0           0.0           0.0
+Total Gross Profit                   17,878.2      20,245.4      23,095.2      25,687.7      27,424.5
+Incremental depreciation from new capex           0.0       2,171.0       3,635.4       4,424.5       4,791.7
+R&D                                   6,746.4       6,933.9       7,154.8       7,177.2       7,228.8
+SG&A                                  5,952.7       6,080.5       6,231.6       6,434.8       6,571.7
+EBIT                                  5,179.1       5,060.0       6,073.3       7,651.2       8,832.2
+Interest                                338.0         338.0         338.0         338.0         338.0
+Taxes                                 1,210.3       1,180.5       1,433.8       1,828.3       2,123.6
+Net Income                            3,630.8       3,541.5       4,301.5       5,484.9       6,370.7
+
+BALANCE SHEET (USD millions)
+Line                                  FY2026E       FY2027E       FY2028E       FY2029E       FY2030E
+Cash + Investments                   33,171.0      26,735.4      25,473.3      28,200.4      33,214.7
+Receivables                           4,787.6       5,147.8       5,568.8       5,971.5       6,342.5
+Inventory                            12,966.6      13,779.1      14,715.8      15,632.8      16,581.6
+PP&E                                 54,995.0      64,676.0      69,892.6      72,320.0      73,380.3
+Other Assets                         36,136.0      36,136.0      36,136.0      36,136.0      36,136.0
+Payables                             13,990.4      14,867.0      15,877.7      16,867.1      17,890.8
+Debt                                  8,376.0       8,376.0       8,376.0       8,376.0       8,376.0
+Revolver                                  0.0           0.0           0.0           0.0           0.0
+Other Liabilities                    33,194.0      33,194.0      33,194.0      33,194.0      33,194.0
+Redeemable NCI                           58.0          58.0          58.0          58.0          58.0
+Equity                               86,437.8      89,979.3      94,280.8      99,765.7     106,136.3
+
+CASH FLOW STATEMENT (USD millions)
+Line                                  FY2026E       FY2027E       FY2028E       FY2029E       FY2030E
+Net Income (CFS)                      3,630.8       3,541.5       4,301.5       5,484.9       6,370.7
+D&A                                   6,148.0       8,319.0       9,783.4      10,572.5      10,939.7
+Increase in Working Capital             166.8         296.0         347.1         330.3         296.1
+Capex                                20,500.0      18,000.0      15,000.0      13,000.0      12,000.0
+Borrowing/(Repayment)                    -0.0          -0.0          -0.0          -0.0          -0.0
+Change in Cash                      -10,888.0      -6,435.5      -1,262.2       2,727.1       5,014.3
+FCFF                                -10,634.5      -6,182.0      -1,008.7       2,980.6       5,267.8
+
+DEPRECIATION TREATMENT IMPACT (USD millions)
+Year            Old EBIT      New EBIT      Old FCFF      New FCFF
+FY2026E       5,179.1       5,179.1     -10,634.5     -10,634.5
+FY2027E       7,231.0       5,060.0      -4,553.8      -6,182.0
+FY2028E       9,708.7       6,073.3       1,717.9      -1,008.7
+FY2029E      12,075.7       7,651.2       6,299.0       2,980.6
+FY2030E      13,624.0       8,832.2       8,861.6       5,267.8
+
+CHECKS
+PASS — BASE: Base FY2025 revenue by segment equals imported total revenue
+PASS — BASE: Base FY2025 normalized operating income equals ANALYST_DECISIONS
+PASS — BASE: FY2026E balance sheet balances
+PASS — BASE: FY2026E CFS ending cash equals balance-sheet cash
+PASS — BASE: FY2027E balance sheet balances
+PASS — BASE: FY2027E CFS ending cash equals balance-sheet cash
+PASS — BASE: FY2028E balance sheet balances
+PASS — BASE: FY2028E CFS ending cash equals balance-sheet cash
+PASS — BASE: FY2029E balance sheet balances
+PASS — BASE: FY2029E CFS ending cash equals balance-sheet cash
+PASS — BASE: FY2030E balance sheet balances
+PASS — BASE: FY2030E CFS ending cash equals balance-sheet cash
+PASS — DOWNSIDE: Base FY2025 revenue by segment equals imported total revenue
+PASS — DOWNSIDE: Base FY2025 normalized operating income equals ANALYST_DECISIONS
+PASS — DOWNSIDE: FY2026E balance sheet balances
+PASS — DOWNSIDE: FY2026E CFS ending cash equals balance-sheet cash
+PASS — DOWNSIDE: FY2027E balance sheet balances
+PASS — DOWNSIDE: FY2027E CFS ending cash equals balance-sheet cash
+PASS — DOWNSIDE: FY2028E balance sheet balances
+PASS — DOWNSIDE: FY2028E CFS ending cash equals balance-sheet cash
+PASS — DOWNSIDE: FY2029E balance sheet balances
+PASS — DOWNSIDE: FY2029E CFS ending cash equals balance-sheet cash
+PASS — DOWNSIDE: FY2030E balance sheet balances
+PASS — DOWNSIDE: FY2030E CFS ending cash equals balance-sheet cash
+PASS — UPSIDE: Base FY2025 revenue by segment equals imported total revenue
+PASS — UPSIDE: Base FY2025 normalized operating income equals ANALYST_DECISIONS
+PASS — UPSIDE: FY2026E balance sheet balances
+PASS — UPSIDE: FY2026E CFS ending cash equals balance-sheet cash
+PASS — UPSIDE: FY2027E balance sheet balances
+PASS — UPSIDE: FY2027E CFS ending cash equals balance-sheet cash
+PASS — UPSIDE: FY2028E balance sheet balances
+PASS — UPSIDE: FY2028E CFS ending cash equals balance-sheet cash
+PASS — UPSIDE: FY2029E balance sheet balances
+PASS — UPSIDE: FY2029E CFS ending cash equals balance-sheet cash
+PASS — UPSIDE: FY2030E balance sheet balances
+PASS — UPSIDE: FY2030E CFS ending cash equals balance-sheet cash
+
+ASSUMPTIONS ADDED (not specified in the task)
+- Interest is modeled only as interest expense: FY2025 interest expense divided by FY2025 debt; no interest income is forecast.
+- Redeemable noncontrolling interests remain at the FY2025 reported balance so the balance sheet reconciles.
+- Equity increases only by forecast net income; no dividends, share issuance, repurchases, or other equity movements are forecast.
+- Working capital is defined as receivables plus inventory less payables; all other assets and other liabilities stay flat as instructed.
+- Segment gross margins include FY2025 D&A only; incremental D&A from new capex is charged below gross profit.
+
+==================================================================================
+python3 valuation.py
+==================================================================================
+TESLA FCFF DCF VALUATION — BASE SCENARIO
+
+WACC INPUTS
+Input                             Value  As of                   Basis
+risk free rate                    4.79%  2026-09-01              10-year U.S. Treasury par yield on September 1, 2026.
+beta                               1.83  2026-09-01              Yahoo Finance Beta (5Y Monthly), using five years of monthly observations.
+equity risk premium               4.14%  2026-09-01              U.S. implied ERP, trailing 12-month adjusted-payout method; September 2026 published value.
+cost of equity                   12.37%  2026-09-01              CAPM: risk-free rate + beta × equity risk premium.
+pre tax cost of debt              4.04%  2025-12-31              FY2025 interest expense divided by debt and finance leases used in the equity bridge.
+after tax cost of debt            3.03%  2025-12-31 / FY2026E-FY2030EPre-tax cost of debt × (1 − tax rate).
+market value of equity     1,256,285.52  2026-09-01              TSLA September 1, 2026 close × FY2025 diluted shares.
+debt                           8,376.00  2025-12-31              Debt and finance leases used in the equity bridge.
+equity weight                    99.34%  2026-09-01              Market value of equity ÷ (market value of equity + debt).
+debt weight                       0.66%  2026-09-01              Debt ÷ (market value of equity + debt).
+wacc                             12.30%  2026-09-01              E/(D+E) × cost of equity + D/(D+E) × after-tax cost of debt.
+Sources: risk-free rate — U.S. Treasury; beta and share price — Yahoo Finance; ERP — Aswath Damodaran; debt, interest expense, and shares — imported project inputs.
+
+DCF (USD millions; fiscal year-end discounting from December 31, 2025)
+Year                    FCFF     Present Value
+FY2026E       -10,634.5          -9,469.4
+FY2027E        -6,182.0          -4,901.6
+FY2028E        -1,008.7            -712.1
+FY2029E         2,980.6           1,873.8
+FY2030E         5,267.8           2,948.8
+Terminal value        58,315.4
+PV terminal value        32,643.8
+Enterprise value        22,383.3
+PV terminal value / EV    145.8%
+Convention: FCFF is discounted at each December 31 fiscal year-end from December 31, 2025. The September 1, 2026 market valuation date is not stub-period adjusted, creating an eight-month timing mismatch.
+
+ENTERPRISE-TO-EQUITY BRIDGE (FY2025 balance sheet; USD millions except per share)
+Enterprise value                               22,383.28
+Cash and cash equivalents                      16,513.00
+Short-term investments                         27,546.00
+Digital assets (non-operating)                  1,008.00
+Debt and finance leases                        -8,376.00
+Noncontrolling interests                         -670.00
+Redeemable noncontrolling interests               -58.00
+Equity value                                   58,346.28
+Diluted shares                                  3,528.00
+Value per share                                    16.54
+TSLA share price on valuation date                356.09
+Value per share less share price                 -339.55
+
+VALUE PER SHARE SENSITIVITY (USD per share)
+WACC \ g                2.0%          3.0%          4.0%
+      11.30%           16.87         18.13         19.73
+      12.30%           15.56         16.54         17.75
+      13.30%           14.50         15.28         16.22
+
+REVERSE DCF (USD millions)
+FY2030 FCFF in pro forma                           5,267.8
+FY2030 FCFF required for share price             182,567.0
+Assumption: FY2030 FCFF is held at the solved level; terminal-period FCFF grows at 3.0%.
+
+CHECKS
+PASS — BASE: WACC is greater than terminal growth
+PASS — BASE: Value per share falls when WACC rises
+PASS — BASE: Value per share rises when terminal growth rises
+PASS — BASE: Bridge recomputes equity value line by line
+PASS — BASE: Value per share × diluted shares equals equity value
+PASS — DOWNSIDE: WACC is greater than terminal growth
+PASS — DOWNSIDE: Value per share falls when WACC rises
+PASS — DOWNSIDE: Value per share rises when terminal growth rises
+PASS — DOWNSIDE: Bridge recomputes equity value line by line
+PASS — DOWNSIDE: Value per share × diluted shares equals equity value
+PASS — UPSIDE: WACC is greater than terminal growth
+PASS — UPSIDE: Value per share falls when WACC rises
+PASS — UPSIDE: Value per share rises when terminal growth rises
+PASS — UPSIDE: Bridge recomputes equity value line by line
+PASS — UPSIDE: Value per share × diluted shares equals equity value
+
+ASSUMPTIONS ADDED
+- The September 1, 2026 valuation date is not stub-period adjusted; cash flows are discounted from December 31, 2025 at fiscal year-end.
+- FY2025 cash, investments, digital assets, debt, and noncontrolling interests are used in the bridge even though market inputs are dated September 1, 2026.
+- No market input used in this valuation is unverified.
+
+SCENARIO SUMMARY
+Scenario         FY2030 EBIT     FY2030 FCFF    Enterprise value     Value/share     Share price
+BASE                 8,832.2         5,267.8            22,383.3           16.54          356.09
+DOWNSIDE             3,186.2         1,039.5           -11,840.1            6.84          356.09
+UPSIDE              24,632.2        16,278.6           101,971.5           39.10          356.09
+
+MARKET-IMPLIED AUTONOMY (UPSIDE; USD millions)
+FY2030 autonomy revenue assumption                    40,000.0
+FY2030 autonomy revenue implied by share price       602,068.9
+Ramp held at 0% / 5% / 20% / 50% / 100% of FY2030 revenue for FY2026–FY2030; gross margin held at 50%.
+
+LOCKED CHANGED-INPUT RECORD — BASE SCENARIO (USD millions, except per share)
+Metric                                    Old (g = 3.0%)          New (g = 5.0%)
+Terminal value                                  58,315.4                75,725.1
+PV of terminal value                            32,643.8                42,389.4
+Enterprise value                                22,383.3                32,128.9
+Terminal value as % of EV                         145.8%                  131.9%
+Equity value                                    58,346.3                68,091.9
+Value per share                                   $16.54                  $19.30
+Change in value per share                 $+0.00 (+0.0%)         $+2.76 (+16.7%)
+Share price                                      $356.09                 $356.09
+Gap to share price                              $-339.55                $-336.79
+
+==================================================================================
+python3 comps.py
+==================================================================================
+PEER POLICY
+Reuse Lab 8 policy: listed operating companies with material vehicle design,
+manufacturing, and sales; USD share price; data from filings available by
+September 1, 2026.
+
+EV/EBITDA extension:
+- Positive EBITDA is required for EV/EBITDA; positive GAAP diluted EPS is
+  required for P/E.
+- EV/EBITDA uses adjusted EBITDA (excludes one-time items) when the selected
+  peer uses a clearly defined non-GAAP operating metric. The accounting basis
+  (GAAP or adjusted) and business scope (automotive-only or consolidated) must
+  match between the peer and Tesla.
+- Captive finance arms (GM Financial and Ford Credit) are excluded from the EV
+  bridge: automotive/industrial debt and cash only are used. If a filing did
+  not split them, that peer would be excluded from EV/EBITDA.
+- Classification is use, qualify, or exclude, with a one-line reason below.
+
+PEER INPUTS AND CLASSIFICATIONS (USD millions except per-share data)
+
+GM — QUALIFY: Qualify: material vehicle manufacturer, but dealer-led ICE mix and GM Financial differ materially from Tesla.
+  Sep. 1 close                   85.63  | Yahoo Finance, GM historical prices; historical-price row; 2026-09-01
+  Diluted shares                973.00  | General Motors 2025 Form 10-K filed 2026-01-27; Note 21, p. 99; FY2025
+  GAAP diluted EPS                3.27  | General Motors 2025 Form 10-K filed 2026-01-27; Note 21, p. 99; FY2025
+  Operating income / EBIT-adj.     10,916.00  | General Motors 2025 Form 10-K filed 2026-01-27; Note 23, Automotive EBIT-adjusted (GMNA + GMI + Cruise), p. 102; FY2025
+  D&A                         7,003.00  | General Motors 2025 Form 10-K filed 2026-01-27; Note 23, automotive D&A (GMNA + GMI + Cruise + Corporate), p. 102; FY2025
+  Auto/industrial debt       16,247.00  | General Motors 2025 Form 10-K filed 2026-01-27; Note 14, Total automotive debt, p. 77; 2025-12-31
+  Auto/industrial cash       15,100.00  | General Motors 2025 Form 10-K filed 2026-01-27; Liquidity and Capital Resources, p. 35; 2025-12-31
+  adjusted EBITDA (excludes one-time items) 17,919.00 | EV 84,464.99 | P/E 26.186544342507645 | EV/EBITDA 4.713711144595122
+
+F — EXCLUDE: Exclude: FY2025 GAAP diluted EPS and EBITDA are negative; positive EBITDA is required for EV/EBITDA.
+  Sep. 1 close                   13.84  | Yahoo Finance, F historical prices; historical-price row; 2026-09-01
+  Diluted shares              3,979.00  | Ford Motor Company 2025 Form 10-K filed 2026-02-11; Consolidated Income Statements, p. 82; FY2025
+  GAAP diluted EPS               -2.06  | Ford Motor Company 2025 Form 10-K filed 2026-02-11; Consolidated Income Statements, p. 82; FY2025
+  Operating income / EBIT-adj.     -9,169.00  | Ford Motor Company 2025 Form 10-K filed 2026-02-11; Consolidated Income Statements, p. 82; FY2025
+  D&A                         7,834.00  | Ford Motor Company 2025 Form 10-K filed 2026-02-11; Consolidated Statements of Cash Flows, p. 86; FY2025
+  Auto/industrial debt       21,000.00  | Ford Motor Company 2025 Form 10-K filed 2026-02-11; Company excluding Ford Credit liquidity table, p. 58; 2025-12-31
+  Auto/industrial cash       28,700.00  | Ford Motor Company 2025 Form 10-K filed 2026-02-11; Company excluding Ford Credit liquidity table, p. 58; 2025-12-31
+  GAAP EBITDA -1,335.00 | EV 47,369.36 | P/E None | EV/EBITDA None
+
+TESLA (imported Project 1 inputs; USD millions except per-share data)
+  Sep. 1 close (valuation.py): $356.09
+  Diluted shares (tesla_inputs.py): 3,528
+  Reported EBITDA (reference only): imported reported operating income $4,355 + imported D&A $6,148 = $10,503
+  Adjusted EBITDA (excludes one-time items): $10,503 + imported restructuring $494 = $10,997
+  EV: market cap $1,256,285.52 + debt $8,376 + NCI $670 + redeemable NCI $58 - cash $16,513 - STI $27,546 - digital assets $1,008 = $1,220,322.52
+  Tesla P/E: 329.712963x | Tesla EV/adjusted EBITDA (excludes one-time items): 110.968675x
+
+PEER-REMOVAL SENSITIVITY
+  Remove GM: P/E no policy-compliant P/E estimate; EV/EBITDA no policy-compliant EV/EBITDA estimate
+  Remove F: P/E $28.28/share; EV/EBITDA $24.89/share
+
+FINAL TABLE
+Method                         Value per share    vs. share price ($356.09)
+DCF downside                              6.84                      -349.25
+DCF base                                 16.54                      -339.55
+DCF upside                               39.10                      -316.99
+P/E (GM)                                 28.28                      -327.81
+EV/adjusted EBITDA (excludes one-time items; GM (single qualified peer))             24.89                      -331.20
+
+CHECKS
+PASS — Same FY2025 period and Sep. 1, 2026 price date
+PASS (with documented exception) — EV/EBITDA basis matches: accounting basis and business scope
+  Exception: Tesla scope = consolidated vs. GM scope = automotive-only. Tesla does not report a separate captive-finance segment (unlike GM Financial), so consolidated is the closest available match to GM's automotive-only scope. Tesla's consolidated results also include energy and services, which GM does not have.
+PASS — EV recomputes from market cap + automotive debt - automotive cash
+PASS — All multiples used are positive
+PASS — Implied value/share × 3,528 equals implied equity value
+
+==================================================================================
+python3 known_answer_test.py
+==================================================================================
+Sum of PV of FCFF | 448.44 | 448.44 | PASS
+Terminal value (Year 5) | 1894.65 | 1894.65 | PASS
+PV of terminal value | 1176.43 | 1176.43 | PASS
+Enterprise value | 1624.87 | 1624.87 | PASS
+Terminal value share of EV | 72.4% | 72.4% | PASS
+Equity value | 1374.87 | 1374.87 | PASS
+Value per share | 27.50 | 27.50 | PASS
+WACC 11% value per share | 23.41 | 23.41 | PASS
+Sensitivity WACC 9%, g 2% | 28.60 | 28.60 | PASS
+Sensitivity WACC 9%, g 3% | 32.94 | 32.94 | PASS
+Sensitivity WACC 9%, g 4% | 39.02 | 39.02 | PASS
+Sensitivity WACC 10%, g 2% | 24.36 | 24.36 | PASS
+Sensitivity WACC 10%, g 3% | 27.50 | 27.50 | PASS
+Sensitivity WACC 10%, g 4% | 31.69 | 31.69 | PASS
+Sensitivity WACC 11%, g 2% | 21.06 | 21.06 | PASS
+Sensitivity WACC 11%, g 3% | 23.41 | 23.41 | PASS
+Sensitivity WACC 11%, g 4% | 26.44 | 26.44 | PASS
+Reverse DCF FCFF shift | 0.00 | -0.00 | PASS
+
+==================================================================================
+python3 failure_tests.py
+==================================================================================
+negative final-year FCFF | DOWNSIDE FY2030 FCFF set to -500 in memory | expected: stop with error | actual: ValueError: FY2030 FCFF must be positive before a terminal value is calculated. | PASS
+terminal growth equals WACC | terminal growth set equal to WACC in memory | expected: stop with error | actual: ValueError: WACC must be greater than terminal growth. | PASS
+unbalanced balance sheet | FY2027 cash increased by 1,000 with no matching entry in memory | expected: stop with error | actual: ValueError: Forecast checks failed: FY2027E balance sheet balances | PASS
+zero diluted shares | diluted shares set to 0 in memory | expected: stop with error | actual: ValueError: Diluted shares must be positive. | PASS
+normal model | no changes | expected: BASE $16.54, DOWNSIDE $6.84, UPSIDE $39.10 | actual: BASE $16.54, DOWNSIDE $6.84, UPSIDE $39.10 | PASS
