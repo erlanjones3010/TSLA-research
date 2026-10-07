@@ -46,3 +46,23 @@ Review subsequent Tesla filings for vehicle deliveries, automotive gross margin,
 **watch-defer.** Tesla’s liquidity and energy-storage momentum are constructive, but declining automotive revenue and earnings, together with a planned step-up in AI-related capital spending, require more evidence before initiating. *Analyst judgment, informed by Tesla FY2025 Form 10-K, Item 7, pp. 31, 37, 41–42.*
 
 This call would change to **initiate-buy** if Tesla demonstrates sustained improvement in automotive economics and evidence that energy and AI investments generate attractive returns on incremental capital. *Analyst judgment.*
+
+## What changed from Edition A
+
+| Item | Edition A said | Edition B / final model says | Why it changed | Source |
+|---|---|---|---|---|
+| Investment call | Watch / defer | **Watch / defer** (unchanged) | The model confirms the caution: every method values TSLA far below the share price | `Project 1/README.md` |
+| Valuation | No valuation; numerical bridge left open | **$15–$20 per share** (BASE DCF $16.54); methods span $6.84–$39.10 vs. $356.09 (Sep 1, 2026) | Built a five-year FCFF DCF driven by a segment forecast, plus P/E and EV/EBITDA comparables | `valuation.py`, `comps.py` |
+| FY2025 energy revenue | $12,270 million | **$12,771 million** | Edition A figure did not match the 27% growth it cited; corrected from the 10-K | FY2025 10-K, Item 7 |
+| Debt in the bridge | $8,180 million principal | **$8,376 million** (debt + finance leases, balance sheet) | Use the balance-sheet amount, including finance leases; operating leases not treated as debt | FY2025 10-K balance sheet, p. 49 |
+| Other bridge claims | Leases, NCI, other claims "require the class convention" | **Subtract NCI $670M and redeemable NCI $58M; add cash, short-term investments, and digital assets** | Resolved each open bridge line | FY2025 10-K balance sheet, p. 49 |
+| Base year | Not normalized | **Normalized FY2025 operating income $4,849M** (reported $4,355M + $494M restructuring) | Restructuring is a one-time cost | FY2025 10-K income statement |
+| Energy storage | Growth and margin must prove durable | **Energy margin 30% → 34%** in the base case; massive Megapack commercialization is a trigger toward initiate | Margin rose from 26.2% (FY2024) to 29.8% (FY2025) | FY2025 10-K, Item 7 |
+| AI / Robotaxi | Returns on AI investment unproven | **Excluded from BASE; UPSIDE adds Robotaxi/FSD to $40B revenue → $39.10/share**; the price implies about $602B of 2030 autonomy revenue | Shows how much the share price depends on autonomy | `valuation.py` |
+| Falsification question | Answer intentionally omitted | **Answered below** | | |
+
+## Answer to the falsification question
+
+**Question (partner-generated):** What evidence would show that Tesla's expected future growth and profitability are not strong enough to justify its current market valuation?
+
+**Answer:** My valuation would be wrong if Tesla does not grow enough to reach the expectations in the reverse DCF. If Robotaxi revenue stays far below about $602 billion or Tesla cannot get close to $183 billion in FCFF by 2030, it would show that the current stock price is hard to support.

@@ -59,5 +59,5 @@ All values below are U.S. dollars in millions. The class enterprise-value input 
 ## Checkpoint receipt
 
 **Submission file:** `Project-1-Edition-A.md`  
-**Receipt identifier:** Pending submission to the separate Project 1 Edition A checkpoint.  
+**Receipt identifier:** Brightspace quiz "Project 1 — Edition A Checkpoint (AI Closed)", attempt 1 of 3, completed September 1, 2026 (window 1:30–6:00 PM).  
 **Preservation instruction:** After submission, retain this exact file unchanged and record the receipt identifier here.
