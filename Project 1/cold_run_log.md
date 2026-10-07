@@ -5,7 +5,7 @@
 | Date | October 6, 2026 |
 | Fresh environment | New copy downloaded from GitHub (TSLA-research → Code → Download ZIP), unzipped to `~/Downloads/TSLA-research-main`. Not my working folder. |
 | Python | Python 3.9.6 (`python3`) on my MacBook Air, run from the VS Code terminal |
-| Recording | `Screen Recording 2026-10-06 at 7.51.58 PM.mov` (about 2 minutes; VS Code window only) |
+| Recording | `cold_run_recording.mp4` in this folder (about 2 minutes, VS Code window only; compressed copy of `Screen Recording 2026-10-06 at 7.51.58 PM.mov`) |
 
 ## Commands run, one at a time (in `~/Downloads/TSLA-research-main/Project 1`)
 
