@@ -1,6 +1,9 @@
 # Locked Changed-Input Record — Project 1 (Tesla)
 
-## Part 1 — Prediction 
+## Part 1 — Prediction
+
+_Written by me, with AI off for the answers, before running the change. Guiding questions came from Claude; the answers are my own, copied word for word. Committed to GitHub in `677e401` before the run._
+
 | Field | Entry |
 |---|---|
 | Date / time written | October 6, 2026, 6:30 PM |
@@ -14,6 +17,9 @@
 | Would this change the committee decision? (my prediction) | Yes it does close the gap to the $356 per share. This is because the way Tesla is growing especially in other areas that aren't automobiles such as energy generation and storage. |
 
 ## Part 2 — Result (After Running)
+
+_Factual lines (values, direction, commit) filled in by Claude from the run output; the assessment and diagnosis are my own words. This run used the earlier BASE model ($14.93); see README version notes._
+
 
 # I ran this on October 6th
 

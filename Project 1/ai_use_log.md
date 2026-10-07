@@ -18,6 +18,7 @@ Each entry records one AI output, what I decided, and the independent evidence I
 | 9 | Oct 6, 2026 | Codex | Build `known_answer_test.py` (training-case reconciliation) | Accepted |
 | 10 | Oct 6, 2026 | Codex | Build `failure_tests.py` (highest-risk failure test) | Accepted |
 | 11 | Oct 6, 2026 | Claude | Driver review: relabel drivers; raise BASE energy margin | Revised by me |
+| 12 | Oct 6, 2026 | Claude | Rubric fixes: beta date label, disclosure notes, Edition B change table | Accepted after review |
 
 ---
 
@@ -142,3 +143,10 @@ Each entry records one AI output, what I decided, and the independent evidence I
 - **Edits made by:** Claude, directly in `proforma.py` and `failure_tests.py` (updated expected values).
 - **Result:** BASE $14.93 → **$16.54**; DOWNSIDE $6.84 (unchanged); UPSIDE $37.49 → **$39.10**. All checks still PASS in all six files.
 - **Note:** The Locked Changed-Input Record and the first cold run were done on the earlier model (BASE $14.93). They remain valid records of those runs.
+
+## Entry 12 — Rubric fixes
+
+- **Beta date label (`valuation.py`):** changed from "2026-09-01" to "2026-10-06 (viewed)", because Yahoo shows only the current beta. Value unchanged (1.83); all checks still PASS. Follows up the "qualified" beta note in Entry 5.
+- **Disclosure notes (`locked_prediction.md`):** restored the notes that the guiding questions and the factual result lines came from Claude, while the prediction answers, assessment, and diagnosis are my own words.
+- **Edition B:** Claude drafted a "What changed from Edition A" table from my model results and decisions. Edition A was not changed. I write the falsification-question answer myself.
+- **GM spot-check (Oct 6, 2026):** I checked GM's FY2025 10-K and Yahoo Finance myself: diluted EPS $3.27 (Note 21), automotive debt $16,247M (Note 14), and the Sep 1, 2026 close of $85.63 all match `comps.py`.

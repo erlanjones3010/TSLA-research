@@ -33,8 +33,8 @@ WACC_INPUTS = {
     "beta": wacc_input(
         1.83,
         "Yahoo Finance, Tesla (TSLA) quote/statistics page, https://finance.yahoo.com/quote/TSLA/",
-        VALUATION_DATE,
-        "Yahoo Finance Beta (5Y Monthly), using five years of monthly observations.",
+        "2026-10-06 (viewed)",
+        "Yahoo Finance Beta (5Y Monthly), five years of monthly observations. Yahoo shows only the current beta, so this is the value viewed on Oct 6, 2026, not a Sep 1, 2026 value.",
     ),
     "equity_risk_premium": wacc_input(
         0.0414,
