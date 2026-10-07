@@ -38,7 +38,13 @@
 
 ## How to run
 
-Requires Python 3 (tested on Python 3.9.6). No extra packages. From inside the `Project 1` folder:
+Requires Python 3 (tested on Python 3.9.6). No extra packages. From inside the `Project 1` folder, run everything at once:
+
+```
+python3 run_all.py
+```
+
+Or run each file on its own:
 
 ```
 python3 tesla_inputs.py        # FY2023–FY2025 10-K inputs and checks
@@ -61,6 +67,7 @@ Every file prints PASS/FAIL checks and stops with an error if a check fails.
 | `comps.py` | Peer policy (written before peers), GM qualified, Ford excluded, P/E and EV/adjusted EBITDA with definition-consistency checks |
 | `known_answer_test.py` | Runs the course training case through the same functions: 18/18 PASS ($27.50) |
 | `failure_tests.py` | Breaks the model on purpose (negative FY2030 FCFF, g = WACC, unbalanced balance sheet, zero shares) and confirms it stops |
+| `run_all.py` | Runs all six files in order and prints a summary |
 | `results.txt` | Saved output of all six files |
 | `assumption_challenges.md` | Assumption-challenge record, including partner challenges (credited) |
 | `locked_prediction.md` | Locked Changed-Input Record (prediction committed in `677e401` before the run) |
