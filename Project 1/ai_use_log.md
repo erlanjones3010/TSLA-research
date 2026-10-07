@@ -9,14 +9,15 @@ Each entry records one AI output, what I decided, and the independent evidence I
 |---|---|---|---|---|
 | 1 | Oct 6, 2026 | Codex | Build `tesla_inputs.py` | Corrected |
 | 2 | Oct 6, 2026 | Codex | Separate redeemable NCI from total liabilities | Corrected |
-| 3 | Oct 6, 2026 | Claude | Suggest draft forecast drivers | Qualified |
+| 3 | Oct 6, 2026 | Claude | Suggest draft forecast drivers | Accepted after review (energy margin revised) |
 | 4 | Oct 6, 2026 | Codex | Build `proforma.py` | Corrected (depreciation) |
 | 5 | Oct 6, 2026 | Codex | Build `valuation.py` (WACC, DCF, bridge, sensitivity, reverse DCF) | Accepted (market inputs verified); beta date qualified |
-| 6 | Oct 6, 2026 | Claude + Codex | Balanced BASE margins; old margins kept as DOWNSIDE | Qualified |
-| 7 | Oct 6, 2026 | Claude + Codex | UPSIDE scenario (Robotaxi/FSD) + market-implied autonomy | Qualified |
+| 6 | Oct 6, 2026 | Claude + Codex | Balanced BASE margins; old margins kept as DOWNSIDE | Accepted after review (energy margin revised) |
+| 7 | Oct 6, 2026 | Claude + Codex | UPSIDE scenario (Robotaxi/FSD) + market-implied autonomy | Accepted after review |
 | 8 | Oct 6, 2026 | Codex | Build `comps.py` (peer policy, P/E, EV/EBITDA) | Corrected (GM finance arm removed); new definition issue found |
 | 9 | Oct 6, 2026 | Codex | Build `known_answer_test.py` (training-case reconciliation) | Accepted |
 | 10 | Oct 6, 2026 | Codex | Build `failure_tests.py` (highest-risk failure test) | Accepted |
+| 11 | Oct 6, 2026 | Claude | Driver review: relabel drivers; raise BASE energy margin | Revised by me |
 
 ---
 
@@ -132,3 +133,12 @@ Each entry records one AI output, what I decided, and the independent evidence I
 - **Result:** All 4 tests PASS — the model stops on (1) negative FY2030 FCFF, (2) terminal growth = WACC, (3) an unbalanced FY2027 balance sheet, (4) zero diluted shares. The normal model is unchanged afterward: BASE $14.93, DOWNSIDE $6.84, UPSIDE $37.49.
 - **Decision:** Accepted.
 - **Evidence:** Error messages printed by the run on Oct 6, 2026; the guard "FY2030 FCFF must be positive before a terminal value is calculated" is in `valuation.py`.
+
+## Entry 11 — My review of the forecast drivers
+
+- **What I did:** Reviewed the AI-suggested drivers from Entries 3, 6, and 7. I kept deliveries growth, revenue per vehicle, regulatory credits, and the other drivers. I changed one: the BASE energy gross margin.
+- **My change:** Energy margin from 30% flat to 30%, 31%, 32%, 33%, 34% (2026–2030), because it rose from 26.2% (FY2024) to 29.8% (FY2025) and I expect it to keep rising as Megapack production scales. DOWNSIDE energy margin is unchanged.
+- **Labels in `proforma.py`:** "Accepted by Erlan" for the reviewed drivers; "Revised by Erlan (was 30% flat)" for energy; "Erlan – from Lab 11" for capex, depreciation, tax rate, working capital, liquidity/debt, and DOWNSIDE R&D and SG&A; "Erlan – chosen option (a)" for incremental depreciation. Which drivers came from AI is recorded in Entries 3, 6, and 7.
+- **Edits made by:** Claude, directly in `proforma.py` and `failure_tests.py` (updated expected values).
+- **Result:** BASE $14.93 → **$16.54**; DOWNSIDE $6.84 (unchanged); UPSIDE $37.49 → **$39.10**. All checks still PASS in all six files.
+- **Note:** The Locked Changed-Input Record and the first cold run were done on the earlier model (BASE $14.93). They remain valid records of those runs.

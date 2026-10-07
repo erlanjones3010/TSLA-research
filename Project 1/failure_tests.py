@@ -70,11 +70,11 @@ def normal_model_is_unchanged():
         normal_output.getvalue(),
         re.MULTILINE,
     ))
-    expected = {"BASE": "14.93", "DOWNSIDE": "6.84", "UPSIDE": "37.49"}
+    expected = {"BASE": "16.54", "DOWNSIDE": "6.84", "UPSIDE": "39.10"}
     passed = values == expected
     actual = ", ".join(f"{scenario} ${values.get(scenario, 'missing')}" for scenario in expected)
     print(
-        "normal model | no changes | expected: BASE $14.93, DOWNSIDE $6.84, UPSIDE $37.49 | "
+        "normal model | no changes | expected: BASE $16.54, DOWNSIDE $6.84, UPSIDE $39.10 | "
         f"actual: {actual} | {'PASS' if passed else 'FAIL'}"
     )
     return passed

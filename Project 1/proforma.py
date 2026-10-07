@@ -6,7 +6,7 @@ from tesla_inputs import ANALYST_DECISIONS, HISTORY
 
 
 YEARS = (2026, 2027, 2028, 2029, 2030)
-STATUS = "DRAFT – suggested by Claude, Erlan to confirm"
+STATUS = "Accepted by Erlan"
 
 
 def driver(values, basis, challenge, evidence_that_would_change_it):
@@ -196,10 +196,10 @@ BASE_DRIVERS.update({
         "Automotive gross margin in 10-Qs, further price cuts, and tariff costs.",
     ),
     "energy_gross_margin": driver(
-        {year: 0.30 for year in YEARS},
-        "FY2025 was 29.8%; assumes Megapack scale offsets price competition.",
-        "Will price competition or cell tariffs exceed scale benefits?",
-        "Energy segment margin in 10-Qs and tariff impact on battery cells.",
+        {2026: 0.30, 2027: 0.31, 2028: 0.32, 2029: 0.33, 2030: 0.34},
+        "Energy margin rose from 26.2% (FY2024) to 29.8% (FY2025); I expect it to keep rising as Megapack production scales.",
+        "Tariffs on battery cells and price competition could stop the rise.",
+        "Energy segment gross margin in 10-Qs; tariff costs; Megapack pricing.",
     ),
     "rd_percent_revenue": driver(
         {2026: 0.068, 2027: 0.065, 2028: 0.062, 2029: 0.058, 2030: 0.055},
@@ -216,6 +216,23 @@ BASE_DRIVERS.update({
 })
 
 # UPSIDE is BASE plus the potential commercialization of Robotaxi and paid FSD.
+BASE_DRIVERS["energy_gross_margin"]["status"] = "Revised by Erlan (was 30% flat)"
+
+# Status labels for drivers carried over from my Lab 11 model and my own modeling choices.
+_LAB11_DRIVERS = (
+    "capex",
+    "depreciation_percent_opening_ppe",
+    "tax_rate",
+    "working_capital",
+    "liquidity_and_debt",
+)
+for _drivers in (DOWNSIDE_DRIVERS, BASE_DRIVERS):
+    for _name in _LAB11_DRIVERS:
+        _drivers[_name]["status"] = "Erlan – from Lab 11"
+    _drivers["incremental_depreciation_from_new_capex"]["status"] = "Erlan – chosen option (a)"
+for _name in ("rd_percent_revenue", "sga_percent_revenue"):
+    DOWNSIDE_DRIVERS[_name]["status"] = "Erlan – from Lab 11"
+
 UPSIDE_DRIVERS = deepcopy(BASE_DRIVERS)
 UPSIDE_DRIVERS.update({
     "autonomy_and_software_revenue": driver(
