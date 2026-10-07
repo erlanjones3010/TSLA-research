@@ -69,4 +69,4 @@ Every file prints PASS/FAIL checks and stops with an error if a check fails.
 
 ## Version notes
 
-- The Locked Changed-Input Record and the first cold run were done on the earlier BASE model ($14.93 per share). I later raised the BASE energy margin (30% flat → 30%–34%), which moved BASE to $16.54. Those records stay as written; `valuation.py` now prints the same g = 3% → 5% test on the current BASE model.
+- The Locked Changed-Input Record and a first cold run were done on the earlier BASE model ($14.93 per share). The final cold run (`cold_run_log.md`) was done on the current model. I later raised the BASE energy margin (30% flat → 30%–34%), which moved BASE to $16.54. Those records stay as written; `valuation.py` now prints the same g = 3% → 5% test on the current BASE model.
