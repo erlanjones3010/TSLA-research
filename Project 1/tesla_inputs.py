@@ -84,8 +84,8 @@ HISTORY = {
             "period_end_shares_outstanding": item(3185, "millions of shares", FY2023_10K, "Consolidated Balance Sheets, common stock outstanding, p. 49", "2023-12-31"),
         },
         "operating_data": {
-            "vehicle_deliveries": item(1808581, "vehicles", FY2023_10K, "MD&A, Overview and 2023 Highlights, p. 33", "FY2023"),
-            "vehicle_production": item(1845985, "vehicles", FY2023_10K, "MD&A, Overview and 2023 Highlights, p. 33", "FY2023"),
+            "vehicle_deliveries": item(1.808581, "millions of vehicles", FY2023_10K, "MD&A, Overview and 2023 Highlights, p. 33", "FY2023"),
+            "vehicle_production": item(1.845985, "millions of vehicles", FY2023_10K, "MD&A, Overview and 2023 Highlights, p. 33", "FY2023"),
             "energy_storage_deployed": item(14.72, "GWh", FY2023_10K, "MD&A, Overview and 2023 Highlights, p. 33", "FY2023"),
         },
     },
@@ -136,8 +136,8 @@ HISTORY = {
             "period_end_shares_outstanding": item(3216, "millions of shares", FY2024_10K, "Consolidated Balance Sheets, common stock outstanding, p. 48", "2024-12-31"),
         },
         "operating_data": {
-            "vehicle_deliveries": item(1789000, "vehicles (approximately)", FY2024_10K, "MD&A, Overview and 2024 Highlights, p. 32", "FY2024"),
-            "vehicle_production": item(1773000, "vehicles (approximately)", FY2024_10K, "MD&A, Overview and 2024 Highlights, p. 32", "FY2024"),
+            "vehicle_deliveries": item(1.789, "millions of vehicles (approximately)", FY2024_10K, "MD&A, Overview and 2024 Highlights, p. 32", "FY2024"),
+            "vehicle_production": item(1.773, "millions of vehicles (approximately)", FY2024_10K, "MD&A, Overview and 2024 Highlights, p. 32", "FY2024"),
             "energy_storage_deployed": item(31.4, "GWh", FY2024_10K, "MD&A, Overview and 2024 Highlights, p. 32", "FY2024"),
         },
     },
