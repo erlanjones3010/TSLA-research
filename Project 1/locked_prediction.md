@@ -2,7 +2,7 @@
 
 ## Part 1 — Prediction
 
-# My own predictions before I ran my own result
+# My own predictions before I ran the result
 
 | Field | Entry |
 |---|---|
