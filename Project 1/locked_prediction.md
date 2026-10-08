@@ -2,7 +2,6 @@
 
 ## Part 1 — Prediction
 
-_Written by me, with AI off for the answers, before running the change. Guiding questions came from Claude; the answers are my own, copied word for word. Committed to GitHub in `677e401` before the run._
 
 | Field | Entry |
 |---|---|
