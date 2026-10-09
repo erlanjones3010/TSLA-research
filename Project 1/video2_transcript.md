@@ -4,7 +4,7 @@
 **Video file:** Screen Recording 2026-10-09 at 5.28.11 PM.mov (13:22)
 **Question this video answers:** How does the submitted code produce the result, and what high-risk test passed or failed?
 
-_How this transcript was made: a speech-to-text draft (faster-whisper, small.en model) was cleaned up with Claude to fix misheard words (for example "WOC" → "WACC," "Denver Duran" → "Damodaran"). Filler words and false starts are trimmed lightly. I reviewed it against the recording._
+
 
 ---
 
