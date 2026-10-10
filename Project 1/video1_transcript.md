@@ -4,7 +4,6 @@
 **Video file:** Video 1 final.mov (7:44)
 **Question this video answers:** How did my research change from Edition A to Edition B to the final model, and why?
 
-_How this transcript was made: a speech-to-text draft (faster-whisper, small.en model) was cleaned up with Claude to fix misheard words (for example "Yerlon" → "Erlan," "mega pack" → "Megapack"). Filler words and false starts are trimmed lightly. I reviewed it against the recording._
 
 ---
 
