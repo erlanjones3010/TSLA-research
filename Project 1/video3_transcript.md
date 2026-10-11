@@ -4,7 +4,6 @@
 **Video file:** Video3.mov (8:20)
 **Question this video answers:** What should the committee do, under what conditions, and what would reverse the decision?
 
-_How this transcript was made: a speech-to-text draft (faster-whisper, small.en model) was cleaned up with Claude to fix misheard words (for example "Yerlon" → "Erlan," "pure methods" → "peer methods," "EVITDA" → "EBITDA"). Filler words and false starts are trimmed lightly. I reviewed it against the recording._
 
 ---
 
