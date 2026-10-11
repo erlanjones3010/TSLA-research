@@ -74,6 +74,16 @@ Every file prints PASS/FAIL checks and stops with an error if a check fails.
 | `ai_use_log.md` | AI-use log: every material AI output and whether I accepted, corrected, qualified, or rejected it |
 | `cold_run_log.md`, `cold_run_recording.mp4` | Clean run from a fresh GitHub download |
 
+## Videos, transcripts and deck
+
+| Surface | Question it answers | Transcript |
+|---|---|---|
+| Video 1 — Research evolution (7:44) | What changed or remained stable after project-specific research; what drove it; and what evidence justified it? | [`video1_transcript.md`](video1_transcript.md) |
+| Video 2 — Code and validation (13:01) | How does the submitted code produce the result, and what high-risk test passed or failed? | [`video2_transcript.md`](video2_transcript.md) |
+| Video 3 — Committee defense (8:20) | What should the committee do, under what conditions, and what would reverse the decision? | [`video3_transcript.md`](video3_transcript.md) |
+
+**Committee deck:** [`Tesla Valuation.pptx`](Tesla%20Valuation.pptx) (10 slides; stands alone without the videos). Transcripts were drafted with speech-to-text, cleaned up with Claude to fix misheard words, and reviewed by me against each recording.
+
 ## Version notes
 
 - The Locked Changed-Input Record and a first cold run were done on the earlier BASE model ($14.93 per share). The final cold run (`cold_run_log.md`) was done on the current model. I later raised the BASE energy margin (30% flat → 30%–34%), which moved BASE to $16.54. Those records stay as written; `valuation.py` now prints the same g = 3% → 5% test on the current BASE model.
