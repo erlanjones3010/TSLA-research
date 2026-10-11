@@ -79,6 +79,6 @@ In my locked prediction file: before any AI help, I wrote my predictions and loc
 
 Last, I did a cold run from a fresh GitHub download, and everything passed.
 
-With AI assistance, I checked everything, including help with the 10-K filings, as you can see. Nothing failed, and if there was a problem, I double-checked it myself. AI assisted me and helped with brainstorming; it didn't create the whole thing for me. Working with AI was a big help that got me through this, and it assisted with a lot of things, such as creating some tables. I came up with the ideas, and it assisted me.
+With AI assistance, I checked everything, including help with the 10-K filings, as you can see. Nothing failed, and if there was a problem, I double-checked it myself. AI assisted me and helped with brainstorming. 
 
 All right, with that, thank you.
