@@ -1,10 +1,10 @@
 # Video 2 Transcript — Code and Validation
 
 **Project:** FIN 43900 Project 1, Tesla (TSLA)
-**Video file:** Screen Recording 2026-10-09 at 5.28.11 PM.mov (13:22)
+**Video file:** Video2.mov (13:22)
 **Question this video answers:** How does the submitted code produce the result, and what high-risk test passed or failed?
 
-
+_How this transcript was made: a speech-to-text draft (faster-whisper, small.en model) was cleaned up with Claude to fix misheard words (for example "WOC" → "WACC," "Denver Duran" → "Damodaran"). Filler words and false starts are trimmed lightly. I reviewed it against the recording._
 
 ---
 
@@ -80,6 +80,6 @@ In my locked prediction file: before any AI help, I wrote my predictions and loc
 
 Last, I did a cold run from a fresh GitHub download, and everything passed.
 
-With AI assistance, I checked everything, including help with the 10-K filings, as you can see. Nothing failed, and if there was a problem, I double-checked it myself. AI assisted me and helped with brainstorming; it didn't create the whole thing for me. Working with AI was a good help that gave me ideas and assisted with a lot of things, such as designing tables for me and giving me ideas. 
+With AI assistance, I checked everything, including help with the 10-K filings, as you can see. Nothing failed, and if there was a problem, I double-checked it myself. AI assisted me and helped with brainstorming; it didn't create the whole thing for me. Working with AI was a big help that got me through this, and it assisted with a lot of things, such as creating some tables. I came up with the ideas, and it assisted me.
 
-thank you for watching!.
+All right, with that, thank you.

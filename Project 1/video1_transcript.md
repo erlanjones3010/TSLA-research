@@ -1,9 +1,10 @@
 # Video 1 Transcript — Research Evolution
 
 **Project:** FIN 43900 Project 1, Tesla (TSLA)
-**Video file:** Video 1 final.mov (7:44)
+**Video file:** Video1 .mov (7:44)
 **Question this video answers:** How did my research change from Edition A to Edition B to the final model, and why?
 
+_How this transcript was made: a speech-to-text draft (faster-whisper, small.en model) was cleaned up with Claude to fix misheard words (for example "Yerlon" → "Erlan," "mega pack" → "Megapack"). Filler words and false starts are trimmed lightly. I reviewed it against the recording._
 
 ---
 
