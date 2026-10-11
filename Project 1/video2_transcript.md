@@ -1,7 +1,7 @@
 # Video 2 Transcript — Code and Validation
 
 **Project:** FIN 43900 Project 1, Tesla (TSLA)
-**Video file:** Video2.mov (13:22)
+**Video file:** Video2.mov (13:01)
 **Question this video answers:** How does the submitted code produce the result, and what high-risk test passed or failed?
 
 
