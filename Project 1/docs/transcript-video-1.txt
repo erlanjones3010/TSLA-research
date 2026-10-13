@@ -3,24 +3,46 @@ Video 1 - Research Evolution and AI-Output Check
 Video file: Video1 .mov (2:27)
 Speaker: Erlan Jones
 
-Transcript note: drafted with speech-to-text (faster-whisper), misheard words fixed with Claude, then reviewed and corrected by me against the recording.
+Transcript note: drafted with speech-to-text (faster-whisper), misheard words
+fixed with Claude, then reviewed and corrected by me against the recording.
 
-[0:00] This is Video 1 for my Project 1 Tesla valuation. I'll show what changed from Edition A to Edition B, what drove it, and how I checked the AI's work.
+[0:00] This is Video 1 for my Project 1 Tesla valuation. I'll show what changed
+from Edition A to Edition B, what drove it, and how I checked the AI's work.
 
-[0:07] So, Edition A is my starting point, submitted at the September 1 checkpoint before any AI assistance. My call was already watch or defer. Tesla had strong cash and a fast-growing energy business, but falling car sales and over $20 billion of planned capex.
+[0:07] So, Edition A is my starting point, submitted at the September 1
+checkpoint before any AI assistance. My call was already watch or defer. Tesla
+had strong cash and a fast-growing energy business, but falling car sales and
+over $20 billion of planned capex.
 
-[0:22] So when I go down to the synthetic enterprise-to-equity bridge, the first thing was I didn't have a valuation. My bridge to a share price was still blank.
+[0:22] So when I go down to the synthetic enterprise-to-equity bridge, the first
+thing was I didn't have a valuation. My bridge to a share price was still blank.
 
-[0:33] If I go to Edition B: in Edition B, the call stayed the same, watch or defer. What changed is that it now has a number behind it: $15 to $20 a share, with my base DCF at $16.54, against the $356 stock price.
+[0:33] If I go to Edition B: in Edition B, the call stayed the same, watch or
+defer. What changed is that it now has a number behind it: $15 to $20 a share,
+with my base DCF at $16.54, against the $356 stock price.
 
-[0:54] The main driver was my own analysis, using the DCF method from class, with AI assistance helping build the code. The evidence is strong enough because it doesn't depend on one method. Every method, from $6.84 to $39.10, lands far below $356. And my reverse DCF shows the price needs about $602 billion of Robotaxi revenue by 2030.
+[0:54] The main driver was my own analysis, using the DCF method from class,
+with AI assistance helping build the code. The evidence is strong enough because
+it doesn't depend on one method. Every method, from $6.84 to $39.10, lands far
+below $356. And my reverse DCF shows the price needs about $602 billion of
+Robotaxi revenue by 2030.
 
-[1:18] My research also caught a mistake in my own Edition A. I wrote energy revenue as $12,270 million, but that didn't match the 27% growth I cited. I went back to the 10-K and corrected it to $12,771 million.
+[1:18] My research also caught a mistake in my own Edition A. I wrote energy
+revenue as $12,270 million, but that didn't match the 27% growth I cited. I went
+back to the 10-K and corrected it to $12,771 million.
 
-[1:31] So when I go to the AI use log: here's an AI output I checked. When the AI built my inputs file, it put redeemable noncontrolling interests inside total liabilities. My balance sheet check still passed, but for the wrong reason.
+[1:31] So when I go to the AI use log: here's an AI output I checked. When the
+AI built my inputs file, it put redeemable noncontrolling interests inside total
+liabilities. My balance sheet check still passed, but for the wrong reason.
 
-[1:50] I opened Tesla's 10-K balance sheet on page 49 myself. Total liabilities are $54,941 million, and redeemable noncontrolling interests are a separate $58 million line. The AI's number, $54,999 million, was the two added together.
+[1:50] I opened Tesla's 10-K balance sheet on page 49 myself. Total liabilities
+are $54,941 million, and redeemable noncontrolling interests are a separate $58
+million line. The AI's number, $54,999 million, was the two added together.
 
-[2:06] So I corrected it instead of accepting it. This matters because my bridge subtracts those interests from the share value. If they were hidden inside liabilities, the check could pass while the numbers were wrong. Now each one has its own line, and the check passes for all three years.
+[2:06] So I corrected it instead of accepting it. This matters because my bridge
+subtracts those interests from the share value. If they were hidden inside
+liabilities, the check could pass while the numbers were wrong. Now each one has
+its own line, and the check passes for all three years.
 
-[2:20] So my decision stayed watch or defer, but Edition B backs it with numbers I tested and checked myself. Thank you.
+[2:20] So my decision stayed watch or defer, but Edition B backs it with numbers
+I tested and checked myself. Thank you.
