@@ -3,7 +3,7 @@ Video 1 - Research Evolution and AI-Output Check
 Video file: Video1 .mov (2:27)
 Speaker: Erlan Jones
 
-[0:00] This is Video 1 for my Project 1 Tesla valuation. I'll show what changed
+[0:00] Hello, I am Erlan Jones and this is Video 1 for my Project 1 Tesla valuation. I'll show what changed
 from Edition A to Edition B, what drove it, and how I checked the AI's work.
 
 [0:07] So, Edition A is my starting point, submitted at the September 1
