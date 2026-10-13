@@ -1,0 +1,28 @@
+FIN 43900 Project 1 - Tesla (TSLA)
+Video 2 - Code Walkthrough and Highest-Risk Test
+Video file: Video2.mov (4:31)
+Speaker: Erlan Jones
+
+Transcript note: drafted with speech-to-text (faster-whisper), misheard words fixed with Claude, then reviewed and corrected by me against the recording.
+
+[0:00] I'm Erlan Jones. This is Video 2 for my Project 1 Tesla valuation. I'll show how my code produces the result, how to reproduce it, and the highest-risk test.
+
+[0:09] So the project is six Python files that run in a chain. tesla_inputs.py holds Tesla's 10-K numbers. Every number goes through an item function that stores its value, source, page and date. proforma.py imports those and builds a five-year income statement, balance sheet and cash flow, in three scenarios. valuation.py takes the free cash flow, discounts it, and bridges to a value per share. comps.py checks it against General Motors, and two test files check the math. It only uses standard Python, so there's nothing to install.
+
+[0:41] So how do I run it and reproduce it? I go to run_all and hit run. A clean user runs one command from the Project 1 folder: python3 run_all.py. It runs all six files in order. Each file has checks built into it, and if any check fails, that file stops with an error. So six OKs means every check passed. That same output is saved in results.txt, so a grader can see it without running anything.
+
+[1:20] So it starts with 2025 operating income of $4,355 million. I added back $494 million of one-time restructuring, so my base is $4,849 million.
+
+[1:33] When I go to the cash flow statement: the forecast builds each segment separately. Capex is the biggest driver, $20.5 billion in 2026, so free cash flow is minus $10.6 billion in 2026 and only reaches about $5.3 billion by 2030.
+
+[1:56] Going down to the WACC inputs: the valuation file discounts that at a 12.3% WACC, built with CAPM from the Treasury yield, beta and the equity risk premium. That's how it was built.
+
+[2:18] The DCF gives the value of the whole business. The bridge adds cash and investments, subtracts debt and noncontrolling interests, and divides by 3,528 million diluted shares. That's $16.54 a share against a $356 stock price.
+
+[2:36] So when I move into the valuation file: my highest-risk claim is that this value is valid at all. Because the first three years of cash flow are negative, the terminal value is 146% of enterprise value, and the terminal value only makes sense if 2030 cash flow is positive. My downside case is only about $1 billion in 2030, so it could easily turn negative. That's why dcf_value has this guard: if the last year's cash flow isn't positive, it raises an error instead of calculating.
+
+[3:15] An example of this is the negative final-year free cash flow test. The failure_tests file tests that on purpose. It sets downside 2030 cash flow to minus 500 and expects the model to stop, and it did. That test passed. It also stops when growth equals the WACC, when the balance sheet doesn't balance, and with zero shares. And the known-answer test runs the class training case through the same code: 18 out of 18 tests match, at $27.50. So I'm triple- and quadruple-checking everything to make sure it runs smoothly and is accurate.
+
+[3:53] If I show the value per share sensitivity: one limitation is that because most of the value is terminal value, the result is sensitive to the WACC and growth rate. This grid moves from about $14.50 to $19.73 a share. That's why I report a $15 to $20 range, not one exact number. Another limitation is that only one peer, General Motors, qualifies.
+
+[4:21] So the code runs in one command, every step is checked, and the highest-risk test passed, to make a clean and accurate output. So yeah, thank you.

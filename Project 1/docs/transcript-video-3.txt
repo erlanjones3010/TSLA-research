@@ -1,0 +1,22 @@
+FIN 43900 Project 1 - Tesla (TSLA)
+Video 3 - Investment Committee Defense with Live Model Demonstration
+Video file: Video3.mov (3:12)
+Speaker: Erlan Jones
+
+Transcript note: drafted with speech-to-text (faster-whisper), misheard words fixed with Claude, then reviewed and corrected by me against the recording.
+
+[0:00] ...and I'm presenting my Tesla recommendation to the investment committee. My recommendation is watch or defer, so don't initiate at $356. Tesla's business today is worth around $15 to $20 a share, with my base case at $16.54. The other roughly $336 of the price is a bet on Robotaxi and AI that isn't proven yet. My horizon is around three to five years, reviewed every quarter.
+
+[0:26] So let me show you the model live, so you can see where that comes from. This runs the full valuation from Tesla's 10-K numbers. I go to the valuation file, run it, and go to the scenario summary, which shows my three scenarios.
+
+[0:39] First, the downside, where margins stay near 2025 levels: $6.84. My base is $16.54. And the upside, which adds a Robotaxi business with $40 billion of revenue by 2030, is $39.10. Even the most optimistic case is about a ninth of the share price. Peer multiples against GM give about $25 to $28, so every method lands far below $356.
+
+[1:12] This answers "under what conditions." The reverse DCF solves for what the price assumes. To justify $356, Tesla needs about $183 billion of free cash flow in 2030, and my base case has $5.3 billion.
+
+[1:32] When I go to the market-implied autonomy: in Robotaxi terms, my upside assumes $40 billion of autonomy revenue in 2030, and the price implies about $602 billion. That's more than six times all of Tesla's revenue in 2025. So the price only works if Robotaxi becomes enormous within five years, and there's no evidence of that yet, so we don't know.
+
+[1:58] Another thing: I go to the value per share sensitivity. I also tested the discount rate and the growth rate. Across the grid, the base value stays between about $14.50 and $19.73, which is why I give a range of $15 to $20 instead of one number.
+
+[2:18] So what would reverse the decision? There are six signals I check every quarter. Three would move us toward initiating: the price falling toward my $15 to $20 range; paid Robotaxi and FSD revenue showing up in multiple cities in Tesla's 10-Q; or Megapack growth and margins beating my forecast. Three would move us to do not initiate: Robotaxi or FSD delayed or banned by regulators; capex that keeps draining cash with no payoff; or car margins stuck near 15%.
+
+[2:51] So my ask to the committee: don't initiate a position today. Put Tesla on the watch list, review these six signals every quarter when Tesla reports, and revisit buying only if the price comes down or the evidence shows up. At $356, the market is paying for a future Tesla hasn't delivered yet. So yeah, thank you.
