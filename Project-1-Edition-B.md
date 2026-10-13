@@ -1,4 +1,4 @@
-# Tesla, Inc. (TSLA) — Company Research Report
+# Project 1 — Edition B: Tesla, Inc. (TSLA) — Company Research Report
 
 **Decision user:** Investment Committee  
 **Valuation date:** September 1, 2026  
