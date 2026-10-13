@@ -3,9 +3,6 @@ Video 3 - Investment Committee Defense with Live Model Demonstration
 Video file: Video3.mov (3:12)
 Speaker: Erlan Jones
 
-Transcript note: drafted with speech-to-text (faster-whisper), misheard words
-fixed with Claude, then reviewed and corrected by me against the recording.
-
 [0:00] ...and I'm presenting my Tesla recommendation to the investment
 committee. My recommendation is watch or defer, so don't initiate at $356.
 Tesla's business today is worth around $15 to $20 a share, with my base case at
