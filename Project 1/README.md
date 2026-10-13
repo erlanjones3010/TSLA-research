@@ -104,7 +104,7 @@ All inputs are public. No credentials, API keys, or private data are used, so no
 | Video 2 — Code walkthrough and highest-risk test (4:31) | How does the submitted code produce the result, and what high-risk test passed or failed? | [`docs/transcript-video-2.txt`](docs/transcript-video-2.txt) |
 | Video 3 — Investment committee defense with live model demo (3:12) | What should the committee do, under what conditions, and what would reverse the decision? | [`docs/transcript-video-3.txt`](docs/transcript-video-3.txt) |
 
-**Committee deck:** [`docs/decision-deck.pdf`](docs/decision-deck.pdf) (11 slides; stands alone without the videos). **Research evolution (Edition A + B):** [`docs/research-evolution.pdf`](docs/research-evolution.pdf). **Validation and AI-use record:** [`docs/validation-and-ai-use.md`](docs/validation-and-ai-use.md). I recorded each video in my own words. Transcripts started as a speech-to-text draft; AI helped fix misheard words, and I checked and corrected each one against the recording.
+**Committee deck:** [`docs/Decision-Deck.pdf`](docs/Decision-Deck.pdf) (11 slides; stands alone without the videos). **Research evolution (Edition A + B):** [`docs/Research-Evolution.pdf`](docs/Research-Evolution.pdf). **Validation and AI-use record:** [`docs/validation-and-ai-use.md`](docs/validation-and-ai-use.md). I recorded each video in my own words. Transcripts started as a speech-to-text draft; AI helped fix misheard words, and I checked and corrected each one against the recording.
 
 ## Version notes
 
