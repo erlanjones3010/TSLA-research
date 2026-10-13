@@ -38,7 +38,7 @@
 
 ## How to run
 
-Requires Python 3 (tested on Python 3.9.6). No extra packages. From inside the `Project 1` folder, run everything at once:
+Requires Python 3 (tested on Python 3.9.6). No extra packages (see `requirements.txt`). From inside the `Project 1` folder, run everything at once:
 
 ```
 python3 run_all.py
@@ -74,6 +74,28 @@ Every file prints PASS/FAIL checks and stops with an error if a check fails.
 | `ai_use_log.md` | AI-use log: every material AI output and whether I accepted, corrected, qualified, or rejected it |
 | `cold_run_log.md`, `cold_run_recording.mp4` | Clean run from a fresh GitHub download |
 
+## Data sources
+
+| Data | Source | As of |
+|---|---|---|
+| Tesla FY2023–FY2025 financial statements, segments, shares, debt, leases, NCI | Tesla Form 10-K filings (FY2025 10-K filed Jan 29, 2026, accession 0001628280-26-003952); page for each number in `tesla_inputs.py` | Fiscal year-ends 2023–2025 |
+| TSLA share price ($356.09) | Yahoo Finance historical prices | Sep 1, 2026 close |
+| Risk-free rate (4.79%) | U.S. Treasury 10-year par yield | Sep 1, 2026 |
+| Beta (1.83) | Yahoo Finance, Beta (5Y Monthly) | Viewed Oct 6, 2026 |
+| Equity risk premium (4.14%) | Aswath Damodaran, implied ERP | Sep 2026 |
+| GM and Ford inputs | GM 2025 Form 10-K (filed Jan 27, 2026); Ford 2025 Form 10-K (filed Feb 11, 2026); Yahoo Finance prices | FY2025; Sep 1, 2026 close |
+| Known-answer case | Course training case, "The Training-Case DCF, Worked End to End" | Course materials |
+
+All inputs are public. No credentials, API keys, or private data are used, so no `.env` file is needed.
+
+## Known limitations
+
+- **One qualified peer.** Only GM qualifies; Ford is excluded for negative EPS and EBITDA. GM's numbers are automotive-only while Tesla's are consolidated (documented exception in `comps.py`).
+- **Timing.** Beta was viewed Oct 6, 2026, not Sep 1. The bridge uses FY2025 balance-sheet values against a Sep 1, 2026 price, and cash flows are not stub-period adjusted.
+- **Robotaxi and Optimus.** Robotaxi/FSD is modeled only in UPSIDE; Optimus is not modeled. Future stock-award dilution, buybacks, and new issuance are not modeled.
+- **Terminal value dependence.** Because FY2026–FY2028 free cash flow is negative, the terminal value is larger than enterprise value (145.8%), so the result is sensitive to WACC and terminal growth (see the sensitivity grid in `results.txt`).
+- **Model version.** The Locked Changed-Input Record and first cold run used the earlier BASE model ($14.93); the final model and final cold run give $16.54 (see Version notes).
+
 ## Videos, transcripts and deck
 
 | Surface | Question it answers | Transcript |
@@ -82,7 +104,7 @@ Every file prints PASS/FAIL checks and stops with an error if a check fails.
 | Video 2 — Code and validation (13:01) | How does the submitted code produce the result, and what high-risk test passed or failed? | [`video2_transcript.md`](video2_transcript.md) |
 | Video 3 — Committee defense (8:20) | What should the committee do, under what conditions, and what would reverse the decision? | [`video3_transcript.md`](video3_transcript.md) |
 
-**Committee deck:** [`Tesla Valuation.pptx`](Tesla%20Valuation.pptx) (10 slides; stands alone without the videos). Transcripts were drafted with speech-to-text, cleaned up with Claude to fix misheard words, and reviewed by me against each recording.
+**Committee deck:** [`Tesla Valuation.pptx`](Tesla%20Valuation.pptx) (10 slides; stands alone without the videos). I recorded each video in my own words. Transcripts started as a speech-to-text draft; AI helped fix misheard words, and I checked and corrected each one against the recording.
 
 ## Version notes
 

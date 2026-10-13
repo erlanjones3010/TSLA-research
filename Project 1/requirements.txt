@@ -1,0 +1,2 @@
+# Project 1 uses only the Python 3 standard library (tested on Python 3.9.6).
+# No third-party packages are required; nothing to install.
