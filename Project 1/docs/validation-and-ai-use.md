@@ -214,7 +214,7 @@ Each entry records one AI output, what I decided, and the independent evidence I
 | 10 | Oct 6, 2026 | Codex | Build `failure_tests.py` (highest-risk failure test) | Accepted |
 | 11 | Oct 6, 2026 | Claude | Driver review: relabel drivers; raise BASE energy margin | Revised by me |
 | 12 | Oct 6, 2026 | Claude | Rubric fixes: beta date label, disclosure notes, Edition B change table | Accepted after review |
-| 13 | Oct 8–12, 2026 | Claude; faster-whisper | Deck tables/charts, video scripts, transcript cleanup, video cuts | Accepted after review |
+| 13 | Oct 8–12, 2026 | Claude; faster-whisper | Deck tables/charts, video scripts, transcript cleanup | Accepted after review |
 
 ---
 
@@ -348,11 +348,10 @@ Each entry records one AI output, what I decided, and the independent evidence I
 - **GM spot-check (Oct 6, 2026):** I checked GM's FY2025 10-K and Yahoo Finance myself: diluted EPS $3.27 (Note 21), automotive debt $16,247M (Note 14), and the Sep 1, 2026 close of $85.63 all match `comps.py`.
 - **Unit fix (Oct 8, 2026):** Claude found FY2023–FY2024 deliveries and production stored in vehicles (e.g., 1,789,000) while FY2025 was in millions (1.64). Converted FY2023–FY2024 to millions in `tesla_inputs.py` so all years match. The model only uses FY2025, so results are unchanged (BASE $16.54, DOWNSIDE $6.84, UPSIDE $39.10); all files still run OK.
 
-#### Entry 13 — Deck, video scripts, transcripts and video edits
+#### Entry 13 — Deck, video scripts and transcripts
 
 - **Tool:** Claude (Cowork); speech-to-text: faster-whisper (small.en model).
 - **Deck:** Claude designed several of the tables and charts used on the slides (for example the forecast-driver table, the valuation chart, and the "What would change my mind" table) from my model results. I chose the content, the slide order, the recommendation, and the wording, and I fixed the slides myself in PowerPoint.
 - **Video scripts:** Claude drafted guide scripts for Videos 1–3 from my files and deck. I presented in my own words and changed what I said where I disagreed.
 - **Transcripts:** speech-to-text made the first drafts; Claude fixed misheard words (names, tickers, finance terms) and flagged unclear spots; I listened to each flagged spot and decided the final wording.
-- **Video edits:** at my request, Claude cut short segments from recordings with ffmpeg (no words added).
 - **Decision:** Accepted after review. **Evidence:** each transcript was checked against its recording; every number in the deck traces to `results.txt`.
