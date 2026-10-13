@@ -3,9 +3,6 @@ Video 1 - Research Evolution and AI-Output Check
 Video file: Video1 .mov (2:27)
 Speaker: Erlan Jones
 
-Transcript note: drafted with speech-to-text (faster-whisper), misheard words
-fixed with Claude, then reviewed and corrected by me against the recording.
-
 [0:00] This is Video 1 for my Project 1 Tesla valuation. I'll show what changed
 from Edition A to Edition B, what drove it, and how I checked the AI's work.
 
