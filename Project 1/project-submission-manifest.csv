@@ -1,0 +1,34 @@
+Row,Section,Item,Link or file name,Location,Title,Duration,Timestamp evidence index,Notes
+1,Repository,Repository URL (visible executed output),https://github.com/erlanjones3010/TSLA-research/tree/main/Project%201,GitHub,TSLA-research / Project 1,,,Visible output: results.txt and README headline table. Reproduce: python3 run_all.py
+2,Repository,Repository access confirmation,Public repository,GitHub,,,,Viewable without login by the instructional team
+3,Written artifacts,Research evolution (Edition A + Edition B),Research-Evolution.pdf,Brightspace; repo docs/,"Research Evolution — Project 1 (Tesla, TSLA)",,,"Edition A receipt: Brightspace quiz ""Project 1 — Edition A Checkpoint (AI Closed)"", attempt 1 of 3, Sep 1, 2026"
+4,Written artifacts,Decision deck,Decision-Deck.pdf,Brightspace; repo docs/,"Tesla, Inc. (TSLA): Should the Fund Initiate a Position?",,,11 slides
+5,Written artifacts,Validation and AI-use record,Validation-and-AI-Use.pdf,Brightspace; repo docs/validation-and-ai-use.md,"Validation and AI-Use Record — Project 1 (Tesla, TSLA)",,,Includes Locked Changed-Input Record (commit 677e401) and named AI tools
+6,Video 1,Video 1 — Research evolution and AI-output check,https://youtu.be/uOxBo1r4iis,YouTube (Unlisted),FIN 43900 Project 1 - Video 1: Research Evolution (Tesla),2:27,"0:00 Introduction
+0:07 Edition A starting position (watch/defer, no valuation)
+0:33 Edition B change: call unchanged, now $15–$20 range
+0:54 What drove it and why the evidence is sufficient
+1:18 Correction of my own Edition A (energy revenue)
+1:31 AI output shown (redeemable NCI counted in liabilities)
+1:50 My check in the 10-K (balance sheet, p. 49)
+2:06 Decision: corrected, and why it matters",
+7,Video 1,Transcript 1,transcript-video-1.txt,Brightspace; repo docs/,,,,
+8,Video 2,Video 2 — Code walkthrough,https://youtu.be/HnLjgrAOoUk,YouTube (Unlisted),FIN 43900 Project 1 - Video 2: Code Walkthrough (Tesla),4:31,"0:09 Architecture and data flow (six files)
+0:41 How to reproduce (python3 run_all.py, results.txt)
+1:20 Financial logic: base year and free cash flow
+1:56 WACC inputs
+2:18 Enterprise-to-equity bridge ($16.54/share)
+2:36 Highest-risk claim and dcf_value guard
+3:15 Failure test passed (negative FY2030 FCFF); known answer 18/18
+3:53 Limitation (sensitivity grid; single peer)",
+9,Video 2,Transcript 2,transcript-video-2.txt,Brightspace; repo docs/,,,,
+10,Video 3,Video 3 — Investment committee defense,https://youtu.be/KB6rCVaEnqA,YouTube (Unlisted),FIN 43900 Project 1 - Video 3: Investment Committee Defense (Tesla),3:12,"0:00 Decision first (watch/defer, $15–$20 vs. $356)
+0:26 Live model demonstration (python3 valuation.py)
+0:39 Scenario values
+1:12 Conditions: reverse DCF ($183B FCFF needed)
+1:32 Market-implied Robotaxi revenue ($602B)
+1:58 Sensitivity range
+2:18 What would reverse the decision (six signals)
+2:51 Committee ask",
+11,Video 3,Transcript 3,transcript-video-3.txt,Brightspace; repo docs/,,,,
+12,Optional,Deployed output URL,Not applicable,,,,,Project runs locally
