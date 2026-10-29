@@ -3,6 +3,7 @@
 from datetime import date
 from io import StringIO
 
+import altair as alt
 import pandas as pd
 import requests
 import streamlit as st
@@ -98,6 +99,7 @@ if not selected_series:
     st.stop()
 
 comparison_rows = []
+combined_series_frames = []
 for series_id in selected_series:
     try:
         # Exactly one request per series for each source; cache keys include all inputs.
@@ -117,6 +119,9 @@ for series_id in selected_series:
         st.info(f"No current observations for {series_id} on or after {start_date:%Y-%m-%d}.")
     else:
         st.line_chart(chart_data[["value"]], y_label="Rate")
+        combined_series_frames.append(
+            chart_data[["value"]].reset_index().assign(series=series_id)
+        )
     st.caption(
         f"Last observation known on {as_known_on:%Y-%m-%d}: "
         f"{format_observation(historical_last)}"
@@ -139,6 +144,49 @@ for series_id in selected_series:
             "Overlapping observations revised": revisions,
         }
     )
+
+st.subheader("Combined Interest Rate Comparison")
+if combined_series_frames:
+    available_combined_series = [frame["series"].iat[0] for frame in combined_series_frames]
+    combined_selection = st.multiselect(
+        "Series shown in the combined chart",
+        options=available_combined_series,
+        default=available_combined_series,
+        format_func=lambda series_id: f"{series_id} — {SERIES_LABELS.get(series_id, 'FRED series')}",
+        key="combined_series_selection",
+    )
+    if combined_selection:
+        combined_data = pd.concat(
+            [
+                frame[frame["series"].isin(combined_selection)]
+                for frame in combined_series_frames
+            ],
+            ignore_index=True,
+        )
+        combined_chart = (
+            alt.Chart(combined_data)
+            .mark_line()
+            .encode(
+                x=alt.X("date:T", title="Date"),
+                y=alt.Y("value:Q", title="Rate"),
+                color=alt.Color(
+                    "series:N",
+                    title="Series",
+                    scale=alt.Scale(scheme="tableau10"),
+                ),
+                tooltip=[
+                    alt.Tooltip("date:T", title="Date"),
+                    alt.Tooltip("series:N", title="Series"),
+                    alt.Tooltip("value:Q", title="Rate", format=".3f"),
+                ],
+            )
+            .interactive()
+        )
+        st.altair_chart(combined_chart, use_container_width=True)
+    else:
+        st.info("Select at least one series to display the combined chart.")
+else:
+    st.info("No current observations are available for the combined chart.")
 
 st.subheader("Point-in-time comparison")
 if comparison_rows:
