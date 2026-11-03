@@ -1,0 +1,202 @@
+{
+  "ticker": "JPM",
+  "company": "JPMORGAN CHASE & CO",
+  "rows": [
+    {
+      "fiscal_year_end": "2021-12-31",
+      "Revenue": {
+        "tag": "Revenues",
+        "value": 121649000000,
+        "millions": 121649.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 48334000000,
+        "millions": 48334.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": 78084000000,
+        "millions": 78084.0
+      },
+      "Capital spending": {
+        "tag": "not found",
+        "value": null,
+        "millions": null
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 294127000000,
+        "millions": 294127.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.16433037429409744,
+        "percent": 16.4
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": null,
+        "millions": null
+      }
+    },
+    {
+      "fiscal_year_end": "2022-12-31",
+      "Revenue": {
+        "tag": "Revenues",
+        "value": 128695000000,
+        "millions": 128695.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 37676000000,
+        "millions": 37676.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": 107119000000,
+        "millions": 107119.0
+      },
+      "Capital spending": {
+        "tag": "not found",
+        "value": null,
+        "millions": null
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 292332000000,
+        "millions": 292332.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.12888086148625535,
+        "percent": 12.9
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": null,
+        "millions": null
+      }
+    },
+    {
+      "fiscal_year_end": "2023-12-31",
+      "Revenue": {
+        "tag": "Revenues",
+        "value": 158104000000,
+        "millions": 158104.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 49552000000,
+        "millions": 49552.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": 12974000000,
+        "millions": 12974.0
+      },
+      "Capital spending": {
+        "tag": "not found",
+        "value": null,
+        "millions": null
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 327878000000,
+        "millions": 327878.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.15112938349020064,
+        "percent": 15.1
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": null,
+        "millions": null
+      }
+    },
+    {
+      "fiscal_year_end": "2024-12-31",
+      "Revenue": {
+        "tag": "Revenues",
+        "value": 177556000000,
+        "millions": 177556.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 58471000000,
+        "millions": 58471.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": -42012000000,
+        "millions": -42012.0
+      },
+      "Capital spending": {
+        "tag": "not found",
+        "value": null,
+        "millions": null
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 344758000000,
+        "millions": 344758.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.16960012530528662,
+        "percent": 17.0
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": null,
+        "millions": null
+      }
+    },
+    {
+      "fiscal_year_end": "2025-12-31",
+      "Revenue": {
+        "tag": "Revenues",
+        "value": 182447000000,
+        "millions": 182447.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 57048000000,
+        "millions": 57048.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": -147782000000,
+        "millions": -147782.0
+      },
+      "Capital spending": {
+        "tag": "not found",
+        "value": null,
+        "millions": null
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 362438000000,
+        "millions": 362438.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.1574007140531622,
+        "percent": 15.7
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": null,
+        "millions": null
+      }
+    }
+  ],
+  "checks": {
+    "ROE at least 15% every year": "fail",
+    "Owner earnings positive every year": "not known",
+    "Owner earnings increased first to last": "not known"
+  },
+  "source": "SEC EDGAR companyfacts; 10-K / 10-K/A only"
+}

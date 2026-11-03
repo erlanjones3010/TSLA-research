@@ -1,0 +1,202 @@
+{
+  "ticker": "COST",
+  "company": "COSTCO WHOLESALE CORP /NEW",
+  "rows": [
+    {
+      "fiscal_year_end": "2022-08-28",
+      "Revenue": {
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "value": 226954000000,
+        "millions": 226954.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 5844000000,
+        "millions": 5844.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": 7392000000,
+        "millions": 7392.0
+      },
+      "Capital spending": {
+        "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+        "value": 3891000000,
+        "millions": 3891.0
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 20642000000,
+        "millions": 20642.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.2831121015405484,
+        "percent": 28.3
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": 3501000000,
+        "millions": 3501.0
+      }
+    },
+    {
+      "fiscal_year_end": "2023-09-03",
+      "Revenue": {
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "value": 242290000000,
+        "millions": 242290.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 6292000000,
+        "millions": 6292.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": 11068000000,
+        "millions": 11068.0
+      },
+      "Capital spending": {
+        "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+        "value": 4323000000,
+        "millions": 4323.0
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 25058000000,
+        "millions": 25058.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.2510974539069359,
+        "percent": 25.1
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": 6745000000,
+        "millions": 6745.0
+      }
+    },
+    {
+      "fiscal_year_end": "2024-09-01",
+      "Revenue": {
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "value": 254453000000,
+        "millions": 254453.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 7367000000,
+        "millions": 7367.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": 11339000000,
+        "millions": 11339.0
+      },
+      "Capital spending": {
+        "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+        "value": 4710000000,
+        "millions": 4710.0
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 23622000000,
+        "millions": 23622.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.3118702904072475,
+        "percent": 31.2
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": 6629000000,
+        "millions": 6629.0
+      }
+    },
+    {
+      "fiscal_year_end": "2025-08-31",
+      "Revenue": {
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "value": 275235000000,
+        "millions": 275235.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 8099000000,
+        "millions": 8099.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": 13335000000,
+        "millions": 13335.0
+      },
+      "Capital spending": {
+        "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+        "value": 5498000000,
+        "millions": 5498.0
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 29164000000,
+        "millions": 29164.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.27770539020710466,
+        "percent": 27.8
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": 7837000000,
+        "millions": 7837.0
+      }
+    },
+    {
+      "fiscal_year_end": "2026-08-30",
+      "Revenue": {
+        "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "value": 303154000000,
+        "millions": 303154.0
+      },
+      "Net income": {
+        "tag": "NetIncomeLoss",
+        "value": 9226000000,
+        "millions": 9226.0
+      },
+      "Operating cash flow": {
+        "tag": "NetCashProvidedByUsedInOperatingActivities",
+        "value": 15817000000,
+        "millions": 15817.0
+      },
+      "Capital spending": {
+        "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+        "value": 6435000000,
+        "millions": 6435.0
+      },
+      "Equity": {
+        "tag": "StockholdersEquity",
+        "value": 35803000000,
+        "millions": 35803.0
+      },
+      "ROE": {
+        "tag": "computed: NetIncomeLoss / StockholdersEquity",
+        "value": 0.25768790324833113,
+        "percent": 25.8
+      },
+      "Owner earnings": {
+        "tag": "computed: operating cash flow - capital spending",
+        "value": 9382000000,
+        "millions": 9382.0
+      }
+    }
+  ],
+  "checks": {
+    "ROE at least 15% every year": "pass",
+    "Owner earnings positive every year": "pass",
+    "Owner earnings increased first to last": "pass"
+  },
+  "source": "SEC EDGAR companyfacts; 10-K / 10-K/A only"
+}
