@@ -1,51 +1,53 @@
 {
-  "as_of": "2026-09-30",
+  "as_of": "2025-12-31",
   "signal": {
-    "dgs10": 0.0526,
+    "dgs10": 0.0414,
     "status": "ok"
   },
   "portfolios": {
     "equal": {
       "start": "2023-12-29",
       "end": "2026-09-30",
-      "ann_return": 0.05749647150125492,
-      "ann_vol": 0.05703311646650378,
-      "max_drawdown": 0.03094594039632237,
-      "turnover_per_year": 0.05906812854189221,
+      "ann_return": 0.05844287434049744,
+      "ann_vol": 0.05676100800587459,
+      "max_drawdown": 0.030731994030928744,
+      "turnover_per_year": 0.02361894154505374,
+      "max_turnover_year": 0.04363703505760225,
+      "worst_12m_loss": 0.0,
       "checks": [
         {
-          "rule": "Weights sum to 100%",
+          "rule": "S5 Weights sum to 100%",
           "value": 100.0,
           "pass": true
         },
         {
-          "rule": "Long-only (lowest weight)",
+          "rule": "S5 Long-only, no leverage (lowest weight)",
           "value": 25.0,
           "pass": true
         },
         {
-          "rule": "SPY between 30% and 70%",
-          "value": 25.0,
-          "pass": false
-        },
-        {
-          "rule": "SGOV at least 5%",
-          "value": 25.0,
+          "rule": "S3 Reserve-eligible (SGOV+TLT) at least 3% (every decision)",
+          "value": 50.0,
           "pass": true
         },
         {
-          "rule": "Ex-ante volatility at most 12% (worst decision)",
-          "value": 11.552560838328029,
+          "rule": "S6 Largest nonexempt issuer at most 8%",
+          "value": 0.0,
           "pass": true
         },
         {
-          "rule": "Backtest max drawdown at most 20%",
-          "value": 3.094594039632237,
+          "rule": "S7 Turnover at most 25% in any year",
+          "value": 4.363703505760225,
           "pass": true
         },
         {
-          "rule": "Turnover at most 25% a year",
-          "value": 5.906812854189221,
+          "rule": "S8 Redeemable in 5 days at least 90%",
+          "value": 100.0,
+          "pass": true
+        },
+        {
+          "rule": "S9 Worst 12-month loss at most 10%",
+          "value": 0.0,
           "pass": true
         }
       ],
@@ -56,7 +58,7 @@
         "VCIT": 0.25,
         "SPY": 0.25
       },
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "decisions": [
         {
           "date": "2023-12-29",
@@ -73,48 +75,6 @@
           "turnover": 0.0
         },
         {
-          "date": "2024-03-28",
-          "dgs10": 0.042,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.25,
-            "TLT": 0.25,
-            "VCIT": 0.25,
-            "SPY": 0.25
-          },
-          "ex_ante_vol": 0.11354447135867485,
-          "expected_return": 0.057314472168817215,
-          "turnover": 0.020737067079913102
-        },
-        {
-          "date": "2024-06-28",
-          "dgs10": 0.0429,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.25,
-            "TLT": 0.25,
-            "VCIT": 0.25,
-            "SPY": 0.25
-          },
-          "ex_ante_vol": 0.10652358090460459,
-          "expected_return": 0.058200661933451504,
-          "turnover": 0.009047562447808896
-        },
-        {
-          "date": "2024-09-30",
-          "dgs10": 0.0375,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.25,
-            "TLT": 0.25,
-            "VCIT": 0.25,
-            "SPY": 0.25
-          },
-          "ex_ante_vol": 0.09080615619715393,
-          "expected_return": 0.05419030103412141,
-          "turnover": 0.009248729369411915
-        },
-        {
           "date": "2024-12-31",
           "dgs10": 0.0455,
           "signal_status": "ok",
@@ -126,49 +86,7 @@
           },
           "ex_ante_vol": 0.09065033354593041,
           "expected_return": 0.05981669646538493,
-          "turnover": 0.02060651446040375
-        },
-        {
-          "date": "2025-03-31",
-          "dgs10": 0.042699999999999995,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.25,
-            "TLT": 0.25,
-            "VCIT": 0.25,
-            "SPY": 0.25
-          },
-          "ex_ante_vol": 0.08292095234287997,
-          "expected_return": 0.05697895705317109,
-          "turnover": 0.013343704820576882
-        },
-        {
-          "date": "2025-06-30",
-          "dgs10": 0.0429,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.25,
-            "TLT": 0.25,
-            "VCIT": 0.25,
-            "SPY": 0.25
-          },
-          "ex_ante_vol": 0.08329416167343495,
-          "expected_return": 0.05645301183795013,
-          "turnover": 0.018567700333372794
-        },
-        {
-          "date": "2025-09-30",
-          "dgs10": 0.0415,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.25,
-            "TLT": 0.25,
-            "VCIT": 0.25,
-            "SPY": 0.25
-          },
-          "ex_ante_vol": 0.07606022255415353,
-          "expected_return": 0.054707312199322,
-          "turnover": 0.010986953881242836
+          "turnover": 0.04363703505760225
         },
         {
           "date": "2025-12-31",
@@ -182,93 +100,53 @@
           },
           "ex_ante_vol": 0.055562342517615534,
           "expected_return": 0.054153187299470794,
-          "turnover": 0.004928403103244328
-        },
-        {
-          "date": "2026-03-31",
-          "dgs10": 0.0435,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.25,
-            "TLT": 0.25,
-            "VCIT": 0.25,
-            "SPY": 0.25
-          },
-          "ex_ante_vol": 0.0601316508214113,
-          "expected_return": 0.055300301459455775,
-          "turnover": 0.008642532968204344
-        },
-        {
-          "date": "2026-06-30",
-          "dgs10": 0.0438,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.25,
-            "TLT": 0.25,
-            "VCIT": 0.25,
-            "SPY": 0.25
-          },
-          "ex_ante_vol": 0.0541440514796639,
-          "expected_return": 0.055114050457569175,
-          "turnover": 0.025426282450626447
-        },
-        {
-          "date": "2026-09-30",
-          "dgs10": 0.0526,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.25,
-            "TLT": 0.25,
-            "VCIT": 0.25,
-            "SPY": 0.25
-          },
-          "ex_ante_vol": 0.05674063922355469,
-          "expected_return": 0.06130361173818301,
-          "turnover": 0.020901902575398285
+          "turnover": 0.021315054191295535
         }
       ]
     },
     "benchmark": {
       "start": "2023-12-29",
       "end": "2026-09-30",
-      "ann_return": 0.1328703579436883,
-      "ann_vol": 0.08134820063068174,
-      "max_drawdown": 0.03915765999887544,
-      "turnover_per_year": 0.055653842790970076,
+      "ann_return": 0.1336583327253802,
+      "ann_vol": 0.08120186462113574,
+      "max_drawdown": 0.03924406336958863,
+      "turnover_per_year": 0.022683523604331637,
+      "max_turnover_year": 0.04478917501859822,
+      "worst_12m_loss": 0.0,
       "checks": [
         {
-          "rule": "Weights sum to 100%",
+          "rule": "S5 Weights sum to 100%",
           "value": 100.0,
           "pass": true
         },
         {
-          "rule": "Long-only (lowest weight)",
+          "rule": "S5 Long-only, no leverage (lowest weight)",
           "value": 0.0,
           "pass": true
         },
         {
-          "rule": "SPY between 30% and 70%",
-          "value": 60.0,
-          "pass": true
-        },
-        {
-          "rule": "SGOV at least 5%",
+          "rule": "S3 Reserve-eligible (SGOV+TLT) at least 3% (every decision)",
           "value": 0.0,
           "pass": false
         },
         {
-          "rule": "Ex-ante volatility at most 12% (worst decision)",
-          "value": 15.688092473590043,
-          "pass": false
-        },
-        {
-          "rule": "Backtest max drawdown at most 20%",
-          "value": 3.915765999887544,
+          "rule": "S6 Largest nonexempt issuer at most 8%",
+          "value": 0.0,
           "pass": true
         },
         {
-          "rule": "Turnover at most 25% a year",
-          "value": 5.565384279097008,
+          "rule": "S7 Turnover at most 25% in any year",
+          "value": 4.478917501859822,
+          "pass": true
+        },
+        {
+          "rule": "S8 Redeemable in 5 days at least 90%",
+          "value": 100.0,
+          "pass": true
+        },
+        {
+          "rule": "S9 Worst 12-month loss at most 10%",
+          "value": 0.0,
           "pass": true
         }
       ],
@@ -296,48 +174,6 @@
           "turnover": 0.0
         },
         {
-          "date": "2024-03-28",
-          "dgs10": 0.042,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.0,
-            "TLT": 0.0,
-            "VCIT": 0.4,
-            "SPY": 0.6
-          },
-          "ex_ante_vol": 0.15388937047583498,
-          "expected_return": 0.07,
-          "turnover": 0.02408934402757623
-        },
-        {
-          "date": "2024-06-28",
-          "dgs10": 0.0429,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.0,
-            "TLT": 0.0,
-            "VCIT": 0.4,
-            "SPY": 0.6
-          },
-          "ex_ante_vol": 0.13864550014764868,
-          "expected_return": 0.0709,
-          "turnover": 0.009307325359043273
-        },
-        {
-          "date": "2024-09-30",
-          "dgs10": 0.0375,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.0,
-            "TLT": 0.0,
-            "VCIT": 0.4,
-            "SPY": 0.6
-          },
-          "ex_ante_vol": 0.1094677659485928,
-          "expected_return": 0.0655,
-          "turnover": 0.0004135819235870364
-        },
-        {
           "date": "2024-12-31",
           "dgs10": 0.0455,
           "signal_status": "ok",
@@ -349,49 +185,7 @@
           },
           "ex_ante_vol": 0.1037432972140435,
           "expected_return": 0.0735,
-          "turnover": 0.012426049135132233
-        },
-        {
-          "date": "2025-03-31",
-          "dgs10": 0.042699999999999995,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.0,
-            "TLT": 0.0,
-            "VCIT": 0.4,
-            "SPY": 0.6
-          },
-          "ex_ante_vol": 0.09951952857892649,
-          "expected_return": 0.0707,
-          "turnover": 0.016761662824303913
-        },
-        {
-          "date": "2025-06-30",
-          "dgs10": 0.0429,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.0,
-            "TLT": 0.0,
-            "VCIT": 0.4,
-            "SPY": 0.6
-          },
-          "ex_ante_vol": 0.10150270732540925,
-          "expected_return": 0.0709,
-          "turnover": 0.018205175033449345
-        },
-        {
-          "date": "2025-09-30",
-          "dgs10": 0.0415,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.0,
-            "TLT": 0.0,
-            "VCIT": 0.4,
-            "SPY": 0.6
-          },
-          "ex_ante_vol": 0.09253884318555478,
-          "expected_return": 0.0695,
-          "turnover": 0.0123847975482205
+          "turnover": 0.04478917501859822
         },
         {
           "date": "2025-12-31",
@@ -405,102 +199,62 @@
           },
           "ex_ante_vol": 0.07383775273441873,
           "expected_return": 0.0694,
-          "turnover": 0.0035700590999258874
-        },
-        {
-          "date": "2026-03-31",
-          "dgs10": 0.0435,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.0,
-            "TLT": 0.0,
-            "VCIT": 0.4,
-            "SPY": 0.6
-          },
-          "ex_ante_vol": 0.08039972541953988,
-          "expected_return": 0.0715,
-          "turnover": 0.00968542825316826
-        },
-        {
-          "date": "2026-06-30",
-          "dgs10": 0.0438,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.0,
-            "TLT": 0.0,
-            "VCIT": 0.4,
-            "SPY": 0.6
-          },
-          "ex_ante_vol": 0.08345803902405274,
-          "expected_return": 0.0718,
-          "turnover": 0.03071290818736158
-        },
-        {
-          "date": "2026-09-30",
-          "dgs10": 0.0526,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.0,
-            "TLT": 0.0,
-            "VCIT": 0.4,
-            "SPY": 0.6
-          },
-          "ex_ante_vol": 0.08524595599897138,
-          "expected_return": 0.0806,
-          "turnover": 0.015491736283399449
+          "turnover": 0.017590514893313786
         }
       ]
     },
     "constrained": {
       "start": "2023-12-29",
       "end": "2026-09-30",
-      "ann_return": 0.14487514905929522,
-      "ann_vol": 0.08325320169296767,
-      "max_drawdown": 0.04724473992671874,
-      "turnover_per_year": 0.1652861999085933,
+      "ann_return": 0.1249069670969456,
+      "ann_vol": 0.06379722904648047,
+      "max_drawdown": 0.03245613378847634,
+      "turnover_per_year": 0.1317501085355199,
+      "max_turnover_year": 0.1918174851360808,
+      "worst_12m_loss": 0.0,
       "checks": [
         {
-          "rule": "Weights sum to 100%",
+          "rule": "S5 Weights sum to 100%",
           "value": 100.0,
           "pass": true
         },
         {
-          "rule": "Long-only (lowest weight)",
+          "rule": "S5 Long-only, no leverage (lowest weight)",
           "value": 0.0,
           "pass": true
         },
         {
-          "rule": "SPY between 30% and 70%",
-          "value": 70.0,
+          "rule": "S3 Reserve-eligible (SGOV+TLT) at least 3% (every decision)",
+          "value": 40.0,
           "pass": true
         },
         {
-          "rule": "SGOV at least 5%",
-          "value": 5.0,
+          "rule": "S6 Largest nonexempt issuer at most 8%",
+          "value": 0.0,
           "pass": true
         },
         {
-          "rule": "Ex-ante volatility at most 12% (worst decision)",
-          "value": 11.785462099243226,
+          "rule": "S7 Turnover at most 25% in any year",
+          "value": 19.18174851360808,
           "pass": true
         },
         {
-          "rule": "Backtest max drawdown at most 20%",
-          "value": 4.724473992671873,
+          "rule": "S8 Redeemable in 5 days at least 90%",
+          "value": 100.0,
           "pass": true
         },
         {
-          "rule": "Turnover at most 25% a year",
-          "value": 16.52861999085933,
+          "rule": "S9 Worst 12-month loss at most 10%",
+          "value": 0.0,
           "pass": true
         }
       ],
       "problems": [],
       "latest_weights": {
-        "SGOV": 0.05,
+        "SGOV": 0.4,
         "TLT": 0.0,
-        "VCIT": 0.25,
-        "SPY": 0.7
+        "VCIT": 0.0,
+        "SPY": 0.6
       },
       "verdict": "PASS",
       "decisions": [
@@ -519,8 +273,22 @@
           "turnover": 0.0
         },
         {
-          "date": "2024-03-28",
-          "dgs10": 0.042,
+          "date": "2024-12-31",
+          "dgs10": 0.0455,
+          "signal_status": "ok",
+          "weights": {
+            "SGOV": 0.6,
+            "TLT": 0.0,
+            "VCIT": 0.0,
+            "SPY": 0.4
+          },
+          "ex_ante_vol": 0.05040212033225069,
+          "expected_return": 0.06586007151692383,
+          "turnover": 0.1918174851360808
+        },
+        {
+          "date": "2025-12-31",
+          "dgs10": 0.0414,
           "signal_status": "ok",
           "weights": {
             "SGOV": 0.4,
@@ -528,149 +296,9 @@
             "VCIT": 0.0,
             "SPY": 0.6
           },
-          "ex_ante_vol": 0.11785462099243225,
-          "expected_return": 0.07050315547010752,
-          "turnover": 0.028859752811031564
-        },
-        {
-          "date": "2024-06-28",
-          "dgs10": 0.0429,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.35,
-            "TLT": 0.0,
-            "VCIT": 0.0,
-            "SPY": 0.65
-          },
-          "ex_ante_vol": 0.11339768100540504,
-          "expected_return": 0.0728209267068321,
-          "turnover": 0.04288287034213967
-        },
-        {
-          "date": "2024-09-30",
-          "dgs10": 0.0375,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.3,
-            "TLT": 0.0,
-            "VCIT": 0.0,
-            "SPY": 0.7
-          },
-          "ex_ante_vol": 0.09709642438094282,
-          "expected_return": 0.07052836124094568,
-          "turnover": 0.040387855863746686
-        },
-        {
-          "date": "2024-12-31",
-          "dgs10": 0.0455,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.05,
-            "TLT": 0.0,
-            "VCIT": 0.25,
-            "SPY": 0.7
-          },
-          "ex_ante_vol": 0.10525471105202247,
-          "expected_return": 0.07636333929307698,
-          "turnover": 0.25000000000000006
-        },
-        {
-          "date": "2025-03-31",
-          "dgs10": 0.042699999999999995,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.05,
-            "TLT": 0.0,
-            "VCIT": 0.25,
-            "SPY": 0.7
-          },
-          "ex_ante_vol": 0.10389044246213092,
-          "expected_return": 0.0735557914106342,
-          "turnover": 0.014213819660589717
-        },
-        {
-          "date": "2025-06-30",
-          "dgs10": 0.0429,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.05,
-            "TLT": 0.0,
-            "VCIT": 0.25,
-            "SPY": 0.7
-          },
-          "ex_ante_vol": 0.1061725632147794,
-          "expected_return": 0.07361060236759003,
-          "turnover": 0.016326212198847515
-        },
-        {
-          "date": "2025-09-30",
-          "dgs10": 0.0415,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.05,
-            "TLT": 0.0,
-            "VCIT": 0.25,
-            "SPY": 0.7
-          },
-          "ex_ante_vol": 0.09698520241239882,
-          "expected_return": 0.0721414624398644,
-          "turnover": 0.011307349318832122
-        },
-        {
-          "date": "2025-12-31",
-          "dgs10": 0.0414,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.05,
-            "TLT": 0.0,
-            "VCIT": 0.25,
-            "SPY": 0.7
-          },
-          "ex_ante_vol": 0.08015916559252054,
-          "expected_return": 0.07195063745989416,
-          "turnover": 0.003165886995078481
-        },
-        {
-          "date": "2026-03-31",
-          "dgs10": 0.0435,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.05,
-            "TLT": 0.0,
-            "VCIT": 0.25,
-            "SPY": 0.7
-          },
-          "ex_ante_vol": 0.0864247537704516,
-          "expected_return": 0.07386006029189114,
-          "turnover": 0.008976053057406622
-        },
-        {
-          "date": "2026-06-30",
-          "dgs10": 0.0438,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.05,
-            "TLT": 0.0,
-            "VCIT": 0.25,
-            "SPY": 0.7
-          },
-          "ex_ante_vol": 0.09251662084625345,
-          "expected_return": 0.07406281009151383,
-          "turnover": 0.026602724507272153
-        },
-        {
-          "date": "2026-09-30",
-          "dgs10": 0.0526,
-          "signal_status": "ok",
-          "weights": {
-            "SGOV": 0.05,
-            "TLT": 0.0,
-            "VCIT": 0.25,
-            "SPY": 0.7
-          },
-          "ex_ante_vol": 0.09394146060645756,
-          "expected_return": 0.0823407223476366,
-          "turnover": 0.011814524993687028
+          "ex_ante_vol": 0.06385749935356648,
+          "expected_return": 0.06580509967915327,
+          "turnover": 0.1704953133365989
         }
       ]
     }
@@ -679,15 +307,18 @@
     {
       "scenario": "Base case",
       "latest_weights": {
-        "SGOV": 0.05,
+        "SGOV": 0.4,
         "TLT": 0.0,
-        "VCIT": 0.25,
-        "SPY": 0.7
+        "VCIT": 0.0,
+        "SPY": 0.6
       },
-      "ann_return": 0.14487514905929522,
-      "max_drawdown": 0.04724473992671874,
-      "ann_vol": 0.08325320169296767,
-      "turnover_per_year": 0.1652861999085933,
+      "ann_return": 0.1249069670969456,
+      "max_drawdown": 0.03245613378847634,
+      "ann_vol": 0.06379722904648047,
+      "turnover_per_year": 0.1317501085355199,
+      "max_turnover_year": 0.1918174851360808,
+      "worst_12m_loss": 0.0,
+      "objective_met": true,
       "verdict": "PASS",
       "failed_rules": [],
       "problems": [],
@@ -698,30 +329,40 @@
       "latest_weights": {
         "SGOV": 0.05,
         "TLT": 0.0,
-        "VCIT": 0.25,
-        "SPY": 0.7
+        "VCIT": 0.0,
+        "SPY": 0.95
       },
-      "ann_return": 0.14487514905929522,
-      "max_drawdown": 0.04724473992671874,
-      "ann_vol": 0.08325320169296767,
-      "turnover_per_year": 0.1652861999085933,
-      "verdict": "PASS",
+      "ann_return": 0.1937000198046923,
+      "max_drawdown": 0.07157702995833892,
+      "ann_vol": 0.11232262235370029,
+      "turnover_per_year": 0.004722602040630047,
+      "max_turnover_year": 0.007517515578119312,
+      "worst_12m_loss": 0.0,
+      "objective_met": false,
+      "verdict": "MISS",
       "failed_rules": [],
-      "problems": [],
+      "problems": [
+        "2023-12-29: no portfolio inside the limits reaches the 6.5% objective",
+        "2024-12-31: no portfolio inside the limits reaches the 6.5% objective",
+        "2025-12-31: no portfolio inside the limits reaches the 6.5% objective"
+      ],
       "start": "2023-12-29"
     },
     {
       "scenario": "Estimates: credit spread 0.5% (not 1%)",
       "latest_weights": {
-        "SGOV": 0.05,
+        "SGOV": 0.4,
         "TLT": 0.0,
-        "VCIT": 0.25,
-        "SPY": 0.7
+        "VCIT": 0.0,
+        "SPY": 0.6
       },
-      "ann_return": 0.1416964486969241,
-      "max_drawdown": 0.05052480371319146,
-      "ann_vol": 0.08295387518173175,
-      "turnover_per_year": 0.15930180492993637,
+      "ann_return": 0.1249069670969456,
+      "max_drawdown": 0.03245613378847634,
+      "ann_vol": 0.06379722904648047,
+      "turnover_per_year": 0.1317501085355199,
+      "max_turnover_year": 0.1918174851360808,
+      "worst_12m_loss": 0.0,
+      "objective_met": true,
       "verdict": "PASS",
       "failed_rules": [],
       "problems": [],
@@ -730,34 +371,38 @@
     {
       "scenario": "Window: 12 months (not 24)",
       "latest_weights": {
-        "SGOV": 0.05,
+        "SGOV": 0.3,
         "TLT": 0.0,
-        "VCIT": 0.25,
-        "SPY": 0.7
+        "VCIT": 0.15,
+        "SPY": 0.55
       },
-      "ann_return": 0.15960197653784514,
-      "max_drawdown": 0.04889500098889754,
-      "ann_vol": 0.08907895481997755,
-      "turnover_per_year": 0.34159581147048274,
-      "verdict": "FAIL",
-      "failed_rules": [
-        "Turnover at most 25% a year"
-      ],
+      "ann_return": 0.1387499033994155,
+      "max_drawdown": 0.07571169486704676,
+      "ann_vol": 0.08651594015302931,
+      "turnover_per_year": 0.15928700114616703,
+      "max_turnover_year": 0.24999999999999997,
+      "worst_12m_loss": 0.0,
+      "objective_met": true,
+      "verdict": "PASS",
+      "failed_rules": [],
       "problems": [],
       "start": "2022-12-30"
     },
     {
       "scenario": "Window: 36 months (not 24)",
       "latest_weights": {
-        "SGOV": 0.05,
+        "SGOV": 0.4,
         "TLT": 0.0,
-        "VCIT": 0.25,
-        "SPY": 0.7
+        "VCIT": 0.0,
+        "SPY": 0.6
       },
-      "ann_return": 0.12618327098664728,
-      "max_drawdown": 0.045610244866720384,
-      "ann_vol": 0.08978901015989806,
-      "turnover_per_year": 0.17078280697385936,
+      "ann_return": 0.10523706151792211,
+      "max_drawdown": 0.03245613378847656,
+      "ann_vol": 0.06610262571728553,
+      "turnover_per_year": 0.09742589333519937,
+      "max_turnover_year": 0.1704953133365989,
+      "worst_12m_loss": 0.0,
+      "objective_met": true,
       "verdict": "PASS",
       "failed_rules": [],
       "problems": [],
@@ -766,77 +411,111 @@
     {
       "scenario": "Costs: 50 bps (not 10)",
       "latest_weights": {
-        "SGOV": 0.05,
+        "SGOV": 0.4,
         "TLT": 0.0,
-        "VCIT": 0.25,
-        "SPY": 0.7
+        "VCIT": 0.0,
+        "SPY": 0.6
       },
-      "ann_return": 0.1433609270169447,
-      "max_drawdown": 0.04735308133818816,
-      "ann_vol": 0.08325320169296767,
-      "turnover_per_year": 0.1652861999085933,
+      "ann_return": 0.12372064533953542,
+      "max_drawdown": 0.03245613378847623,
+      "ann_vol": 0.06379722904648047,
+      "turnover_per_year": 0.1317501085355199,
+      "max_turnover_year": 0.1918174851360808,
+      "worst_12m_loss": 0.0,
+      "objective_met": true,
       "verdict": "PASS",
       "failed_rules": [],
       "problems": [],
       "start": "2023-12-29"
     },
     {
-      "scenario": "Constraint: SPY at most 50% (not 70%)",
+      "scenario": "Constraint: reserve at least 15% (not 3%)",
       "latest_weights": {
-        "SGOV": 0.05,
+        "SGOV": 0.4,
         "TLT": 0.0,
-        "VCIT": 0.45,
-        "SPY": 0.5
+        "VCIT": 0.0,
+        "SPY": 0.6
       },
-      "ann_return": 0.11961415482060511,
-      "max_drawdown": 0.03337252899915211,
-      "ann_vol": 0.06498338487432745,
-      "turnover_per_year": 0.21876633782213323,
+      "ann_return": 0.1249069670969456,
+      "max_drawdown": 0.03245613378847634,
+      "ann_vol": 0.06379722904648047,
+      "turnover_per_year": 0.1317501085355199,
+      "max_turnover_year": 0.1918174851360808,
+      "worst_12m_loss": 0.0,
+      "objective_met": true,
       "verdict": "PASS",
       "failed_rules": [],
       "problems": [],
       "start": "2023-12-29"
     },
     {
-      "scenario": "Constraint: volatility at most 8% (not 12%)",
+      "scenario": "Constraint: 12-month loss at most 5% (not 10%)",
       "latest_weights": {
-        "SGOV": 0.05,
+        "SGOV": 0.4,
         "TLT": 0.0,
-        "VCIT": 0.4,
-        "SPY": 0.55
+        "VCIT": 0.0,
+        "SPY": 0.6
       },
-      "ann_return": 0.11444466014601695,
-      "max_drawdown": 0.04143793745832092,
-      "ann_vol": 0.07241981255470467,
-      "turnover_per_year": 0.37577882406763446,
-      "verdict": "FAIL",
-      "failed_rules": [
-        "Turnover at most 25% a year"
-      ],
+      "ann_return": 0.1249069670969456,
+      "max_drawdown": 0.03245613378847634,
+      "ann_vol": 0.06379722904648047,
+      "turnover_per_year": 0.1317501085355199,
+      "max_turnover_year": 0.1918174851360808,
+      "worst_12m_loss": 0.0,
+      "objective_met": true,
+      "verdict": "PASS",
+      "failed_rules": [],
       "problems": [],
       "start": "2023-12-29"
     }
   ],
-  "stop": "STOP",
-  "stop_reasons": [
-    "2 stress scenarios break a hard limit (stop at 2)"
-  ],
+  "stop": "GO",
+  "stop_reasons": [],
   "allocation_range": {
     "SGOV": [
-      0.05,
-      0.05
+      0.3,
+      0.4
     ],
     "TLT": [
       0.0,
       0.0
     ],
     "VCIT": [
-      0.25,
-      0.45
+      0.0,
+      0.15
     ],
     "SPY": [
-      0.5,
-      0.7
+      0.55,
+      0.6
     ]
+  },
+  "trigger_review": {
+    "date": "2026-09-30",
+    "dgs10": 0.0526,
+    "status": "ok",
+    "last_decision": "2025-12-31",
+    "last_dgs10": 0.0414,
+    "band": [
+      0.0339,
+      0.0489
+    ],
+    "current_weights": {
+      "SGOV": 0.377908277724062,
+      "TLT": 0.0,
+      "VCIT": 0.0,
+      "SPY": 0.6220917222759381
+    },
+    "triggered": true,
+    "review_weights": {
+      "SGOV": 0.35,
+      "TLT": 0.0,
+      "VCIT": 0.25,
+      "SPY": 0.4
+    },
+    "objective_met": true,
+    "review_expected_return": 0.0657850564334562,
+    "review_vol": 0.056396841000339606,
+    "current_expected_return": 0.0717449226926571,
+    "trade": 0.25000000000000006
   }
 }

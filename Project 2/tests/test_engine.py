@@ -29,25 +29,30 @@ def test_covariance_is_symmetric():
             assert abs(cov[a, b] - cov[b, a]) < 1e-12
 
 
-def test_constrained_meets_static_limits_every_quarter():
+def test_constrained_meets_limits_and_objective_every_decision():
     r = E.backtest(DATES, RETS, SIG, "constrained")
     for d in r["log"]:
-        w = d["weights"]
-        assert abs(sum(w.values()) - 1) < 1e-9
-        assert E.static_ok(w, C.LIMITS)
-        assert d["ex_ante_vol"] <= C.LIMITS["vol_max"] + 1e-9
+        assert E.static_ok(d["weights"], C.LIMITS)
+        assert d["expected_return"] >= C.OBJECTIVE_RETURN - 1e-9
+        assert d["turnover"] <= C.LIMITS["turnover_max"] + 1e-9
 
 
-def test_baselines_fail_for_the_named_rule():
-    eq = E.backtest(DATES, RETS, SIG, "equal")
+def test_benchmark_fails_reserve_rule():
     bm = E.backtest(DATES, RETS, SIG, "benchmark")
-    assert E.verdict(eq)[0] == "FAIL" and any("SPY" in f for f in E.verdict(eq)[1])
-    assert E.verdict(bm)[0] == "FAIL" and any("SGOV" in f for f in E.verdict(bm)[1])
+    v, fails = E.verdict(bm)
+    assert v == "FAIL" and any(f.startswith("S3") for f in fails)
 
 
-def test_infeasible_limits_are_reported():
-    r = E.backtest(DATES, RETS, SIG, "constrained", {"limits": {"vol_max": 0.01}})
-    assert r["problems"], "an impossible volatility cap should be flagged"
+def test_checker_catches_a_short_position():
+    r = E.backtest(DATES, RETS, SIG, "equal")
+    r["log"][-1]["weights"] = {"SGOV": -0.05, "TLT": 0.25, "VCIT": 0.25, "SPY": 0.55}
+    v, fails = E.verdict({**r, "checks": E.mandate_checks(r)})
+    assert v == "FAIL" and any("Long-only" in f for f in fails)
+
+
+def test_unreachable_objective_is_reported():
+    r = E.backtest(DATES, RETS, SIG, "constrained", {"objective": 0.20})
+    assert r["problems"], "an impossible 20% objective should be flagged"
 
 
 def test_higher_costs_lower_return():
