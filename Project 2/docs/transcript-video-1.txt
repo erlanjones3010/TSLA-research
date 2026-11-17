@@ -45,5 +45,4 @@ machine, so I double-check everything and make sure it runs before I rely on it.
 I test AI output myself before I trust it, because otherwise it could fail.
 Thank you.
 
-Note: at 2:12 I said "Codex wrote the chart code." It was Claude; see the
-correction in docs/validation-and-ai-use.md.
+
