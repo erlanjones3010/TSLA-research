@@ -40,7 +40,7 @@ Stress run result: 7 of 8 scenarios pass. With a 2% equity premium, no mix insid
 
 ## Reproducibility (cold run)
 - 2026-11-17: downloaded the repository fresh from GitHub, created a new Python environment, ran `pip install -r requirements.txt`, then `python3 tests/test_engine.py` (all tests passed), `python3 run_analysis.py` (output matched `output/results.md`) and loaded the app with no errors. (Run with Claude.)
-- Week 12 partner cold run from the README: *[partner's result and any fix]*
+- Week 12 studio (Tuesday) partner cold run: my classmate Oliana Oozbaki ran the app from the README alone, without my help. It ran; no fixes were needed.
 
 ## Limitations
 - Short backtest: 2023-12 to 2026-09 with three annual rebalances, in a strong stock market; the 10% loss limit was never tested.
