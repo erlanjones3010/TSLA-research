@@ -1,7 +1,5 @@
 # Riverside Community Foundation — Investment Management App (FIN 43900 Project 2)
 
-**AI use:** I used Claude (Anthropic, Opus) to help write the Python code, tests and document drafts. *[Add any other AI tool and what you used it for.]* The mandate choices, the analysis, the checks I ran and the committee decision are my own.
-
 **Education, not investment advice.** The client is fictional.
 
 ## Run it
