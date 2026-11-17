@@ -35,7 +35,7 @@ These ranges allow us to invest in stocks and bonds while following the portfoli
 I would monitor the 10-year Treasury yield and the portfolio's drawdown. If the yield drops below 4.51% or rises above 6.01%, I would review the portfolio. I would also review it if the drawdown reaches 15%, since that would mean the portfolio has lost a significant amount of value.
 
 ## Claim most likely to reverse this decision
-My decision is based on the idea that the portfolio can stay within its limits while managing risk. If the portfolio reaches a 15% drawdown, I would reconsider my recommendation because it would show that the portfolio is taking on more risk than I am comfortable with.
+My decision is based on the idea that the portfolio can stay within its limits while managing risk. If the portfolio reaches a 15% reduction, I would reconsider my recommendation because it would show that the portfolio is taking on more risk than I am comfortable with.
 
 ## Committee ask
 I am asking the committee to approve these allocation ranges as a conditional recommendation. I would also like approval to continue monitoring the portfolio and to hold off on new trades until the STOP condition is cleared.
