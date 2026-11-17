@@ -32,7 +32,7 @@ I recommend staying within these portfolio ranges:
 These ranges allow us to invest in stocks and bonds while following the portfolio's rules.
 
 ## Monitoring triggers
-I would monitor the 10-year Treasury yield and the portfolio's reduction. If the yield drops below 4.51% or rises above 6.01%, I would review the portfolio. I would also review it if the reduction reaches 15%, since that would mean the portfolio has lost a significant amount of value.
+I would monitor the 10-year Treasury yield and the portfolio's reduction in value from its peak. If the yield drops below 4.51% or rises above 6.01%, I would review the portfolio. I would also review it if the reduction reaches 15%, since that would mean the portfolio has lost a significant amount of value.
 
 ## Claim most likely to reverse this decision
 My decision is based on the idea that the portfolio can stay within its limits while managing risk. If the portfolio reaches a 15% reduction, I would reconsider my recommendation because it would show that the portfolio is taking on more risk than I am comfortable with.
