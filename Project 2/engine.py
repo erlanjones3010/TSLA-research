@@ -173,7 +173,7 @@ def backtest(dates, rets, signal_table, strategy, s=None):
             if strategy == "constrained":
                 if dgs10 is None or status != "ok":
                     problems.append(f"{dates[i]}: signal {status}")
-                    target = w_cur or benchmark()
+                    target = w_cur or equal_weight()
                     mu = None
                 else:
                     mu = expected_returns(dgs10, rets, i, s)
@@ -317,7 +317,7 @@ def trigger_review(dates, rets, signal_table, res, s=None):
     last_dec = res["log"][-1]
     dgs10, status = signal_on(dates[i], signal_table)
     out = {"date": dates[i], "dgs10": dgs10, "status": status, "last_decision": last_dec["date"],
-           "last_dgs10": last_dec["dgs10"], "band": (last_dec["dgs10"] - 0.0075, last_dec["dgs10"] + 0.0075),
+           "last_dgs10": last_dec["dgs10"], "band": (last_dec["dgs10"] - C.YIELD_TRIGGER_BAND, last_dec["dgs10"] + C.YIELD_TRIGGER_BAND),
            "current_weights": res["final_weights"]}
     out["triggered"] = dgs10 is not None and not (out["band"][0] <= dgs10 <= out["band"][1])
     if dgs10 is not None and status == "ok":

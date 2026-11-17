@@ -10,6 +10,14 @@
 | Monthly ETF prices (SGOV, TLT, VCIT, SPY) | `data/prices.csv` from my Lab 14–15 work; Yahoo Finance historical data (finance.yahoo.com/quote/&lt;ticker&gt;/history), file saved 2026-10-22 | 2021-10-29 to 2026-09-30 | Month-end prices; a decision on date t uses returns through t only |
 | 10-year Treasury yield (DGS10) | ALFRED, Federal Reserve Bank of St. Louis | 20 quarter-ends, 2021-12-31 to 2026-09-30 (the model uses the year-ends for rebalancing and 2026-09-30 for the trigger check) | Vintage on the decision date; latest observation strictly before it; stale if > 7 days |
 
+## Definitions and transformations
+- **Prices:** Yahoo Finance month-end *adjusted* closes (dividends reinvested), so SGOV's price rises as it pays interest. Yahoo revises past adjusted closes when new dividends are paid; this rescales the price history but leaves monthly returns essentially unchanged.
+- **Returns:** simple monthly returns, price(t) / price(t−1) − 1. No rows were dropped, filled or cleaned; the loader stops if a price is missing, zero or out of date order.
+- **Risk:** sample covariance (n − 1) of the trailing 24 monthly returns, annualized × 12; volatility is its square root.
+- **Expected returns:** TLT = 10-yr yield; VCIT = yield + 1.0%; SPY = yield + 4.0%; SGOV = its trailing 12-month return (a realized rate, used as the cash yield).
+- **Signal timing:** for each decision date the ALFRED vintage of that date is used and the latest observation strictly before it is kept, so later revisions cannot leak in (`build_signal_data.py` rebuilds the file).
+- **Licensing and privacy:** FRED/ALFRED data is public; Yahoo Finance data is used for coursework only. No personal data or credentials are stored.
+
 ## Mandate source
 The mandate is the Meridian mandate from Lab 13 (statements S1–S10). Each rule in `config.py` and the app is tagged with its statement. S10 (no optimization goal) is answered as in Lab 14: the lowest-volatility mix that meets every limit and still reaches the 6.5% objective. S9 (the 10% loss limit Lab 13 flagged as unverifiable) is measured here as the worst rolling 12-month loss.
 
@@ -24,8 +32,15 @@ The mandate is the Meridian mandate from Lab 13 (statements S1–S10). Each rule
 | test_checker_catches_a_short_position | A −5% SGOV weight is caught by the S5 long-only rule | PASS |
 | test_unreachable_objective_is_reported | An impossible 20% objective is flagged, not hidden | PASS |
 | test_higher_costs_lower_return | Higher trading costs lower the return | PASS |
+| test_reserve_minimum_matches_lab13_checker | Known answer: reserve minimum = 3.0%, the same value my Lab 13 `mandate.py` printed | PASS |
+| test_portfolio_volatility_known_answer | Known answer: 50/50 of uncorrelated 10% and 20% volatility assets = 11.18% | PASS |
+| test_no_look_ahead_in_decisions | Changing every price after a decision date does not change that decision | PASS |
 
 Stress run result: 7 of 8 scenarios pass. With a 2% equity premium, no mix inside the limits reaches 6.5% (MISS). Stop condition = GO (it stops at 2). Trigger check: the 10-year yield on 2026-09-30 (5.26%) is above the review band set at the last rebalance (3.39%–4.89%), so the yield trigger has fired.
+
+## Reproducibility (cold run)
+- 2026-11-17: downloaded the repository fresh from GitHub, created a new Python environment, ran `pip install -r requirements.txt`, then `python3 tests/test_engine.py` (all tests passed), `python3 run_analysis.py` (output matched `output/results.md`) and loaded the app with no errors. (Run with Claude.)
+- Week 12 partner cold run from the README: *[partner's result and any fix]*
 
 ## Limitations
 - Short backtest: 2023-12 to 2026-09 with three annual rebalances, in a strong stock market; the 10% loss limit was never tested.
@@ -70,25 +85,6 @@ Stress run result: 7 of 8 scenarios pass. With a 2% equity premium, no mix insid
 - Prediction vs result: verdict (PASS) and stop condition (GO) were right; the weights and return were wrong in direction. SPY fell from 60% to 45% instead of rising to 70%, and the backtest return fell instead of rising.
 - Diagnosis: the optimizer takes the lowest-volatility mix that still reaches the 6.5% objective (Lab 13 S10, answered as in Lab 14). A higher equity premium raises SPY's expected return, so less SPY is needed to reach 6.5%, and the model shifts weight to lower-risk SGOV and VCIT. The backtest return fell because SPY was the best performer over 2023–2026 and the portfolio held less of it.
 
+*The before/after table and diagnosis wording were drafted with Claude after the run; the prediction and the lesson below are my own.*
+
 **What I learned:** Overall, I learned how the app helps make investment decisions by analyzing expected returns, risks, and portfolio constraints. It also showed me that even when an investment looks attractive, the portfolio must still meet the client's requirements, which helps the committee make more informed decisions.
-
-### Earlier record (superseded)
-This record was made on an earlier version of the app that used my own Riverside mandate instead of the Lab 13 mandate. I kept it as history; the record above is the one for the final app.
-
-**Changed input:** Equity risk premium, from 4.0% to 5.0% (everything else at default)
-
-**My prediction, written with AI off and committed before the run** (commit link: https://github.com/erlanjones3010/TSLA-research/commit/56d5d72c3b610471488f532be63b1d468a20a88f, 2026-11-17):
-- Constrained weights at the latest date: SGOV 5% / TLT 0% / VCIT 15% / SPY 80%
-- Return a year: higher
-- Constrained verdict: PASS
-- Stop condition: GO
-- Why: I increased SPY to 80% because I want more exposure to stocks and their potential for higher long-term returns. I took the extra 10% from VCIT because I would rather invest more in stocks than corporate bonds.
-
-**Result after the run (equity premium 5.0%, all else default):**
-- Constrained weights at the latest date: SGOV 5% / TLT 0% / VCIT 25% / SPY 70% (unchanged from the 4% base case; all 12 quarterly decisions identical)
-- Return a year: 14.5% (unchanged)
-- Constrained verdict: PASS
-- Stop condition: STOP (2 of 8 stress scenarios break the 25% turnover limit; unrelated to the premium)
-- Prediction vs result: weights, return and stop condition were wrong; the verdict was right. SPY stayed at 70% because 70% is the mandate's hard maximum, so an 80% SPY weight would have failed the mandate.
-
-**What I learned:** I learned that even though I predicted SPY would increase to 80%, the portfolio rules only allow 70%. Changing the equity premium did not change the weights, which showed me that the portfolio limits have more control over the results than I originally thought.

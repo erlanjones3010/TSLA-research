@@ -1,6 +1,6 @@
 # Results — Meridian Endowment (course client from Lab 13)
 
-Run: 2026-11-17 15:01  |  Decision date (as of): 2025-12-31  |  10-yr yield known then: 4.14% (ok)
+Run: 2026-11-17 15:45  |  Decision date (as of): 2025-12-31  |  10-yr yield known then: 4.14% (ok)
 
 Inputs: objective 6.5% (CPI 2.5% + 4%), equity premium 4.0%, credit spread 1.0%, window 24 months, cost 10 bps, annual rebalance; limits: reserve-eligible >= 3%, issuer <= 8%, turnover <= 25%/yr, liquidity >= 90% in 5 days, 12-month loss <= 10%, long-only
 

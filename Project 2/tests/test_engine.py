@@ -61,6 +61,33 @@ def test_higher_costs_lower_return():
     assert hi["ann_return"] < lo["ann_return"]
 
 
+def test_reserve_minimum_matches_lab13_checker():
+    # Known answer: Lab 13 mandate.py printed a 3.0% minimum reserve (4 x $0.75M / $100M)
+    assert abs(C.LIMITS["reserve_min"] - 0.03) < 1e-12
+
+
+def test_portfolio_volatility_known_answer():
+    # Known answer: 50/50 mix of two uncorrelated assets with 10% and 20% volatility
+    # has volatility sqrt(0.25*0.01 + 0.25*0.04) = 11.18%
+    cov = {(a, b): 0.0 for a in C.ASSETS for b in C.ASSETS}
+    cov["SGOV", "SGOV"], cov["SPY", "SPY"] = 0.01, 0.04
+    w = {"SGOV": 0.5, "TLT": 0.0, "VCIT": 0.0, "SPY": 0.5}
+    assert abs(E.port_vol(w, cov) - 0.111803) < 1e-6
+
+
+def test_no_look_ahead_in_decisions():
+    # Changing every price after a decision date must not change that decision
+    base = E.backtest(DATES, RETS, SIG, "constrained")
+    first = base["log"][0]["date"]
+    i = DATES.index(first)
+    shocked = {a: list(p) for a, p in PRICES.items()}
+    for a in C.ASSETS:
+        for k in range(i + 1, len(DATES)):
+            shocked[a][k] *= 0.5 if a == "SPY" else 1.3
+    alt = E.backtest(DATES, E.monthly_returns(shocked), SIG, "constrained")
+    assert alt["log"][0]["weights"] == base["log"][0]["weights"]
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

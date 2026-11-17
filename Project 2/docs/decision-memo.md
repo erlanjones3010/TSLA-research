@@ -4,10 +4,10 @@
 
 **Education, not investment advice.** Meridian is the course client from Lab 13.
 
-**To:** Investment Committee  **As of:** last rebalance 2025-12-31 (10-yr yield 4.14%); trigger check on 2026-09-30 data (10-yr yield 5.26%)
+**To:** Investment Committee  **Mandate:** Lab 13 (CPI + 4% = 6.5%, 7-year horizon, annual rebalancing)  **As of:** last rebalance 2025-12-31 (10-yr yield 4.14%); trigger check on 2026-09-30 data (10-yr yield 5.26%)
 
 ## My decision
-**Rebalance.** I recommend waiting until the scheduled December rebalance rather than immediately changing the portfolio. The fired trigger should be reviewed, but I would not make a major adjustment without confirming the signal.
+**Rebalance.** I recommend waiting until the scheduled December rebalance rather than immediately changing the portfolio. The fired trigger should be reviewed, but I would not make a major adjustment without confirming the signal. I recommend waiting until the December rebalance to confirm the fired yield trigger. If the 10-year Treasury yield remains above 4.89%, I would review the portfolio and consider rebalancing.
 
 ## The question
 The investment committee needs to decide whether to approve the portfolio recommended by our model and whether it meets the investment rules.
@@ -43,7 +43,7 @@ These ranges cover both the current portfolio and the model's proposed rebalance
 - A rebalance requires more than 20% turnover.
 
 ## Claim most likely to reverse this decision
-My recommendation assumes that the equity premium is a reasonable estimate of future stock returns. If that assumption proves too optimistic and expected returns decline significantly, I would reconsider the allocation.
+My recommendation assumes the equity premium will remain high enough to meet the 6.5% return objective. If the equity premium falls to 2%, the model shows that the 6.5% target becomes unreachable, which would cause me to reconsider my recommendation.
 
 ## Committee ask
 I am asking the committee to approve the proposed allocation ranges, continue monitoring the portfolio's risk and return, and allow a rebalance in December unless a major risk trigger requires earlier action.

@@ -277,11 +277,11 @@ with tabs[4]:
         y = last["dgs10"]
         st.markdown(f"""
 **Monitoring triggers** (review at once if hit; otherwise at the next annual rebalance)
-- 10-yr yield below **{y - 0.0075:.2%}** or above **{y + 0.0075:.2%}**
-- Rolling 12-month loss reaches **7.5%** (S9 limit {C.LIMITS['loss_max']:.0%})
+- 10-yr yield below **{y - C.YIELD_TRIGGER_BAND:.2%}** or above **{y + C.YIELD_TRIGGER_BAND:.2%}**
+- Rolling 12-month loss reaches **{C.LOSS_TRIGGER:.1%}** (S9 limit {C.LIMITS['loss_max']:.0%})
 - Expected return falls below the **{objective:.1%}** objective at a decision date
 - Signal older than **{C.SIGNAL_MAX_AGE_DAYS} days** on a decision date
-- A rebalance needs more than **20%** turnover (S7 limit {C.LIMITS['turnover_max']:.0%})
+- A rebalance needs more than **{C.TURNOVER_TRIGGER:.0%}** turnover (S7 limit {C.LIMITS['turnover_max']:.0%})
 """)
 
     rv = out["review"]

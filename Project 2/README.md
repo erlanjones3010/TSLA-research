@@ -8,7 +8,7 @@
 
 **Intended user:** the investment committee of the Meridian endowment (the Lab 13 client), advised by a portfolio analyst.
 
-**Decision:** adopt, allocate to, rebalance, pilot or reject the proposed constrained allocation across SGOV, TLT, VCIT and SPY under the Lab 13 mandate in `config.py`. The recommendation is in `docs/decision-memo.md`.
+**Decision:** adopt, allocate to, rebalance, pilot or reject the proposed constrained allocation across SGOV, TLT, VCIT and SPY under the Lab 13 mandate in `config.py` (7-year horizon, annual rebalancing). The recommendation is in `docs/decision-memo.md`.
 
 ## Run it
 
@@ -20,7 +20,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Optional: `python run_analysis.py` (writes `output/results.md` and `output/results.json`) and `python tests/test_engine.py` (runs the tests). No API key is needed; the data files are in `data/`.
+Optional: `python3 run_analysis.py` (writes `output/results.md` and `output/results.json`) and `python3 tests/test_engine.py` (runs the 11 tests). No API key or credentials are needed; the data files are in `data/`. Tested with Python 3.9 and 3.10.
 
 ## What it does
 
@@ -43,6 +43,7 @@ The Meridian endowment ($100 million, $0.75 million paid out each quarter) must 
 | `build_signal_data.py` | Rebuilds `data/dgs10_asof.csv` from ALFRED (needs internet) |
 | `data/` | `prices.csv` (monthly ETF prices), `dgs10_asof.csv` (point-in-time yield) |
 | `tests/test_engine.py` | Tests |
+| `output/` | Executed results: `results.md` (readable) and `results.json` (every number) |
 | `docs/decision-memo.md` | Committee decision |
 | `docs/validation-and-ai-use.md` | Sources, tests, limitations, AI use, Locked Changed-Input Record |
 
@@ -51,7 +52,7 @@ The Meridian endowment ($100 million, $0.75 million paid out each quarter) must 
 | Data | Source | As of |
 |---|---|---|
 | Monthly prices for SGOV, TLT, VCIT, SPY (`data/prices.csv`) | Yahoo Finance historical data | 2021-10-29 to 2026-09-30 (file saved 2026-10-22) |
-| 10-year Treasury yield, point in time (`data/dgs10_asof.csv`) | ALFRED (St. Louis Fed), series DGS10 | Vintage on each quarter-end decision date, 2021-12-31 to 2026-09-30 |
+| 10-year Treasury yield, point in time (`data/dgs10_asof.csv`) | ALFRED (St. Louis Fed), series DGS10 | Vintage on each quarter-end, 2021-12-31 to 2026-09-30; the model uses the year-ends for rebalancing and 2026-09-30 for the trigger check |
 
 Each decision uses only data known on that date. Full details: `docs/validation-and-ai-use.md`.
 

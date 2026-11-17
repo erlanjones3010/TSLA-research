@@ -56,6 +56,11 @@ CREDIT_SPREAD = 0.010                      # VCIT expected return = 10-yr yield 
 EQUITY_RISK_PREMIUM = 0.040                # SPY expected return = 10-yr yield + 4.0%
 SIGNAL_MAX_AGE_DAYS = 7                    # stop if the latest known yield is older than this
 
+# Monitoring triggers (analyst choices, shown in the app and memo)
+YIELD_TRIGGER_BAND = 0.0075                # review if the 10-yr yield moves more than 0.75 points from the last rebalance
+LOSS_TRIGGER = 0.075                       # review if the rolling 12-month loss reaches 7.5% (S9 limit 10%)
+TURNOVER_TRIGGER = 0.20                    # review if a rebalance needs more than 20% turnover (S7 limit 25%)
+
 # Stop condition: the process stops if any of these is true
 #  1. the constrained portfolio breaks a hard limit in the base backtest
 #  2. the signal is missing or older than SIGNAL_MAX_AGE_DAYS at a decision date
