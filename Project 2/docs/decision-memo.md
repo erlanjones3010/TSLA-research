@@ -4,10 +4,10 @@
 
 **Education, not investment advice.** The client is fictional.
 
-**To:** Investment Committee  **From:** *[your name]*  **As of:** 2026-09-30 data (10-yr yield known: 5.26%)
+**To:** Investment Committee  **As of:** 2026-09-30 data (10-yr yield known: 5.26%)
 
 ## The question
-*[One sentence: what the committee must decide.]*
+The investment committee needs to decide whether to approve the portfolio recommended by our model and whether it meets the investment rules.
 
 ## What the app shows
 | Portfolio | SPY | VCIT | SGOV | Return/yr | Max DD | Verdict |
@@ -19,16 +19,23 @@
 Stress run: 6 of 8 scenarios pass; the 12-month window and the 8% volatility cap both break the 25% turnover limit, so the **stop condition is triggered (STOP)**. Backtest 2023-12-29 to 2026-09-30.
 
 ## My decision
-*[Write without AI: action, allocation range, condition, what you monitor, what would reverse it. Address the STOP.]*
+I recommend keeping the current portfolio allocation but not approving any new trades until the STOP condition is resolved. My testing showed that changing the equity risk premium did not change the portfolio weights because the model's limits still applied.
 
 ## Allocation range
-*[Model-supported range: SPY 50–70%, VCIT 25–45%, SGOV 5%, TLT 0%. State yours.]*
+I recommend staying within these portfolio ranges:
+
+- SPY: 50–70%
+- VCIT: 25–45%
+- SGOV: 5%
+- TLT: 0%
+
+These ranges allow us to invest in stocks and bonds while following the portfolio's rules.
 
 ## Monitoring triggers
-*[Pick from the app's list and add your own.]*
+I would monitor the 10-year Treasury yield and the portfolio's drawdown. If the yield drops below 4.51% or rises above 6.01%, I would review the portfolio. I would also review it if the drawdown reaches 15%, since that would mean the portfolio has lost a significant amount of value.
 
 ## Claim most likely to reverse this decision
-*[Write without AI.]*
+My decision is based on the idea that the portfolio can stay within its limits while managing risk. If the portfolio reaches a 15% drawdown, I would reconsider my recommendation because it would show that the portfolio is taking on more risk than I am comfortable with.
 
 ## Committee ask
-*[What you want them to approve.]*
+I am asking the committee to approve these allocation ranges as a conditional recommendation. I would also like approval to continue monitoring the portfolio and to hold off on new trades until the STOP condition is cleared.

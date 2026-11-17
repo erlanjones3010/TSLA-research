@@ -7,7 +7,7 @@
 ## Sources and as-of dates
 | Data | Source | Coverage | As-of rule |
 |---|---|---|---|
-| Monthly ETF prices (SGOV, TLT, VCIT, SPY) | `data/prices.csv` from my Lab 14 work *[confirm source, e.g. Yahoo Finance adjusted close, and download date]* | 2021-10-29 to 2026-09-30 | Month-end prices; a decision on date t uses returns through t only |
+| Monthly ETF prices (SGOV, TLT, VCIT, SPY) | `data/prices.csv` from my Lab 14–15 work; Yahoo Finance historical data (finance.yahoo.com/quote/&lt;ticker&gt;/history), file saved 2026-10-22 | 2021-10-29 to 2026-09-30 | Month-end prices; a decision on date t uses returns through t only |
 | 10-year Treasury yield (DGS10) | ALFRED, Federal Reserve Bank of St. Louis | 20 quarter-ends, 2021-12-31 to 2026-09-30 | Vintage on the decision date; latest observation strictly before it; stale if > 7 days |
 
 ## Tests (`python tests/test_engine.py`)
@@ -32,10 +32,10 @@ Stress run result: 6 of 8 scenarios pass; stop condition = STOP (turnover breaks
 ## AI tools used
 | Tool | Model / version | Date | Used for | How I checked it |
 |---|---|---|---|---|
-| Claude (Cowork) | claude-opus-5-5 | 2026-11 | Code for app, engine and tests; downloading ALFRED data; document drafts | *[your check]* |
-| Codex | OpenAI Codex *[model/version]* | 2026 *[dates]* | Lab 14–17 code this project builds on; reviewing code; explaining code; fixing errors when running the app | *[your check]* |
+| Claude (Cowork) | claude-opus-5-5 | 2026-11 | Code for app, engine and tests; downloading ALFRED data; document drafts | I checked Claude’s work by running the app and testing it on my Mac. I found an error with the `width` setting, fixed it, and checked the results in the app to make sure everything worked correctly. |
+| Codex | OpenAI Codex CLI v0.169.0 | Oct–Nov 2026 | Lab 14–17 code this project builds on; reviewing code; explaining code; fixing errors when running the app | I checked Codex’s work by running the code and comparing the results with the expected answers. I also reviewed the code to make sure the calculations were correct and fixed any errors I found. |
 
-**One AI output I checked:** *[describe one, what was wrong or right, how you checked]*
+**One AI output I checked:** One AI output I checked was the portfolio allocation from my app. I tested it by changing the equity risk premium to 5% and checking the results. The weights stayed the same, which helped me confirm that the portfolio was still following its investment limits.
 
 ## Locked Changed-Input Record
 **Changed input:** Equity risk premium, from 4.0% to 5.0% (everything else at default)
