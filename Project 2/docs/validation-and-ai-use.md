@@ -40,13 +40,18 @@ Stress run result: 6 of 8 scenarios pass; stop condition = STOP (turnover breaks
 ## Locked Changed-Input Record
 **Changed input:** Equity risk premium, from 4.0% to 5.0% (everything else at default)
 
-**My prediction, written with AI off and committed before the run** (commit link: ___):
+**My prediction, written with AI off and committed before the run** (commit link: https://github.com/erlanjones3010/TSLA-research/commit/56d5d72c3b610471488f532be63b1d468a20a88f, 2026-11-17):
 - Constrained weights at the latest date: SGOV 5% / TLT 0% / VCIT 15% / SPY 80%
 - Return a year: higher
 - Constrained verdict: PASS
 - Stop condition: GO
 - Why: I increased SPY to 80% because I want more exposure to stocks and their potential for higher long-term returns. I took the extra 10% from VCIT because I would rather invest more in stocks than corporate bonds.
 
-**Result after the run:** *[fill after]*
+**Result after the run (equity premium 5.0%, all else default):**
+- Constrained weights at the latest date: SGOV 5% / TLT 0% / VCIT 25% / SPY 70% (unchanged from the 4% base case; all 12 quarterly decisions identical)
+- Return a year: 14.5% (unchanged)
+- Constrained verdict: PASS
+- Stop condition: STOP (2 of 8 stress scenarios break the 25% turnover limit; unrelated to the premium)
+- Prediction vs result: weights, return and stop condition were wrong; the verdict was right. SPY stayed at 70% because 70% is the mandate's hard maximum, so an 80% SPY weight would have failed the mandate.
 
-**What I learned:** *[fill after]*
+**What I learned:** I learned that even though I predicted SPY would increase to 80%, the portfolio rules only allow 70%. Changing the equity premium did not change the weights, which showed me that the portfolio limits have more control over the results than I originally thought.
