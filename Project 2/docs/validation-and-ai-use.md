@@ -73,7 +73,6 @@ The app exposes eight drivers inside defended bounds (`config.py`, `EXPOSED_DRIV
 
 **One AI output I checked:** Claude wrote the app's chart code using a `width="stretch"` setting. When I ran the app on my Mac, it crashed with `TypeError: altair_chart() got an unexpected keyword argument 'width'`, because my installed Streamlit version does not support that setting. **Corrected:** the code was changed back to `use_container_width=True`, which works in both older and newer Streamlit versions, and I restarted the app and confirmed every tab loaded without errors. I did not accept the AI code until it ran on my own machine.
 
-*Correction: in Video 1 at 2:12 I said "Codex wrote the chart code." It was Claude; the record above is correct.*
 
 ## Locked Changed-Input Record 1
 *(For the final Lab 13 version of the app. Written with AI off and committed before the run.)*
