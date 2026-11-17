@@ -111,14 +111,32 @@ The app exposes eight drivers inside defended bounds (`config.py`, `EXPOSED_DRIV
 
 **Changed input:** Objective return, from 6.5% to 7.0% (everything else at base)
 
-**My prediction** (commit link: ___):
+**My prediction** (commit link: https://github.com/erlanjones3010/TSLA-research/commit/ae495c91a8218b6bf89691f3b07075305e130c60, 2026-11-17 21:27 UTC):
 - Weights at the last rebalance (now SGOV 40 / TLT 0 / VCIT 0 / SPY 60): SGOV 30 / TLT 0 / VCIT 0 / SPY 70
 - Size: SPY increases by about 10 percentage points; expected return at the last rebalance about 6.9% (now 6.58%); backtest return about 13.0% a year (now 12.5%)
 - Verdict: FAIL; stop condition: STOP
 - Decision threshold: If the portfolio cannot achieve the 7.0% expected return while meeting its constraints, I would change my recommendation to reject the rebalance.
 - Why: Increasing the required return should make the model favor stocks, but the portfolio may still fall short of the higher target. This shows how raising return expectations can make it harder to meet the client's requirements.
 
-**Result after the run:** *[fill after]*
+**Result after the run (objective 7.0%, all else at base; AI closed):**
 
-**What I learned:** *[fill after]*
+| | Before (6.5%) | My prediction (7.0%) | After (7.0%) |
+|---|---|---|---|
+| Weights at last rebalance 2025-12-31 (SGOV / TLT / VCIT / SPY) | 40 / 0 / 0 / 60 | 30 / 0 / 0 / 70 | 25 / 0 / 5 / 70 |
+| SPY change | — | about +10 points | +10 points |
+| SPY at each rebalance (2023 / 2024 / 2025) | 55 / 40 / 60 | — | 70 / 55 / 70 |
+| Expected return at last rebalance | 6.58% | about 6.9% | 7.02% |
+| Backtest return a year | 12.5% | about 13.0% | 14.5% |
+| Backtest volatility / max drawdown | 6.4% / 3.2% | — | 7.9% / 3.9% |
+| Worst-year turnover | 19.2% | — | 18.5% |
+| Constrained verdict | PASS | FAIL | PASS |
+| Stop condition | GO | STOP | GO (1 of 8 stress scenarios MISS, same as base) |
+| Decision threshold hit? | — | yes, if 7.0% not reachable | no: 7.0% is reachable inside every limit |
+
+- Prediction vs result: the direction and size of the SPY move (+10 points to 70%) were right, and the expected and backtest returns rose as predicted (the backtest rose more than predicted). The verdict and stop condition were wrong: the portfolio still passes every hard limit and the process stays GO.
+- Diagnosis: a higher return target forces the optimizer to take more risk, so it shifts weight from SGOV to SPY until the expected return reaches 7.0%. That mix still fits every Lab 13 limit: SGOV stays far above the 3% reserve, turnover stays under 25%, and the worst 12-month loss stays far below 10%. A FAIL would need a hard limit to break, and a STOP would need two stress scenarios to break or miss; neither happened. Because 7.0% is reachable, my decision threshold was not triggered, so my recommendation does not change.
+
+*The before/after table and diagnosis wording were drafted with Claude after the run; the prediction and the lesson below are my own.*
+
+**What I learned:** I learned that increasing the objective return makes the model allocate more to stocks, which I predicted correctly. However, I incorrectly assumed the portfolio would FAIL and STOP, when it actually met the higher return target without breaking any constraints, showing me the importance of checking the results before making a decision.
 
