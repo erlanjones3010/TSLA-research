@@ -39,7 +39,7 @@ Stress run result: 7 of 8 scenarios pass. With a 2% equity premium, no mix insid
 | Claude (Cowork) | claude-opus-5-5 | 2026-11 | Code for app, engine and tests; downloading ALFRED data; document drafts | I checked Claude’s work by running the app and testing it on my Mac. I found an error with the `width` setting, fixed it, and checked the results in the app to make sure everything worked correctly. |
 | Codex | OpenAI Codex CLI v0.169.0 | Oct–Nov 2026 | Lab 14–17 code this project builds on; reviewing code; explaining code; fixing errors when running the app | I checked Codex’s work by running the code and comparing the results with the expected answers. I also reviewed the code to make sure the calculations were correct and fixed any errors I found. |
 
-**One AI output I checked:** One AI output I checked was the portfolio allocation from my app. I tested it by changing the equity risk premium to 5% and checking the results. The weights stayed the same, which helped me confirm that the portfolio was still following its investment limits.
+**One AI output I checked:** Claude wrote the app's chart code using a `width="stretch"` setting. When I ran the app on my Mac, it crashed with `TypeError: altair_chart() got an unexpected keyword argument 'width'`, because my installed Streamlit version does not support that setting. **Corrected:** the code was changed back to `use_container_width=True`, which works in both older and newer Streamlit versions, and I restarted the app and confirmed every tab loaded without errors. I did not accept the AI code until it ran on my own machine.
 
 ## Locked Changed-Input Record
 *(For the final Lab 13 version of the app. Written with AI off and committed before the run.)*
@@ -48,16 +48,29 @@ Stress run result: 7 of 8 scenarios pass. With a 2% equity premium, no mix insid
 
 **Reason for the test:** To test how a higher expected equity return affects portfolio allocation and whether the portfolio increases its stock exposure.
 
-**My prediction** (commit link: ___):
+**My prediction** (commit link: https://github.com/erlanjones3010/TSLA-research/commit/d4e172f8d846ecbb2decb271a9f3da2716b5c1db, 2026-11-17 15:12 UTC):
 - Constrained weights at the last rebalance: SGOV 30% / TLT 0% / VCIT 0% / SPY 70%
 - Return a year: higher
 - Constrained verdict: PASS
 - Stop condition: GO
 - Why: Increasing the equity premium to 5% should make stocks more attractive, causing the portfolio to increase its SPY allocation. I predict a higher expected return while remaining within the portfolio constraints.
 
-**Result after the run:** *[fill after]*
+**Result after the run (equity premium 5.0%, all else default; AI closed):**
 
-**What I learned:** *[fill after]*
+| | Before (4%) | After (5%) |
+|---|---|---|
+| Weights at last rebalance 2025-12-31 (SGOV / TLT / VCIT / SPY) | 40 / 0 / 0 / 60 | 45 / 0 / 10 / 45 |
+| SPY at each rebalance (2023 / 2024 / 2025) | 55 / 40 / 60 | 40 / 30 / 45 |
+| Expected return at last rebalance | 6.58% | 6.54% |
+| Backtest return a year | 12.5% | 10.2% |
+| Backtest volatility / max drawdown | 6.4% / 3.2% | 4.9% / 2.4% |
+| Constrained verdict | PASS | PASS |
+| Stop condition | GO | GO |
+
+- Prediction vs result: verdict (PASS) and stop condition (GO) were right; the weights and return were wrong in direction. SPY fell from 60% to 45% instead of rising to 70%, and the backtest return fell instead of rising.
+- Diagnosis: the optimizer takes the lowest-volatility mix that still reaches the 6.5% objective (Lab 13 S10, answered as in Lab 14). A higher equity premium raises SPY's expected return, so less SPY is needed to reach 6.5%, and the model shifts weight to lower-risk SGOV and VCIT. The backtest return fell because SPY was the best performer over 2023–2026 and the portfolio held less of it.
+
+**What I learned:** Overall, I learned how the app helps make investment decisions by analyzing expected returns, risks, and portfolio constraints. It also showed me that even when an investment looks attractive, the portfolio must still meet the client's requirements, which helps the committee make more informed decisions.
 
 ### Earlier record (superseded)
 This record was made on an earlier version of the app that used my own Riverside mandate instead of the Lab 13 mandate. I kept it as history; the record above is the one for the final app.

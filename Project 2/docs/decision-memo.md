@@ -7,7 +7,7 @@
 **To:** Investment Committee  **As of:** last rebalance 2025-12-31 (10-yr yield 4.14%); trigger check on 2026-09-30 data (10-yr yield 5.26%)
 
 ## My decision
-I recommend keeping the current portfolio allocation but not approving any new trades until the STOP condition is resolved. My testing showed that changing the equity risk premium did not change the portfolio weights because the model's limits still applied.
+**Rebalance.** I recommend waiting until the scheduled December rebalance rather than immediately changing the portfolio. The fired trigger should be reviewed, but I would not make a major adjustment without confirming the signal.
 
 ## The question
 The investment committee needs to decide whether to approve the portfolio recommended by our model and whether it meets the investment rules.
@@ -24,14 +24,12 @@ Backtest 2023-12-29 to 2026-09-30, annual rebalance. Stress run: 7 of 8 scenario
 **Trigger check (2026-09-30):** the 10-year yield is 5.26%, above the 3.39%–4.89% review band set at the last rebalance, so **the yield trigger has fired**. The portfolio has drifted to SPY 62% / SGOV 38% (expected return 7.17%). If rebalanced today, the model would hold SPY 40% / VCIT 25% / SGOV 35% (expected return 6.58%, lower risk), which needs a 25% trade, the full yearly S7 turnover limit.
 
 ## Allocation range
-I recommend staying within these portfolio ranges:
-
-- SPY: 50–70%
-- VCIT: 25–45%
-- SGOV: 5%
+- SPY: 40–65%
+- VCIT: 0–25%
+- SGOV: 30–40%
 - TLT: 0%
 
-These ranges allow us to invest in stocks and bonds while following the portfolio's rules.
+These ranges cover both the current portfolio and the model's proposed rebalance while maintaining flexibility for future adjustments.
 
 ## Material assumptions and sensitivities
 - Objective CPI + 4% (Lab 13 S2) uses an assumed CPI of 2.5% (6.5% nominal).
@@ -40,13 +38,15 @@ These ranges allow us to invest in stocks and bonds while following the portfoli
 - Sensitivity (stress run): a 2% equity premium makes 6.5% unreachable inside the limits; a 12-month window moves the mix to SPY 55% / VCIT 15% / SGOV 30% and uses the full 25% turnover; a 36-month window lowers the backtest return to 10.5%; 50 bps costs, a 15% reserve minimum or a 5% loss limit leave the mix unchanged.
 
 ## Monitoring triggers
-I would monitor the 10-year Treasury yield and the portfolio's reduction in value from its peak. If the yield drops below 4.51% or rises above 6.01%, I would review the portfolio. I would also review it if the reduction reaches 15%, since that would mean the portfolio has lost a significant amount of value.
+- A 12-month portfolio loss reaches 7.5%.
+- Expected annual return falls below 6.5%.
+- A rebalance requires more than 20% turnover.
 
 ## Claim most likely to reverse this decision
-My decision is based on the idea that the portfolio can stay within its limits while managing risk. If the portfolio reaches a 15% reduction, I would reconsider my recommendation because it would show that the portfolio is taking on more risk than I am comfortable with.
+My recommendation assumes that the equity premium is a reasonable estimate of future stock returns. If that assumption proves too optimistic and expected returns decline significantly, I would reconsider the allocation.
 
 ## Committee ask
-I am asking the committee to approve these allocation ranges as a conditional recommendation. I would also like approval to continue monitoring the portfolio and to hold off on new trades until the STOP condition is cleared.
+I am asking the committee to approve the proposed allocation ranges, continue monitoring the portfolio's risk and return, and allow a rebalance in December unless a major risk trigger requires earlier action.
 
 ## AI use and checks
 The named AI tools, what they were used for, the checks I ran and the Locked Changed-Input Record are in `docs/validation-and-ai-use.md`.
