@@ -38,10 +38,14 @@ Stress run result: 6 of 8 scenarios pass; stop condition = STOP (turnover breaks
 **One AI output I checked:** *[describe one, what was wrong or right, how you checked]*
 
 ## Locked Changed-Input Record
-**Changed input:** *[e.g. equity risk premium 4% → 2%]*
+**Changed input:** Equity risk premium, from 4.0% to 5.0% (everything else at default)
 
-**My prediction, written with AI off and committed before the run** (commit link: *[link]*):
-*[your prediction]*
+**My prediction, written with AI off and committed before the run** (commit link: ___):
+- Constrained weights at the latest date: SGOV 5% / TLT 0% / VCIT 15% / SPY 80%
+- Return a year: higher
+- Constrained verdict: PASS
+- Stop condition: GO
+- Why: I increased SPY to 80% because I want more exposure to stocks and their potential for higher long-term returns. I took the extra 10% from VCIT because I would rather invest more in stocks than corporate bonds.
 
 **Result after the run:** *[fill after]*
 
