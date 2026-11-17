@@ -68,8 +68,18 @@ The app exposes eight drivers inside defended bounds (`config.py`, `EXPOSED_DRIV
 ## AI tools used
 | Tool | Model / version | Date | Used for | How I checked it |
 |---|---|---|---|---|
-| Claude (Cowork) | claude-opus-5-5 | 2026-11 | Code for app, engine and tests; downloading ALFRED data; document drafts | I checked Claude’s work by running the app and testing it on my Mac. I found an error with the `width` setting, fixed it, and checked the results in the app to make sure everything worked correctly. |
-| Codex | OpenAI Codex CLI v0.169.0 | Oct–Nov 2026 | Lab 14–17 code this project builds on; reviewing code; explaining code; fixing errors when running the app | I checked Codex’s work by running the code and comparing the results with the expected answers. I also reviewed the code to make sure the calculations were correct and fixed any errors I found. |
+| Claude (Cowork) | claude-opus-5-5 | 2026-11-16 to 2026-11-17 | Code for app, engine and tests; downloading ALFRED data; document drafts | I checked Claude’s work by running the app and testing it on my Mac. I found an error with the `width` setting, fixed it, and checked the results in the app to make sure everything worked correctly. |
+| Codex | OpenAI Codex CLI v0.169.0, model GPT-5.6-Terra (medium) | Oct–Nov 2026 | Lab 14–17 code this project builds on; reviewing code; explaining code; fixing errors when running the app | I checked Codex’s work by running the code and comparing the results with the expected answers. I also reviewed the code to make sure the calculations were correct and fixed any errors I found. |
+
+## Material AI contributions and how I handled them
+| AI output (tool) | Disposition | Independent check | Resulting decision |
+|---|---|---|---|
+| First version of the app used a mandate Claude drafted from my "own client" choice, not the Lab 13 mandate (Claude) | **Rejected** | Review against the Project 2 brief (with Claude): requirement 2 says "your mandate from Lab 13"; each rule compared with my Lab13_mandate.md and mandate.py | Rebuilt config.py on the Lab 13 Meridian mandate, each rule tagged S1–S10 |
+| Optimizer's turnover check averaged across years and hid a 27% single-year trade (Claude) | **Corrected** | Trade log checked rebalance by rebalance (with Claude): a 27% trade breaks S7 (25% a year) | Optimizer now limits each rebalance to 25% and the check uses the worst year |
+| Chart code with `width="stretch"` crashed on my Streamlit (Claude) | **Corrected** | Ran the app on my Mac; read the error | Switched to `use_container_width=True`; reran every tab |
+| Lab 14 correlation matrix was not symmetric (Codex, Lab 14 code) | **Corrected** | Compared row 3 and column 3 of the matrix | Risk is now estimated from price data; `test_covariance_is_symmetric` guards it |
+| Point-in-time 10-yr yield file built from ALFRED vintages (Claude) | **Accepted** | `test_signal_is_point_in_time` and `test_signal_not_stale` pass; spot-checked dates against the vintage rule | Used as the signal |
+| Before/after tables and diagnosis wording for both Locked Records (Claude, after each run) | **Accepted after review** | Compared every number with the app and output/results.md | Kept; my predictions and lessons are my own |
 
 **One AI output I checked:** Claude wrote the app's chart code using a `width="stretch"` setting. When I ran the app on my Mac, it crashed with `TypeError: altair_chart() got an unexpected keyword argument 'width'`, because my installed Streamlit version does not support that setting. **Corrected:** the code was changed back to `use_container_width=True`, which works in both older and newer Streamlit versions, and I restarted the app and confirmed every tab loaded without errors. I did not accept the AI code until it ran on my own machine.
 
