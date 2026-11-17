@@ -332,6 +332,19 @@ def trigger_review(dates, rets, signal_table, res, s=None):
     return out
 
 
+def erp_sweep(dates, rets, signal_table, s=None):
+    """Rerun the constrained portfolio at each equity premium in C.ERP_SWEEP."""
+    s = dict(s or {})
+    rows = []
+    for e in C.ERP_SWEEP:
+        r = backtest(dates, rets, signal_table, "constrained", {**s, "erp": e})
+        last = r["log"][-1]
+        rows.append({"erp": e, "weights": last["weights"], "expected_return": last["expected_return"],
+                     "ann_return": r["ann_return"], "ann_vol": r["ann_vol"], "verdict": verdict(r)[0],
+                     "objective_met": not r["problems"]})
+    return rows
+
+
 def run_all(s=None):
     dates, prices = load_prices()
     rets = monthly_returns(prices)
@@ -340,5 +353,6 @@ def run_all(s=None):
     stress = stress_run(dates, rets, sig, s)
     status, reasons = stop_condition(results["constrained"], stress)
     review = trigger_review(dates, rets, sig, results["constrained"], s)
-    return {"dates": dates, "results": results, "stress": stress, "stop": status, "review": review,
+    sweep = erp_sweep(dates, rets, sig, s)
+    return {"dates": dates, "results": results, "stress": stress, "stop": status, "review": review, "erp_sweep": sweep,
             "stop_reasons": reasons, "range": allocation_range(stress), "signal": sig}
