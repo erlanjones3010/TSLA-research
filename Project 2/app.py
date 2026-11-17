@@ -48,23 +48,50 @@ st.markdown("""
   &nbsp;|&nbsp; <b>Education, not investment advice.</b></p>
 </div>""", unsafe_allow_html=True)
 
-# ---------------------------------------------------------------- sidebar inputs
-with st.sidebar:
-    st.markdown("### ⚙️ Inputs")
-    st.caption("Change a number and the whole app reruns. The mandate of record is config.py.")
-    st.markdown("**Estimates**")
-    erp = st.slider("Equity risk premium over 10-yr yield", 0.0, 0.08, C.EQUITY_RISK_PREMIUM, 0.005, format="%.3f")
-    spread = st.slider("Credit spread over 10-yr yield", 0.0, 0.03, C.CREDIT_SPREAD, 0.0025, format="%.4f")
-    window = st.select_slider("Estimation window (months)", [12, 18, 24, 30, 36], C.ESTIMATION_WINDOW_MONTHS)
-    cost = st.slider("Trading cost (bps, one way)", 0, 100, C.COST_BPS, 5)
-    st.markdown("**Objective and hard limits**")
-    objective = st.slider("Objective return (CPI + real target)", 0.03, 0.10, C.OBJECTIVE_RETURN, 0.0025, format="%.4f")
-    res_min = st.slider("S3 reserve-eligible minimum", 0.0, 0.30, C.LIMITS["reserve_min"], 0.01)
-    turn_max = st.slider("S7 turnover maximum per year", 0.05, 0.50, C.LIMITS["turnover_max"], 0.05)
-    loss_max = st.slider("S9 worst 12-month loss maximum", 0.02, 0.30, C.LIMITS["loss_max"], 0.01)
+# ---------------------------------------------------------------- driver panel (sidebar)
+BASE = {k: base for k, _, base, *_ in C.EXPOSED_DRIVERS}
+FMT = {"erp": "%.3f", "spread": "%.4f", "objective": "%.4f", "reserve_min": "%.2f",
+       "turnover_max": "%.2f", "loss_max": "%.2f"}
+for k, v in BASE.items():
+    st.session_state.setdefault(k, v)
 
+
+def reset_to_base():
+    for k, v in BASE.items():
+        st.session_state[k] = v
+
+
+with st.sidebar:
+    st.markdown("### ⚙️ Driver panel")
+    st.caption("Exposed drivers can be moved inside defended bounds (hover ⓘ for why). "
+               "Locked drivers are fixed by the Lab 13 mandate. The base case of record is config.py.")
+    st.button("↺ Reset to base", on_click=reset_to_base, use_container_width=True)
+    changed = [lbl for k, lbl, base, *_ in C.EXPOSED_DRIVERS if abs(st.session_state[k] - base) > 1e-9]
+    if changed:
+        st.warning("Changed from base: " + "; ".join(changed))
+    else:
+        st.success("All drivers at base")
+    for k, lbl, base, lo, hi, step, why in C.EXPOSED_DRIVERS:
+        if k == "erp":
+            st.markdown("**Exposed: estimates**")
+        if k == "objective":
+            st.markdown("**Exposed: objective and hard limits**")
+        tip = f"Base {base}. Bounds {lo} to {hi}: {why}"
+        if k == "window":
+            st.select_slider(lbl, options=list(range(lo, hi + 1, step)), key=k, help=tip)
+        elif isinstance(base, int):
+            st.slider(lbl, lo, hi, step=step, key=k, help=tip)
+        else:
+            st.slider(lbl, float(lo), float(hi), step=float(step), key=k, help=tip, format=FMT.get(k, "%.3f"))
+    with st.expander("🔒 Locked drivers"):
+        for name, val, src in C.LOCKED_DRIVERS:
+            st.markdown(f"**{name}:** {val}  \n<span style='opacity:.6;font-size:.8rem'>{src}</span>",
+                        unsafe_allow_html=True)
+
+ss = st.session_state
+erp, spread, window, cost, objective = ss["erp"], ss["spread"], ss["window"], ss["cost_bps"], ss["objective"]
 S = {"erp": erp, "spread": spread, "window": window, "cost_bps": cost, "objective": objective,
-     "limits": {"reserve_min": res_min, "turnover_max": turn_max, "loss_max": loss_max}}
+     "limits": {"reserve_min": ss["reserve_min"], "turnover_max": ss["turnover_max"], "loss_max": ss["loss_max"]}}
 
 
 @st.cache_data
@@ -244,6 +271,16 @@ with tabs[3]:
     rule = alt.Chart(pd.DataFrame({"x": [objective]})).mark_rule(color=RED, strokeDash=[5, 4]).encode(x="x:Q")
     st.markdown(f"#### Return by scenario (dashed line = {objective:.1%} objective)")
     st.altair_chart((bars + rule).properties(height=300), use_container_width=True)
+
+    st.markdown("#### Equity premium sweep (the load-bearing assumption)")
+    sw = pd.DataFrame([{"Equity premium": f"{r['erp']:.0%}" + (" (base)" if abs(r['erp'] - C.EQUITY_RISK_PREMIUM) < 1e-9 else ""),
+                        **{a: f"{r['weights'][a]:.0%}" for a in C.ASSETS},
+                        "Expected return": f"{r['expected_return']:.2%}", "Return/yr": f"{r['ann_return']:.1%}",
+                        "Vol/yr": f"{r['ann_vol']:.1%}",
+                        "Verdict": r["verdict"] if r["objective_met"] else "MISS"} for r in out["erp_sweep"]])
+    st.dataframe(style(sw), hide_index=True, use_container_width=True)
+    st.caption("Weights at the last rebalance, other drivers as set in the panel. A higher premium makes each unit "
+               "of SPY earn more, so the lowest-risk mix that reaches the objective needs less SPY.")
 
     a, b = st.columns([3, 2])
     with a:

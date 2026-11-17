@@ -35,6 +35,7 @@ These ranges cover both the current portfolio and the model's proposed rebalance
 - Objective CPI + 4% (Lab 13 S2) uses an assumed CPI of 2.5% (6.5% nominal).
 - Expected returns: TLT = 10-yr yield; VCIT = yield + 1.0% credit spread; SPY = yield + 4.0% equity premium; SGOV = trailing 12-month return.
 - Risk is estimated from the trailing 24 months of returns; trading cost is 10 bps one way; SPY stands in for global equity in the benchmark.
+- Equity premium sweep (validation doc): SPY at the last rebalance is 95% at a 2% premium (6.5% unreachable), 75% at 3%, 60% at 4% (base), 45% at 5% and 40% at 6%.
 - Sensitivity (stress run): a 2% equity premium makes 6.5% unreachable inside the limits; a 12-month window moves the mix to SPY 55% / VCIT 15% / SGOV 30% and uses the full 25% turnover; a 36-month window lowers the backtest return to 10.5%; 50 bps costs, a 15% reserve minimum or a 5% loss limit leave the mix unchanged.
 
 ## Monitoring triggers

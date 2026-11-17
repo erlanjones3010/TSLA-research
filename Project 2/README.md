@@ -20,7 +20,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Optional: `python3 run_analysis.py` (writes `output/results.md` and `output/results.json`) and `python3 tests/test_engine.py` (runs the 11 tests). No API key or credentials are needed; the data files are in `data/`. Tested with Python 3.9 and 3.10.
+Optional: `python3 run_analysis.py` (writes `output/results.md` and `output/results.json`) and `python3 tests/test_engine.py` (runs the 12 tests). No API key or credentials are needed; the data files are in `data/`. Tested with Python 3.9 and 3.10.
 
 ## What it does
 
@@ -31,6 +31,8 @@ The Meridian endowment ($100 million, $0.75 million paid out each quarter) must 
 3. Uses one point-in-time signal: the **10-year Treasury yield as known on each decision date** (ALFRED vintages, data card in the app).
 4. Stress-tests estimates, window, costs and constraints, and applies a **stop condition**.
 5. Shows the supported allocation range and monitoring triggers, checks whether a trigger has fired on the latest data, and saves a run record.
+6. Gives the committee a **driver panel**: eight exposed drivers (estimates, objective and three hard limits) that move only inside defended bounds (hover ⓘ for the reason), a list of locked drivers fixed by the Lab 13 mandate, a "Changed from base" flag and a **Reset to base** button. The bounds and reasons live in `config.py`.
+7. Sweeps the load-bearing assumption, the equity premium (2% to 6%), and shows how the portfolio moves.
 
 ## Files
 

@@ -67,3 +67,41 @@ TURNOVER_TRIGGER = 0.20                    # review if a rebalance needs more th
 #  3. no portfolio meets the limits and the 6.5% objective at a decision date
 #  4. in 2 or more stress scenarios the constrained portfolio breaks a hard limit or cannot reach the objective
 STRESS_FAIL_STOP = 2
+
+
+# ---------------------------------------------------------------- driver panel
+# Exposed drivers: the committee can move these in the app sidebar, inside defended bounds.
+# (key, label, base, low, high, step, why the bounds)
+EXPOSED_DRIVERS = [
+    ("erp", "Equity risk premium over 10-yr yield", EQUITY_RISK_PREMIUM, 0.0, 0.08, 0.005,
+     "0% = stocks earn no more than Treasuries; 8% = double the base. Covers a no-premium case through a crisis-level premium."),
+    ("spread", "Credit spread over 10-yr yield", CREDIT_SPREAD, 0.0, 0.03, 0.0025,
+     "0% = corporate bonds pay the same as Treasuries; 3% = roughly triple the base, a credit-stress level."),
+    ("window", "Estimation window (months)", ESTIMATION_WINDOW_MONTHS, 12, 36, 6,
+     "Under 12 months is too noisy for a covariance; over 36 is not possible because prices start 2021-10."),
+    ("cost_bps", "Trading cost (bps, one way)", COST_BPS, 0, 100, 5,
+     "0 = free trading; 100 bps = about 10x the cost of trading these liquid ETFs, a stress level."),
+    ("objective", "Objective return (CPI + real target)", OBJECTIVE_RETURN, 0.03, 0.10, 0.0025,
+     "3% = CPI + 0.5%; 10% = CPI + 7.5%. Covers a near-cash goal through an aggressive goal."),
+    ("reserve_min", "S3 reserve-eligible minimum", LIMITS["reserve_min"], 0.0, 0.30, 0.01,
+     "0% removes the reserve rule; 30% = ten years of payouts held in Treasuries."),
+    ("turnover_max", "S7 turnover maximum per year", LIMITS["turnover_max"], 0.05, 0.50, 0.05,
+     "5% = almost no trading allowed; 50% = double the Lab 13 limit."),
+    ("loss_max", "S9 worst 12-month loss maximum", LIMITS["loss_max"], 0.02, 0.30, 0.01,
+     "2% = near-cash tolerance; 30% = an equity-like loss tolerance."),
+]
+
+# Locked drivers: fixed by the Lab 13 mandate or the data; not adjustable in the app.
+LOCKED_DRIVERS = [
+    ("Universe", "SGOV, TLT, VCIT, SPY", "Fixed ETF list with price data in data/prices.csv"),
+    ("S1 rebalancing", "Annual, at year-end", "Lab 13 S1"),
+    ("S4 benchmark", "60% SPY / 40% VCIT", "Lab 13 S4 (SPY stands in for global equity)"),
+    ("S5 long-only", "No borrowing, short selling or derivatives", "Lab 13 S5"),
+    ("S6 issuer limit", "Any nonexempt issuer at most 8%", "Lab 13 S6"),
+    ("S8 liquidity", "At least 90% redeemable within 5 days", "Lab 13 S8"),
+    ("Assumed CPI", "2.5%", "Assumption behind the 6.5% objective (move the objective slider instead)"),
+    ("Signal", "10-yr Treasury yield (ALFRED DGS10), as known on each date", "Point-in-time data file"),
+]
+
+# Equity premium sweep shown in the app (the load-bearing assumption)
+ERP_SWEEP = [0.02, 0.03, 0.04, 0.05, 0.06]

@@ -517,5 +517,77 @@
     "review_vol": 0.056396841000339606,
     "current_expected_return": 0.0717449226926571,
     "trade": 0.25000000000000006
-  }
+  },
+  "erp_sweep": [
+    {
+      "erp": 0.02,
+      "weights": {
+        "SGOV": 0.05,
+        "TLT": 0.0,
+        "VCIT": 0.0,
+        "SPY": 0.95
+      },
+      "expected_return": 0.06045063745989415,
+      "ann_return": 0.1937000198046923,
+      "ann_vol": 0.11232262235370029,
+      "verdict": "PASS",
+      "objective_met": false
+    },
+    {
+      "erp": 0.03,
+      "weights": {
+        "SGOV": 0.15,
+        "TLT": 0.0,
+        "VCIT": 0.1,
+        "SPY": 0.75
+      },
+      "expected_return": 0.06505191237968247,
+      "ann_return": 0.161393773017523,
+      "ann_vol": 0.09027608370946635,
+      "verdict": "PASS",
+      "objective_met": true
+    },
+    {
+      "erp": 0.04,
+      "weights": {
+        "SGOV": 0.4,
+        "TLT": 0.0,
+        "VCIT": 0.0,
+        "SPY": 0.6
+      },
+      "expected_return": 0.06580509967915327,
+      "ann_return": 0.1249069670969456,
+      "ann_vol": 0.06379722904648047,
+      "verdict": "PASS",
+      "objective_met": true
+    },
+    {
+      "erp": 0.05,
+      "weights": {
+        "SGOV": 0.45,
+        "TLT": 0.0,
+        "VCIT": 0.1,
+        "SPY": 0.45
+      },
+      "expected_return": 0.06535573713904744,
+      "ann_return": 0.10155313285352774,
+      "ann_vol": 0.048473072114810264,
+      "verdict": "PASS",
+      "objective_met": true
+    },
+    {
+      "erp": 0.06,
+      "weights": {
+        "SGOV": 0.6,
+        "TLT": 0.0,
+        "VCIT": 0.0,
+        "SPY": 0.4
+      },
+      "expected_return": 0.06600764951872991,
+      "ann_return": 0.09263225360961869,
+      "ann_vol": 0.03990785751261783,
+      "verdict": "PASS",
+      "objective_met": true
+    }
+  ]
 }

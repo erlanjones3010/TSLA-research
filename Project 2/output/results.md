@@ -1,6 +1,6 @@
 # Results — Meridian Endowment (course client from Lab 13)
 
-Run: 2026-11-17 15:45  |  Decision date (as of): 2025-12-31  |  10-yr yield known then: 4.14% (ok)
+Run: 2026-11-17 21:20  |  Decision date (as of): 2025-12-31  |  10-yr yield known then: 4.14% (ok)
 
 Inputs: objective 6.5% (CPI 2.5% + 4%), equity premium 4.0%, credit spread 1.0%, window 24 months, cost 10 bps, annual rebalance; limits: reserve-eligible >= 3%, issuer <= 8%, turnover <= 25%/yr, liquidity >= 90% in 5 days, 12-month loss <= 10%, long-only
 
@@ -36,6 +36,16 @@ Backtest: 2023-12-29 to 2026-09-30, annual rebalance, 10 bps one-way cost. Verdi
 - 10-yr yield 5.26% vs review band 3.39% to 4.89% (last rebalance 2025-12-31 at 4.14%): TRIGGER FIRED
 - Current drifted mix: SGOV 37.8%, TLT 0.0%, VCIT 0.0%, SPY 62.2% (expected return 7.17%)
 - Model if rebalanced today: SGOV 35.0%, TLT 0.0%, VCIT 25.0%, SPY 40.0% (expected return 6.58%; trade 25.0%)
+
+## Equity premium sweep (constrained portfolio, last rebalance)
+
+| Equity premium | SGOV | TLT | VCIT | SPY | Expected return | Return/yr | Vol/yr | Verdict |
+|---|---|---|---|---|---|---|---|---|
+| 2.0% | 5.0% | 0.0% | 0.0% | 95.0% | 6.05% | 19.4% | 11.2% | MISS: objective not reachable |
+| 3.0% | 15.0% | 0.0% | 10.0% | 75.0% | 6.51% | 16.1% | 9.0% | PASS |
+| 4.0% (base) | 40.0% | 0.0% | 0.0% | 60.0% | 6.58% | 12.5% | 6.4% | PASS |
+| 5.0% | 45.0% | 0.0% | 10.0% | 45.0% | 6.54% | 10.2% | 4.8% | PASS |
+| 6.0% | 60.0% | 0.0% | 0.0% | 40.0% | 6.60% | 9.3% | 4.0% | PASS |
 
 ## Allocation range (passing scenarios)
 

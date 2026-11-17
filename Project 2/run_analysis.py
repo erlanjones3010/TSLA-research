@@ -62,6 +62,15 @@ def main():
               f" (expected return {rv['current_expected_return']:.2%})",
               "- Model if rebalanced today: " + ", ".join(f"{a} {pct(rv['review_weights'][a])}" for a in C.ASSETS) +
               f" (expected return {rv['review_expected_return']:.2%}; trade {pct(rv['trade'])})"]
+    lines += ["", "## Equity premium sweep (constrained portfolio, last rebalance)", "",
+              "| Equity premium | SGOV | TLT | VCIT | SPY | Expected return | Return/yr | Vol/yr | Verdict |",
+              "|---|---|---|---|---|---|---|---|---|"]
+    for r in out["erp_sweep"]:
+        w = r["weights"]
+        lines.append(f"| {pct(r['erp'])}{' (base)' if abs(r['erp'] - C.EQUITY_RISK_PREMIUM) < 1e-9 else ''} | "
+                     + " | ".join(pct(w[a]) for a in C.ASSETS)
+                     + f" | {r['expected_return']:.2%} | {pct(r['ann_return'])} | {pct(r['ann_vol'])} | "
+                     + f"{r['verdict'] if r['objective_met'] else 'MISS: objective not reachable'} |")
     lines += ["", "## Allocation range (passing scenarios)", ""]
     lines += [f"- {a}: {pct(lo)} to {pct(hi)}" for a, (lo, hi) in out["range"].items()]
     (OUT / "results.md").write_text("\n".join(lines) + "\n")
@@ -71,7 +80,7 @@ def main():
                            {"latest_weights": r["log"][-1]["weights"], "verdict": E.verdict(r)[0],
                             "decisions": r["log"]} for k, r in res.items()},
             "stress": out["stress"], "stop": out["stop"], "stop_reasons": out["stop_reasons"],
-            "allocation_range": out["range"], "trigger_review": out["review"]}
+            "allocation_range": out["range"], "trigger_review": out["review"], "erp_sweep": out["erp_sweep"]}
     (OUT / "results.json").write_text(json.dumps(slim, indent=2))
     print("\n".join(lines))
 

@@ -88,6 +88,14 @@ def test_no_look_ahead_in_decisions():
     assert alt["log"][0]["weights"] == base["log"][0]["weights"]
 
 
+def test_spy_weight_falls_as_equity_premium_rises():
+    # Monotonicity: with a risk-minimizing optimizer and a fixed return target, a higher equity
+    # premium should never require MORE SPY (checked where the objective can be reached)
+    rows = [r for r in E.erp_sweep(DATES, RETS, SIG) if r["objective_met"]]
+    spy = [r["weights"]["SPY"] for r in rows]
+    assert len(spy) >= 3 and all(a >= b for a, b in zip(spy, spy[1:])), spy
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):
