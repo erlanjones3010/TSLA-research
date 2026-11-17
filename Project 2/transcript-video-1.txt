@@ -1,0 +1,52 @@
+FIN 43900 Project 2 – Video 1: How My System and Thinking Changed
+YouTube: https://youtu.be/FNHwWU-yCv8
+Duration: 2:51
+Speaker: Erlan Jones
+Transcript generated from the recording and corrected for names, tickers and finance terms.
+
+[0:00] Hello, my name is Erlan Jones and this is Project 2, Video 1 for FIN 43900, Financial Applications.
+[0:10] So I use Claude and Codex to help run and debug this, as well as building this as well.
+[0:17] But the analysis and decision are my own.
+[0:19] Also, this is education, not investment advice.
+[0:23] So for this, this app manages the Meridian endowment from Lab 13.
+[0:28] It's $100 million, pays out $750,000 a quarter, and needs to earn inflation plus 4%, or 6.5%.
+[0:36] So it compares three portfolios: equal weight, a 60/40 benchmark and a constrained portfolio,
+[0:41] using one signal.
+[0:43] That is the 10-year Treasury yield as it is known on each date.
+[0:47] So when I go back to my VS Code and go to the app for Lab 15.
+[0:52] So, how my system changed.
+[0:53] So in Labs 14 and 17, I built separate pieces: an optimizer, an as-of data rule and a mandate
+[0:59] checker.
+[1:00] For this project, I first combined them using a mandate I made up myself, then I reread
+[1:03] the project brief and saw it requires my Lab 13 mandate.
+[1:06] So I rebuilt the rules to match it.
+[1:08] Every rule is now tagged S1 to S10, and the optimizer picks the lowest-risk mix that
+[1:13] still reaches 6.5%, the same idea as my Lab 14 work as well.
+[1:19] So going to GitHub and going to my locked prediction.
+[1:21] So, how my thinking changed.
+[1:23] So I ran a locked test. I raised the equity premium from 4% to 5% and committed my prediction
+[1:29] to GitHub before running it.
+[1:30] Here's the commit with the timestamp right over here.
+[1:33] And with that, I predicted SPY would rise from 60 to 70% because stocks would look more
+[1:38] attractive.
+[1:39] So when I moved that in the app and go to 0.05, it did the opposite: SPY fell to 45%.
+[1:47] The model minimizes risk while reaching 6.5%.
+[1:51] So when stocks are expected to earn more, it needs less stock to hit the target. I was
+[1:57] thinking like a return maximizer.
+[1:59] This change came from my own analysis; the test showed me how the rule actually works
+[2:02] as well.
+[2:04] So with that, I'm going back to GitHub, and with that, one AI output I checked.
+[2:12] So with that, Codex wrote the chart code with the width setting. When I ran the app
+[2:17] on my Mac,
+[2:18] it crashed with this error because my Streamlit version doesn't support that setting.
+[2:22] I corrected it: the code was changed to a setting my version supports, and I reran
+[2:27] the app as well.
+[2:29] Here's the same chart working.
+[2:30] I didn't accept the AI code until it worked on my machine.
+[2:35] So just double-checking everything and making sure it runs before I actually do it as well.
+[2:39] So yeah, what I learned.
+[2:40] So the rules in the mandate decide how the model reacts, and I test AI output
+[2:44] myself before I trust it, because otherwise it would fail as well.
+[2:48] So yeah, thank you.
+
+Note: at [2:12] I said "Codex"; the chart code was written by Claude. See docs/validation-and-ai-use.md.
