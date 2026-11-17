@@ -1,6 +1,6 @@
 # Decision Memo — Riverside Community Foundation Scholarship Endowment
 
-**AI use:** I used Claude (Anthropic, Opus) to help write the code and draft documents. *[Add others.]* The analysis and the decision below are my own.
+**AI use:** I used Claude (Anthropic, Opus) and Codex (OpenAI) to help write the code and draft documents. I also used Codex (OpenAI) to help write my earlier Lab 14–17 code that this project builds on, and to review the code, explain how it works and fix errors when running the app. The analysis and the decision below are my own.
 
 **Education, not investment advice.** The client is fictional.
 

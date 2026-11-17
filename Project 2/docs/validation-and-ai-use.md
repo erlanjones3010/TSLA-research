@@ -1,6 +1,6 @@
 # Validation and AI Use
 
-**AI use:** I used Claude (Anthropic, Opus) to help write the code and draft documents. *[Add others.]* The analysis and decision are my own.
+**AI use:** I used Claude (Anthropic, Opus) and Codex (OpenAI) to help write the code and draft documents. I also used Codex (OpenAI) to help write my earlier Lab 14–17 code that this project builds on, and to review the code, explain how it works and fix errors when running the app. The analysis and decision are my own.
 
 **Education, not investment advice.**
 
@@ -33,7 +33,7 @@ Stress run result: 6 of 8 scenarios pass; stop condition = STOP (turnover breaks
 | Tool | Model / version | Date | Used for | How I checked it |
 |---|---|---|---|---|
 | Claude (Cowork) | claude-opus-5-5 | 2026-11 | Code for app, engine and tests; downloading ALFRED data; document drafts | *[your check]* |
-| *[other]* | | | | |
+| Codex | OpenAI Codex *[model/version]* | 2026 *[dates]* | Lab 14–17 code this project builds on; reviewing code; explaining code; fixing errors when running the app | *[your check]* |
 
 **One AI output I checked:** *[describe one, what was wrong or right, how you checked]*
 
