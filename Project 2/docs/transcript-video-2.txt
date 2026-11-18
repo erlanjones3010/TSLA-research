@@ -1,32 +1,34 @@
 FIN 43900 Project 2 - Meridian Endowment Investment Management App
 Video 2 - Code Walkthrough
-YouTube: https://youtu.be/od05pm8Kk-Q (4:44)
+YouTube: https://youtu.be/OYT9VLaXAuo (4:48)
 Speaker: Erlan Jones
 
-[0:00] Erlan Jones, and this is my Project 2, Video 2, code walkthrough for FIN
-43900. This is education, not investment advice.
+[0:00] Erlan Jones, and this is my Project 2, Video 2, the code walkthrough for
+FIN 43900. I used Claude and Codex to help me build and debug this app. The
+analysis and decision are my own. Also, this is education, not investment
+advice.
 
-[0:07] To reproduce my results, a new user follows the README: go into the
+[0:14] To reproduce my results, a new user follows the README: go into the
 Project 2 folder, install the requirements and run streamlit run app.py. There
 are no API keys needed, and the data is in the repo. So now let's jump to the
 code.
 
-[0:29] The config file holds my Lab 13 mandate. Each rule is tagged with its Lab
+[0:33] The config file holds my Lab 13 mandate. Each rule is tagged with its Lab
 13 statement. The 6.5% objective is S2, the 3% reserve is S3, long-only is S5,
 the 8% issuer limit is S6, 25% turnover is S7, 90% liquidity is S8, and the 10%
 loss limit is S9.
 
-[0:55] At the bottom is the driver panel. These eight drivers are exposed. The
+[0:59] At the bottom is the driver panel. These eight drivers are exposed. The
 committee can move them, but only inside these bounds, and each one has a
 reason. The equity premium, for example, goes from 0 to 8%. The locked list
 holds what the mandate fixes, like the issuer limit and the liquidity rule.
 
-[1:19] Going up to this file, dgs10_asof: the signal is the 10-year Treasury
+[1:23] Going up to this file, dgs10_asof: the signal is the 10-year Treasury
 yield from ALFRED, as it was known on each date. Each observation is dated
 before its decision date, so the model never uses information it wouldn't have
 had, and the tests check that.
 
-[1:39] Now let's go to the backbone, the engine. signal_on gets the yield known
+[1:43] Now let's go to the backbone, the engine. signal_on gets the yield known
 on the decision date and flags it if it's stale. expected_returns turns that
 yield into expected returns: TLT earns the yield, VCIT adds a credit spread, and
 SPY adds the equity premium. covariance_matrix estimates risk from the last 24
@@ -37,21 +39,21 @@ or fail with the rule broken. The stress run and stop condition rerun 8
 scenarios and stop the process if two fail. And lastly, erp_sweep reruns the
 portfolio at equity premiums from 2% to 6%.
 
-[2:52] Going over to the app and reset_to_base: app.py builds the driver panel,
+[2:56] Going over to the app and reset_to_base: app.py builds the driver panel,
 and this reset_to_base function puts every driver back to its base value.
 
-[3:19] Now let's run some code. I go to run_analysis and run it. run_analysis.py
+[3:23] Now let's run some code. I go to run_analysis and run it. run_analysis.py
 runs the same analysis without the app and saves it. The output shows the
 inputs, the as-of date, the verdicts, the stress run, the stop condition and the
 equity premium sweep.
 
-[3:49] Now I run the tests. All 12 tests pass. My highest-risk claim is that
+[3:53] Now I run the tests. All 12 tests pass. My highest-risk claim is that
 there's no look-ahead: this test changes every price after a decision date and
 checks that the decision doesn't change. The monotonicity test checks that a
 higher equity premium never needs more SPY, and a known-answer test confirms the
 3% reserve matches my Lab 13 checker.
 
-[4:26] Known limitations: one limitation is that the backtest only covers 2023
+[4:30] Known limitations: one limitation is that the backtest only covers 2023
 to 2026, with three annual rebalances in a strong stock market, and the 10% loss
 limit was never tested, so I monitor a 7.5% loss trigger as an early warning.
 Thank you.
