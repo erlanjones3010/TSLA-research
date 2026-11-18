@@ -1,0 +1,49 @@
+FIN 43900 Project 2 - Meridian Endowment Investment Management App
+Video 3 - Investment Committee Presentation
+YouTube: https://youtu.be/5omKXsfnHG4 (3:32)
+Speaker: Erlan Jones
+
+[0:00] This is Erlan Jones, and this is my Project 2, Video 3, the committee
+presentation for FIN 43900. This is education, not investment advice.
+
+[0:10] Here's the app live. I'll start with the assumption that matters most,
+the equity premium. If I lower it from 4% to 3%, the model needs more stock to
+reach our target, so SPY rises from 60% to 75%. The panel flags that I changed a
+driver. Each driver can only move inside defended bounds, and the mandate rules
+themselves are locked. When I reset to base, it puts every driver back at the
+base case, which is what my recommendation uses.
+
+[0:40] My recommendation is to rebalance at the scheduled December rebalance
+date. At the last rebalance on December 31st, the constrained portfolio passed
+every hard limit with an expected return of 6.58%, and the stop condition is GO.
+
+[0:57] On the Mandate tab, this is the Meridian endowment under our Lab 13
+mandate: inflation plus 4%, or 6.5% a year, over a seven-year horizon, with
+annual rebalancing and hard limits on reserves, turnover, liquidity and losses.
+
+[1:13] On the Portfolios tab: equal weight passes the rules but only expects
+5.4%, below our target. The 60/40 benchmark fails the reserve rule because it
+holds no Treasuries. The constrained portfolio, 60% SPY and 40% SGOV, passes and
+reaches 6.5% with the lowest risk.
+
+[1:39] On the Stress & stop tab, 7 of the 8 stress scenarios pass. The sweep
+shows why the premium matters: at 2%, no mix inside our rules reaches 6.5%. 3%
+is the lowest tested premium that works, so a 4% base gives us a cushion.
+
+[2:03] On the Recommendation tab, our yield trigger has fired. The 10-year yield
+is 5.26%, above the 4.89% top of our review band. Rebalancing today would mean a
+25% trade, our full yearly turnover limit, so I would recommend waiting until
+December to confirm the signal. If the yield is still above 4.89%, I'd review
+and rebalance then.
+
+[2:27] I'm asking for this range: 40% to 65% for SPY, 0% to 25% for VCIT, 30% to
+40% for SGOV, and no TLT. That covers both today's portfolio and the model's
+proposed rebalance.
+
+[2:53] I'll monitor three triggers: a 12-month loss reaching 7.5%, expected
+return falling below 6.5%, and any rebalance needing more than 20% turnover.
+
+[3:11] The claim most likely to reverse this: if the equity premium falls to 2%,
+the target becomes unreachable, and I would reconsider. My ask is: approve these
+ranges, continue monitoring risk and return, and allow a rebalance in December
+unless a major risk trigger requires earlier action. Thank you.
