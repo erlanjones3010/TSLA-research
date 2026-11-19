@@ -68,7 +68,7 @@ The app exposes eight drivers inside defended bounds (`config.py`, `EXPOSED_DRIV
 ## AI tools used
 | Tool | Model / version | Date | Used for | How I checked it |
 |---|---|---|---|---|
-| Claude (Cowork) + Codex| claude-opus-5-5 | 2026-11-16 to 2026-11-17 | Code for app, engine and tests; downloading ALFRED data; document drafts | I checked Claude’s work by running the app and testing it on my Mac. I found an error with the `width` setting, fixed it, and checked the results in the app to make sure everything worked correctly. |
+| Claude (Cowork) + Codex| claude-opus-5-5 | 2026-11-16 to 2026-11-17 | Code for app, engine and tests; downloading ALFRED data; document drafts | I checked Claude’s and Codex's work by running the app and testing it on my Mac. I found an error with the `width` setting, fixed it, and checked the results in the app to make sure everything worked correctly. |
 | Codex | OpenAI Codex CLI v0.169.0, model GPT-5.6-Terra (medium) | Oct–Nov 2026 | Lab 14–17 code this project builds on; reviewing code; explaining code; fixing errors when running the app | I checked Codex’s work by running the code and comparing the results with the expected answers. I also reviewed the code to make sure the calculations were correct and fixed any errors I found. |
 
 ## Material AI contributions and how I handled them
